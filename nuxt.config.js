@@ -14,7 +14,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
+      }
     ]
   },
 
@@ -26,19 +30,20 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: [],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/components'
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    ['storyblok-nuxt', { accessToken: '7piPVqf2rWDm1ZIwDshYIwtt', cacheProvider: 'memory' }]
   ],
 
   /*

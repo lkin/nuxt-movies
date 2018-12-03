@@ -1,13 +1,12 @@
 <template>
-
+  <div v-editable="blok">
+    {{ blok.headline }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Teaser"
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['blok']
 }
 </script>
-
-<style scoped>
-
-</style>
