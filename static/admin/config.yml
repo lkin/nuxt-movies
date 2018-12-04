@@ -17,9 +17,9 @@ collections:
 #      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
 #      - {label: "Body", name: "body", widget: "markdown"}
 #
-  - name: "page"
-    label: "page"
-    folder: "content/pages"
+  - name: "movie"
+    label: "movie"
+    folder: "content/movies"
     create: true
     slug: "{{slug}}"
     format: 'json'
