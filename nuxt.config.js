@@ -20,8 +20,13 @@ function getDynamicPaths(urlFilepathTable) {
 // Enhance Nuxt's generate process by gathering all content files from Netifly CMS
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
-var dynamicRoutes = getDynamicPaths({
+const dynamicRoutes = getDynamicPaths({
   '/movie': 'movies/*.json'
+
+  // '/blog': 'blog/posts/*.json',
+  // '/page': 'page/posts/*.json',
+  // '/category': 'categories/posts/*.json',
+  // '/tagged': 'tags/posts/*.json'
 });
 
 
@@ -78,6 +83,8 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    extractCSS: true,
+
     /*
     ** You can extend webpack config here
     */

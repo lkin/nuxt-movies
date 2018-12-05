@@ -4,26 +4,36 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 logo_url: https://gracious-wescoff-503c23.netlify.com/images/logo_mangnitudo.png
+
+slug:
+  clean_accents: true
+
 collections:
-#  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-#    label: "Blog" # Used in the UI
-#    folder: "content/blog/posts" # The path to the folder where the documents are stored
-#    create: true # Allow users to create new documents in this collection
-#    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-#    format: 'json'
-#    fields: # The fields for each document, usually in front matter
-#      - {label: "Title", name: "title", widget: "string"}
-#      - {label: "Publish Date", name: "date", widget: "datetime"}
-#      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-#      - {label: "Body", name: "body", widget: "markdown"}
-#
-  - name: "movie"
-    label: "movie"
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "pages" # Used in the UI
+    label_singular: "page"
+    folder: "content/pages" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title (Eng)", name: "title-en", widget: "string"}
+      - {label: "Title (Ita)", name: "title-it", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Body (Eng)", name: "body-en", widget: "markdown"}
+      - {label: "Body (Ita)", name: "body-it", widget: "markdown"}
+
+  - name: "movies"
+    label: "movies"
+    label_singular: "movie"
     folder: "content/movies"
     create: true
     slug: "{{slug}}"
     format: 'json'
     fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Title (Eng)", name: "title-en", widget: "string"}
+      - {label: "Title (Ita)", name: "title-it", widget: "string"}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body (Eng)", name: "body-en", widget: "markdown"}
+      - {label: "Body (Ita)", name: "body-it", widget: "markdown"}
