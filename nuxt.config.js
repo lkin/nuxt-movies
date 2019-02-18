@@ -1,29 +1,4 @@
-const glob = require('glob');
-const path = require('path');
-const pkg = require('./package');
-
-/**
- * Create an array of URLs from a list of files
- * @param {*} urlFilepathTable
- */
-function getDynamicPaths(urlFilepathTable) {
-  return [].concat(
-    ...Object.keys(urlFilepathTable).map(url => {
-      const filepathGlob = urlFilepathTable[url];
-      return glob
-        .sync(filepathGlob, { cwd: 'content' })
-        .map(filepath => `${url}/${path.basename(filepath, '.json')}`);
-    })
-  );
-}
-
-// Enhance Nuxt's generate process by gathering all content files from Netifly CMS
-// automatically and match it to the path of your Nuxt routes.
-// The Nuxt routes are generate by Nuxt automatically based on the pages folder.
-var dynamicRoutes = getDynamicPaths({
-  '/movie': 'movies/*.json'
-});
-
+const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
@@ -39,11 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
-      }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -55,23 +26,28 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: [
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [
+  ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [],
-
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa'
+  ],
   /*
-  ** Route config for pre-rendering
+  ** Axios module configuration
   */
-  generate: {
-    routes: dynamicRoutes
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*

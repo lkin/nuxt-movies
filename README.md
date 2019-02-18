@@ -1,6 +1,6 @@
 # nuxt-start
 
-> My gnarly Nuxt.js project
+> My polished Nuxt.js project
 
 ## Build Setup
 
