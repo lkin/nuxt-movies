@@ -1,7 +1,7 @@
 {
   "name": "nuxt-start",
   "version": "1.0.0",
-  "description": "My polished Nuxt.js project",
+  "description": "My pawsome Nuxt.js project",
   "author": "marcellop",
   "private": true,
   "scripts": {
@@ -10,33 +10,23 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "test": "jest"
+    "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0",
-    "nuxt-helmet": "^1.0.1"
+    "netlify-cms": "^2.4.2",
+    "nuxt": "^2.4.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
-    "@nuxtjs/eslint-config": "^0.0.1",
-    "babel-eslint": "^8.2.1",
-    "eslint": "^5.0.1",
-    "eslint-config-standard": ">=12.0.0",
-    "eslint-plugin-import": ">=2.14.0",
-    "eslint-plugin-jest": ">=21.24.1",
-    "eslint-plugin-node": ">=7.0.1",
-    "eslint-plugin-promise": ">=4.0.1",
-    "eslint-plugin-standard": ">=4.0.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "jest": "^23.6.0",
-    "vue-jest": "^3.0.2"
+    "babel-eslint": "^10.0.1",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.14.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^5.2.2",
+    "glob": "latest",
+    "include-media": "^1.4.9",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "sass-loader": "^7.1.0"
   }
 }
