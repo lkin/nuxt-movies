@@ -1,6 +1,12 @@
 export const state = () => ({
   // content
   settings: null,
+  omdb: {
+    omdbKey: '2899512c',
+    dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&',
+    posterUrl: 'http://img.omdbapi.com/?apikey=2899512c&'
+  },
+
   content: {
     menu: null,
     movies: []
@@ -47,14 +53,21 @@ export const actions = {
   },
 
   async getMovies({ state, commit }) {
-    const context = await require.context('~/content/movies/', false, /\.json$/);
-    const movies = await context.keys().map(key => ({
-      ...context(key),
-      _path: `/works/${key.replace('.json', '').replace('./', '')}`,
-      _slug: `${key.replace('.json', '').replace('./', '')}`
-    }));
+    // const context = await require.context('~/content/movies/', false, /\.json$/);
+    // const movies = await context.keys().map(key => ({
+    //   ...context(key),
+    //   _path: `/works/${key.replace('.json', '').replace('./', '')}`,
+    //   _slug: `${key.replace('.json', '').replace('./', '')}`
+    // }));
+    //
+    // commit('SET_MOVIES', movies);
+    let { data } = await this.$axios({
+      method: 'get',
+      url: `${window.location.protocol}//${window.location.host}/data/cinemas.json`,
+      responseType: 'json'
+    });
 
-    commit('SET_MOVIES', movies);
+    commit('SET_MOVIES', data);
   }
 
 };
