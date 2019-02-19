@@ -24,6 +24,7 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
     "glob": "latest",
+    "include-media": "^1.4.9",
     "node-sass": "^4.10.0",
     "nodemon": "^1.11.0",
     "sass-loader": "^7.1.0"
