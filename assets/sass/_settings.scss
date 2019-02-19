@@ -1,0 +1,99 @@
+//  Settings
+//  -----------------------------
+@import './mixins/mixins';
+
+// 1. Global
+// ---------
+$render-vertical-rhythm-lines: false;
+
+//// Modular scale
+//$ms-ratio: 1.125;
+//$ms-base: 1.6em;
+//$baseline: vr(1);
+
+$maxWidth: 1440px;
+
+// Media Queries
+// ------------------
+$mq-phone: 23em;
+$mq-tablet: 40em;
+$mq-desktop: 60em;
+
+// Include-Media breakpoints
+$mq-breakpoints: (
+  phone: 414px,
+  tablet: 768px,
+  smalldesktop: 1280px,
+  //desktop: 1200px
+  desktop: 1920px
+);
+
+
+// Typi
+// ------------------
+//$breakpoints: (
+//  small: 415px,
+//  large: 1200px,
+//  xlarge: 1600px
+//);
+//
+//$typi: (
+//  base: (
+//    null: (18px, 1.5),
+//    small: (20px, 1.5),
+//    large: (22px, 1.6),
+//    xlarge: (22px, 1.6)
+//  ),
+//);
+
+// colors
+$color-light-gray: #f5f5f5;
+$color-medium-gray: #cacaca;
+$color-dark-gray: #494949;
+$color-gray: #696969;
+$color-total-black: #000;
+$color-dark-gray: #151515;
+$color-light: #E8E8E8;
+$color-total-white: #fff;
+$color-dark-red: #601B1F;
+$color-red-magnitudo: #DA313C;
+$color-error: $color-red-magnitudo; // #ff2d4b;
+
+// Body
+// ------------------
+$global-radius: 0;
+$body-background: $color-dark-gray;
+
+// Base Typography
+// ------------------
+$use-variable-font: true;
+$body-font-color: $color-light;
+$variable-font-family: 'Work Sans var', Helvetica, Roboto, Arial, sans-serif;
+$variable-heading-font-family: $variable-font-family;
+$body-font-family: 'Work Sans', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Work Sans', sans-serif;
+$heading-font-weight: 700;
+$kerning: normal; // auto (default), normal (enabled), none (disabled)
+$selection-color: $color-red-magnitudo;
+$placeholder-color: $color-gray;
+
+
+// Focus
+// -----------
+$focus-outline: none;
+$focus-box-shadow: none;
+
+
+// Main Menu
+// -----------
+$menu-background: $color-light-gray;
+$menu-height: 3.33rem; // 60px //vr(2);
+$menu-zindex: 101;
+$menu-toggle-button-zindex: $menu-zindex + 2;
+
+
+// Forms
+// -----------
+$form-field-max-width: 20rem;
+$form-field-border: 2px solid $color-total-black;
+$form-border-radius: 2px;

@@ -21,14 +21,14 @@ function getDynamicPaths(urlFilepathTable) {
 // automatically and match it to the path of your Nuxt routes.
 // The Nuxt routes are generate by Nuxt automatically based on the pages folder.
 const dynamicRoutes = getDynamicPaths({
-  '/movie': 'movies/*.json'
-
+  '/movies': 'movies/*.json'
   // '/blog': 'blog/posts/*.json',
   // '/page': 'page/posts/*.json',
   // '/category': 'categories/posts/*.json',
   // '/tagged': 'tags/posts/*.json'
 });
 
+console.log({ dynamicRoutes });
 
 module.exports = {
   mode: 'universal',

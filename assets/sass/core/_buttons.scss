@@ -1,0 +1,184 @@
+.button,
+.button-link {
+  display: inline-block;
+  border: 0;
+  font-weight: 700;
+  letter-spacing: 0;
+  background-color: $color-light;
+  color: $color-dark-gray;
+  text-transform: none;
+  transition: all .2s ease-out;
+  font-family: $body-font-family;
+
+  @if $use-variable-font {
+    @supports (font-variation-settings: normal) {
+      font-family: $variable-font-family;
+    }
+  }
+
+  @include media("<tablet") {
+    height: 2.77rem;
+    padding: 0 1.1rem;
+    font-size: 1.22rem;
+    line-height: 2.77rem;
+  }
+
+  @include media(">=tablet", "<smalldesktop") {
+    height: 2.5rem;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+  }
+
+  @include media(">=smalldesktop") {
+    height: 2.72rem;
+    padding: 0 .9rem;
+    font-size: 1.18rem;
+    line-height: 2.72rem;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-light, .5);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-red-magnitudo;
+    color: $color-total-white;
+  }
+}
+
+
+.button--red {
+  background-color: $color-dark-red;
+  color: $color-total-white;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: $color-red-magnitudo;
+  }
+}
+
+.button--light-red {
+  background-color: $color-red-magnitudo;
+  color: $color-total-white;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-red-magnitudo, .5);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-dark-gray;
+    color: $color-total-white;
+  }
+}
+
+.button--dark {
+  background-color: $color-dark-gray;
+  color: $color-total-white;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-dark-gray, .5);
+  }
+}
+
+
+.button--black-white {
+  background-color: $color-total-black;
+  color: $color-total-white;
+  border: 2px solid $color-light;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-dark-gray, .5);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-total-white;
+    color: $color-total-black;
+  }
+
+  &.active {
+    background-color: $color-total-white;
+    color: $color-total-black;
+  }
+}
+
+.button--dark-on-light {
+  background-color: $color-dark-red;
+  color: $color-total-white;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-dark-red, .5);
+  }
+}
+
+
+.button--light-red-on-dark {
+  background-color: $color-red-magnitudo;
+  color: $color-total-white;
+
+  &[disabled] {
+    pointer-events: none;
+    background-color: rgba($color-red-magnitudo, .5);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-dark-red;
+    color: $color-total-white;
+  }
+}
+
+.button--long {
+  @include media("<tablet") {
+    width: 100%;
+    max-width: 21.27rem;
+  }
+  @include media(">=tablet", "<smalldesktop") {
+    width: 19.1rem;
+  }
+  @include media(">=smalldesktop") {
+    width: 17.4rem;
+  }
+
+}
+
+.button-link {
+  background-color: transparent;
+  cursor: pointer;
+  font-family: $body-font-family;
+
+  span {
+    text-decoration: none;
+    font-size: inherit;
+    line-height: inherit;
+    color: $color-light;
+    outline: 0;
+    font-weight: inherit;
+    transition: all .2s ease-out;
+    border-bottom: .10em solid transparent;
+  }
+
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 0;
+    background-color: transparent;
+
+    span {
+      border-bottom: .10em solid $color-light;
+    }
+  }
+}
