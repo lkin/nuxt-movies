@@ -13,38 +13,13 @@ $render-vertical-rhythm-lines: false;
 
 $maxWidth: 1440px;
 
-// Media Queries
-// ------------------
-$mq-phone: 23em;
-$mq-tablet: 40em;
-$mq-desktop: 60em;
-
 // Include-Media breakpoints
-$mq-breakpoints: (
+$breakpoints: (
   phone: 414px,
   tablet: 768px,
-  smalldesktop: 1280px,
-  //desktop: 1200px
-  desktop: 1920px
+  desktop: 1440px
 );
 
-
-// Typi
-// ------------------
-//$breakpoints: (
-//  small: 415px,
-//  large: 1200px,
-//  xlarge: 1600px
-//);
-//
-//$typi: (
-//  base: (
-//    null: (18px, 1.5),
-//    small: (20px, 1.5),
-//    large: (22px, 1.6),
-//    xlarge: (22px, 1.6)
-//  ),
-//);
 
 // colors
 $color-light-gray: #f5f5f5;
@@ -56,8 +31,7 @@ $color-dark-gray: #151515;
 $color-light: #E8E8E8;
 $color-total-white: #fff;
 $color-dark-red: #601B1F;
-$color-red-magnitudo: #DA313C;
-$color-error: $color-red-magnitudo; // #ff2d4b;
+$color-error: #f00;
 
 // Body
 // ------------------
@@ -68,10 +42,10 @@ $body-background: $color-dark-gray;
 // ------------------
 $use-variable-font: true;
 $body-font-color: $color-light;
-$variable-font-family: 'Work Sans var', Helvetica, Roboto, Arial, sans-serif;
+$variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: $variable-font-family;
-$body-font-family: 'Work Sans', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Work Sans', sans-serif;
+$body-font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Inter', sans-serif;
 $heading-font-weight: 700;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
 $selection-color: $color-red-magnitudo;
