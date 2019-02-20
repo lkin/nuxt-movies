@@ -40,13 +40,13 @@ export const actions = {
   },
 
   async getSettings({ state, commit }) {
-    const settings = require('~/content/settings/settings.json');
+    const settings = require('~/content/settings.json');
     commit('SET_SETTINGS', settings);
     commit('SET_HOSTNAME', settings.hostname ? settings.hostname : '');
   },
 
   async getMenuContent({ state, commit }) {
-    const menu = require('~/content/menu/menu.json');
+    const menu = require('~/content/menu.json');
     // console.log({ menu });
     commit('SET_MENU', menu);
   },

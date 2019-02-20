@@ -30,6 +30,19 @@ const dynamicRoutes = getDynamicPaths({
 
 console.log({ dynamicRoutes });
 
+/**
+ * Routes used by Nuxt generate and Sitemap
+ * @type {string[]}
+ */
+const routes = [
+  '/',
+  ...dynamicRoutes
+];
+
+
+/**
+ * NUXTJS Config
+ */
 module.exports = {
   mode: 'universal',
 
@@ -60,7 +73,9 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: [
+    '~/assets/scss/app.scss'
+  ],
 
   /*
   ** Plugins to load before mounting the App
@@ -70,13 +85,17 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
+  ],
 
   /*
   ** Route config for pre-rendering
   */
   generate: {
-    routes: dynamicRoutes
+    // routes: dynamicRoutes
+    routes: routes
   },
 
   /*
@@ -96,8 +115,26 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
+  },
+
+
+  axios: {
+    debug: false,
+    // https: true
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    // hostname: 'https://www.xxxxx.com',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    exclude: [
+      '/admin/**'
+    ],
+    routes: routes
   }
-}
+};

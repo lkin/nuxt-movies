@@ -1,39 +1,56 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
-media_folder: "static/uploads" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
-logo_url: https://gracious-wescoff-503c23.netlify.com/images/logo_mangnitudo.png
+media_folder: "static/uploads" # Media files will be stored in the repo under static/uploads
+public_folder: "/uploads" # The src attribute for uploaded media will begin with /uploads
 
 slug:
   clean_accents: true
 
 collections:
-  - name: "pages" # Used in routes, e.g., /admin/collections/blog
-    label: "pages" # Used in the UI
-    label_singular: "page"
-    folder: "content/pages" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    format: 'json'
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title (Eng)", name: "title-en", widget: "string"}
-      - {label: "Title (Ita)", name: "title-it", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body (Eng)", name: "body-en", widget: "markdown"}
-      - {label: "Body (Ita)", name: "body-it", widget: "markdown"}
+  - name: "menu" # Used in routes, e.g., /admin/collections/blog
+    label: "Menu" # Used in the UI
+    files:
+      - file: "content/menu.json"
+        label: "Menu"
+        format: "json"
+        name: "menu"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "menu" }
+          - {
+            label: "Menu Items",
+            name: "menuItems",
+            widget: "list",
+            fields:
+              [
+              { label: "Title", name: "title", widget: "string"},
+              { label: "Visible", name: "visible", widget: "boolean", default: true},
+              { label: "Link Type", name: "linkType", widget: "select", options: ["internal", "external"], default: "internal" },
+              { label: "Link URL", name: "linkURL", widget: "string", hint: "Use a relative URL (e.g. /about) if the link is an internal link." }
+              ]
+          }
 
-  - name: "movies"
-    label: "movies"
-    label_singular: "movie"
-    folder: "content/movies"
-    create: true
-    slug: "{{slug}}"
-    format: 'json'
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title (Eng)", name: "title-en", widget: "string"}
-      - {label: "Title (Ita)", name: "title-it", widget: "string"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body (Eng)", name: "body-en", widget: "markdown"}
-      - {label: "Body (Ita)", name: "body-it", widget: "markdown"}
+  - name: "settings" # Used in routes, e.g., /admin/collections/blog
+    label: "Site Settings" # Used in the UI
+    files:
+      - file: "content/settings.json" # The path to the folder where the documents are stored
+        label: "Site Settings"
+        format: "json"
+        name: "settings"
+        fields: # The fields for each document, usually in front matter
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "settings" }
+          - {label: "Hostname", name: "hostname", widget: "string", hint: "This must be set as the main hostname, i.e. https://www.mywebsite.com"}
+          - {label: "Cookie Banner message", name: "cookieMessage", widget: "string"}
+          - {
+            label: "SEO",
+            name: "seo",
+            required: false,
+            widget: "object",
+            fields:
+              [
+              {label: "Site Title", name: "title", widget: "string", hint: "SEO website title"},
+              {label: "Site Description", name: "description", widget: "string", hint: "SEO description"},
+              {label: "Site Keywords", name: "keywords", widget: "string", hint: "comma separated list of SEO keywords"}
+              ]
+          }
+
