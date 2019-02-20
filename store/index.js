@@ -3,8 +3,7 @@ export const state = () => ({
   settings: null,
   omdb: {
     omdbKey: '2899512c',
-    dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&',
-    posterUrl: 'http://img.omdbapi.com/?apikey=2899512c&'
+    dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&'
   },
 
   content: {
@@ -63,7 +62,7 @@ export const actions = {
     // commit('SET_MOVIES', movies);
     let { data } = await this.$axios({
       method: 'get',
-      url: `${window.location.protocol}//${window.location.host}/data/cinemas.json`,
+      url: state.omdb.dataUrl,
       responseType: 'json'
     });
 
