@@ -1,5 +1,6 @@
 [
   {
+    "_slug": "star-wars-episode-ix",
     "Title": "Star Wars: Episode IX",
     "Year": "2019",
     "Rated": "N/A",
@@ -27,6 +28,7 @@
     "Response": "True"
   },
   {
+    "_slug": "how-to-train-your-dragon-the-hidden-world",
     "Title": "How to Train Your Dragon: The Hidden World",
     "Year": "2019",
     "Rated": "PG",
@@ -67,6 +69,7 @@
     "Response": "True"
   },
   {
+    "_slug": "alita-battle-angel",
     "Title": "Alita: Battle Angel",
     "Year": "2019",
     "Rated": "PG-13",
@@ -94,6 +97,7 @@
     "Response": "True"
   },
   {
+    "_slug": "the-lego-movie-2-the-second-part",
     "Title": "The Lego Movie 2: The Second Part",
     "Year": "2019",
     "Rated": "PG",
@@ -126,6 +130,7 @@
     "Response": "True"
   },
   {
+    "_slug": "bohemian-rhapsody",
     "Title": "Bohemian Rhapsody",
     "Year": "2018",
     "Rated": "PG-13",
@@ -166,6 +171,7 @@
     "Response": "True"
   },
   {
+    "_slug": "spider-man-far-from-home",
     "Title": "Spider-Man: Far From Home",
     "Year": "2019",
     "Rated": "N/A",
@@ -193,6 +199,7 @@
     "Response": "True"
   },
   {
+    "_slug": "il-primo-re",
     "Title": "Il primo re",
     "Year": "2018",
     "Rated": "N/A",
@@ -220,6 +227,7 @@
     "Response": "True"
   },
   {
+    "_slug": "captain-marvel",
     "Title": "Captain Marvel",
     "Year": "2019",
     "Rated": "N/A",
@@ -247,6 +255,7 @@
     "Response": "True"
   },
   {
+    "_slug": "avengers-endgame",
     "Title": "Avengers: Endgame",
     "Year": "2019",
     "Rated": "N/A",
@@ -274,6 +283,7 @@
     "Response": "True"
   },
   {
+    "_slug": "godzilla-king-of-the-monsters",
     "Title": "Godzilla: King of the Monsters",
     "Year": "2019",
     "Rated": "PG-13",
@@ -301,6 +311,7 @@
     "Response": "True"
   },
   {
+    "_slug": "dark-phoenix",
     "Title": "Dark Phoenix",
     "Year": "2019",
     "Rated": "N/A",
@@ -328,6 +339,7 @@
     "Response": "True"
   },
   {
+    "_slug": "the-secret-life-of-pets-2",
     "Title": "The Secret Life of Pets 2",
     "Year": "2019",
     "Rated": "N/A",
@@ -355,6 +367,7 @@
     "Response": "True"
   },
   {
+    "_slug": "it-chapter-two",
     "Title": "It: Chapter Two",
     "Year": "2019",
     "Rated": "N/A",

@@ -13,7 +13,7 @@
 @import './mixins/math';
 @import './mixins/mixins';
 @import './mixins/select-mixin';
-@import './core/check-contrast';
+//@import './core/check-contrast';
 @import './core/fonts';
 @import './core/base';
 @import './core/layout';
@@ -25,6 +25,7 @@
 
 
 // Application Components
+@import './modules/movie-card';
 //@import './modules/header';
 //@import './modules/footer';
 //@import './modules/error-page';

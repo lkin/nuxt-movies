@@ -11,7 +11,7 @@
       <p>Released {{ movie.Released }}</p>
     </header>
     <section>
-      <nuxt-link :to="/movies/"></nuxt-link>
+      <nuxt-link :to="`/movies/${movie._slug}`">Details</nuxt-link>
     </section>
   </article>
 </template>
