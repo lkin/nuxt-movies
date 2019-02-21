@@ -27,28 +27,29 @@ $color-medium-gray: #cacaca;
 $color-dark-gray: #494949;
 $color-gray: #696969;
 $color-total-black: #000;
-$color-dark-gray: #151515;
+$color-dark-gray: #141414;
 $color-light: #E8E8E8;
-$color-total-white: #fff;
+$color-white: #fff;
 $color-dark-red: #601B1F;
 $color-error: #f00;
+$color-red: #DB202C; // netflix red
 
 // Body
 // ------------------
 $global-radius: 0;
-$body-background: $color-light-gray;
+$body-background: $color-dark-gray;
 
 // Base Typography
 // ------------------
 $use-variable-font: true;
-$body-font-color: $color-dark-gray;
+$body-font-color: $color-white;
 $variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: $variable-font-family;
 $body-font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Inter', sans-serif;
-$heading-font-weight: 700;
+$heading-font-family: 'Bebas Neue', sans-serif;
+$heading-font-weight: 400;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
-$selection-color: $color-dark-gray;
+$selection-color: $color-red;
 $placeholder-color: $color-gray;
 
 

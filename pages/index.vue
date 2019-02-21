@@ -1,28 +1,29 @@
 <template>
   <main role="main">
 
-    <section class="container">
-      <div>
-        <logo/>
-        <h1 class="title">
-          nuxt-start
-        </h1>
-        <h2 class="subtitle">
-          My polished Nuxt.js project
-        </h2>
+    <header>
+      <nav>
+        <h1 class="logo">Nuxtflix</h1>
+      </nav>
+    </header>
 
-
-      </div>
-    </section>
+    <h2>Featured</h2>
+    <MoviesList :movies="featured"></MoviesList>
   </main>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
+import MoviesList from '../components/MoviesList';
 
 export default {
   components: {
-    Logo
+    MoviesList,
+  },
+
+  computed: {
+    featured() {
+      return this.$store.state.content.featured;
+    }
   }
 };
 </script>
