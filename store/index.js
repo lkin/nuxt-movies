@@ -8,7 +8,8 @@ export const state = () => ({
 
   content: {
     menu: null,
-    movies: []
+    movies: [],
+    featured: []
   }
 });
 
@@ -21,6 +22,9 @@ export const mutations = {
   },
   SET_MENU(state, menu) {
     state.content.menu = menu;
+  },
+  SET_FEATURED(state, featured) {
+    state.content.featured = featured;
   },
   SET_MOVIES(state, movies) {
     state.content.movies = movies;
@@ -36,7 +40,8 @@ export const actions = {
   async nuxtServerInit({ dispatch }) {
     await dispatch('getSettings');
     await dispatch('getMenuContent');
-    await dispatch('getMovies');
+    await dispatch('getFeaturedMovies');
+    // await dispatch('getMovies');
   },
 
   async getSettings({ state, commit }) {
@@ -46,6 +51,13 @@ export const actions = {
   },
 
   async getMenuContent({ state, commit }) {
+    const featured = require('~/content/featured.json');
+    // console.log({ menu });
+    commit('SET_FEATURED', featured);
+  },
+
+
+  async getFeaturedMovies({ state, commit }) {
     const menu = require('~/content/menu.json');
     // console.log({ menu });
     commit('SET_MENU', menu);
