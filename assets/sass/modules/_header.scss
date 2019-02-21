@@ -1,0 +1,211 @@
+/**
+  Skip Links
+ */
+[href="#maincontent"] {
+  position: absolute;
+  top: 0;
+  right: 100%; /* moves off screen */
+  background-color: #67B8EE;
+
+  &:focus {
+    right: auto;
+    height: $menu-height;
+    color: $body-font-color;
+    text-decoration: underline;
+    //@include better-underline($color-black);
+    padding: 0 1rem;
+    margin: 0;
+    z-index: 100;
+  }
+}
+
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $menu-height;
+  z-index: $menu-zindex + 1;
+  background-color: $color-dark-gray;
+  overflow: hidden;
+
+  &.header--open {
+    height: 100vh;
+    overflow: auto;
+  }
+}
+
+/**
+  Mobile Navigation
+ */
+.main-menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  //height: $menu-height;
+  overflow: hidden;
+  padding: 0;
+  background-color: transparent;
+
+  //@include media(">=tablet", "<desktop") {
+  //  justify-content: space-between;
+  //  align-items: flex-start;
+  //  flex-direction: row;
+  //  flex-wrap: nowrap;
+  //
+  //  .main-menu__menu.menu--left,
+  //  .main-menu__menu.menu--right {
+  //    margin-top: 6.8rem;
+  //  }
+  //}
+
+  @include media(">=desktop") {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+
+.main-menu__toggle {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.33rem;
+  height: 3.33rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  z-index: $menu-toggle-button-zindex;
+
+  svg {
+    width: 1.44rem;
+    height: .88rem;
+  }
+
+  @include media(">=desktop") {
+    display: none;
+  }
+}
+
+.main-menu__menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0 0 0;
+  list-style-type: none;
+  padding: 0 2.22rem;
+  background-color: transparent;
+  z-index: $menu-zindex;
+
+  > li {
+    margin: 0;
+    list-style-type: none;
+    padding: 1rem 0;
+    text-align: left;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    line-height: 1.33;
+    font-family: $heading-font-family;
+    font-weight: 400;
+    color: $color-light;
+    text-transform: capitalize;
+
+    /*
+     * Don't enable hover on links, it wll cause this issue on ios:
+     * https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+    */
+    // &:hover:after,
+    &:focus:after {
+      width: 100%;
+    }
+
+    &:active,
+    &:focus {
+      color: $color-red;
+      text-decoration: none;
+      outline: 0;
+    }
+
+  }
+
+  @include media(">=desktop") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: auto;
+    left: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      flex: 0 0 auto;
+      margin: 0 .5rem;
+
+      &:last-child {
+        padding: 0;
+      }
+
+      &.main-menu__search {
+        margin: 0;
+      }
+    }
+
+    a {
+      display: block;
+      width: auto;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: 2px;
+      color: $color-light;
+      transition: color .2s ease-out;
+      text-decoration: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-red;
+        text-decoration: none;
+        outline: 0;
+      }
+    }
+  }
+
+  @include media(">=desktop") {
+    a {
+      font-size: 1.18rem;
+    }
+
+    &.menu--left {
+      justify-content: flex-start;
+      margin: 0;
+      padding-left: 3.63rem;
+    }
+
+    &.menu--right {
+      justify-content: flex-end;
+      margin: 0;
+      padding-right: 2.72rem;
+    }
+  }
+}

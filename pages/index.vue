@@ -1,22 +1,22 @@
 <template>
   <main role="main">
 
-    <header>
-      <nav>
-        <h1 class="logo">Nuxtflix</h1>
-      </nav>
-    </header>
+    <SiteHeader></SiteHeader>
 
-    <h2>Featured</h2>
+    <section>
+      <h2>Featured</h2>
+    </section>
     <MoviesList :movies="featured"></MoviesList>
   </main>
 </template>
 
 <script>
 import MoviesList from '../components/MoviesList';
+import SiteHeader from '../components/SiteHeader';
 
 export default {
   components: {
+    SiteHeader,
     MoviesList,
   },
 
