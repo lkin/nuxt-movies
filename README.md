@@ -1,6 +1,11 @@
-# nuxt-start
+# nuxtflix
 
-> My polished Nuxt.js project
+> A pawsome Vue.js & Nuxt.js Netliflix like web app
+
+## About
+
+Use API from [The Movie DB](https://www.themoviedb.org/documentation/api)
+
 
 ## Build Setup
 

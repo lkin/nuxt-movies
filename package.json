@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-start",
+  "name": "nuxtflix",
   "version": "1.0.0",
-  "description": "My pawsome Nuxt.js project",
+  "description": "A pawsome Vue.js & Nuxt.js Netliflix like web app",
   "author": "marcellop",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/sitemap": "^0.2.0",
     "cross-env": "^5.2.0",
-    "gsap": "^2.1.0",
+    "gsap": "^2.1.1",
     "markdown-it": "^8.4.2",
     "netlify-cms": "^2.4.2",
     "nuxt": "^2.4.3"
