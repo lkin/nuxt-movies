@@ -2,8 +2,6 @@ const glob = require('glob');
 const path = require('path');
 const pkg = require('./package');
 
-const themoviedbkey = require('./.themoviedb.js');
-
 
 /**
  * Create an array of URLs from a list of files
@@ -31,7 +29,10 @@ const dynamicRoutes = getDynamicPaths({
   // '/tagged': 'tags/posts/*.json'
 });
 
+console.log('Dynamic Routes:');
 console.log({ dynamicRoutes });
+console.log(`process.env.movieDbApiKey: ${process.env.movieDbApiKey}`);
+
 
 /**
  * Routes used by Nuxt generate and Sitemap
@@ -48,7 +49,7 @@ const routes = [
  */
 module.exports = {
   env: {
-    baseUrl: process.env.movieDbApiKey || themoviedbkey
+    movieDbApiKey: process.env.movieDbApiKey || require('./.themoviedb.js').key
   },
 
   mode: 'universal',

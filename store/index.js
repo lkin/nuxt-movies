@@ -4,10 +4,10 @@ export const state = () => ({
   api: {
     key: process.env.movieDbApiKey,
     configuration: {},
-    url:{
+    url: {
       configuration: 'https://api.themoviedb.org/3/configuration?api_key=',
       images: 'https://image.tmdb.org/t/p/',
-      topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${themoviedbkey.key}&language=en-US&page=1`,
+      topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
     }
   },
   omdb: {
@@ -33,7 +33,7 @@ export const mutations = {
     state.content.menu = menu;
   },
   SET_API_CONFIGURATION(state, configuration) {
-    state.content.api.configuration = configuration;
+    state.api.configuration = configuration;
   },
   SET_FEATURED(state, featured) {
     state.content.featured = featured;
@@ -52,7 +52,11 @@ export const actions = {
   async nuxtServerInit({ dispatch }) {
     await dispatch('getSettings');
     await dispatch('getMenuContent');
-    await dispatch('getApiConfiguration');
+    try {
+      await dispatch('getApiConfiguration');
+    } catch (error) {
+      console.error({ error });
+    }
 
     await dispatch('getFeaturedMovies');
   },
@@ -79,7 +83,6 @@ export const actions = {
 
     commit('SET_API_CONFIGURATION', data);
   },
-
 
 
   async getFeaturedMovies({ state, commit }) {
