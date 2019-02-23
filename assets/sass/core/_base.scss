@@ -30,7 +30,7 @@ html {
 }
 
 html {
-  font-size: 112.5%; // 18px
+  font-size: calc(16px + 0.2vw); // 112.5%; // 18px
   line-height: 1.5;
 }
 
@@ -99,42 +99,14 @@ h5 {
 
 
 h1 {
-  font-weight: 900;
   text-transform: uppercase;
-  //
-  //@include media("<tablet") {
-  //  font-size: 2.33rem;
-  //  line-height: 3.33rem;
-  //  letter-spacing: 5px;
-  //}
-  //@include media(">=tablet", "<desktop") {
-  //  font-size: 4rem;
-  //  line-height: 5.75rem;
-  //  letter-spacing: 8.89px;
-  //}
-  //@include media(">=desktop") {
-  //  font-size: 4.09rem;
-  //  line-height: 5.9rem;
-  //  letter-spacing: 10px;
-  //}
+  font-size: 2.33rem;
+  line-height: 3.33rem;
 }
 
 h2 {
-  font-weight: 300;
-  letter-spacing: normal;
-  //
-  //@include media("<tablet") {
-  //  font-size: 2rem;
-  //  line-height: 2.778rem;
-  //}
-  //@include media(">=tablet", "<desktop") {
-  //  font-size: 2.1rem;
-  //  line-height: 3rem;
-  //}
-  //@include media(">=desktop") {
-  //  font-size: 2.36rem;
-  //  line-height: 3.40rem;
-  //}
+  font-size: 2rem;
+  line-height: 2.778rem;
 }
 
 
