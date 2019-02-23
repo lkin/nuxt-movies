@@ -10,15 +10,16 @@ export const state = () => ({
       topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
     }
   },
-  omdb: {
-    omdbKey: '2899512c',
-    dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&'
-  },
+  // omdb: {
+  //   omdbKey: '2899512c',
+  //   dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&'
+  // },
 
   content: {
     menu: null,
     movies: [],
-    featured: []
+    featured: [],
+    topRated: {}
   }
 });
 
@@ -35,6 +36,10 @@ export const mutations = {
   SET_API_CONFIGURATION(state, configuration) {
     state.api.configuration = configuration;
   },
+  SET_TOP_RATED(state, data) {
+    state.content.topRated = data;
+  },
+
   SET_FEATURED(state, featured) {
     state.content.featured = featured;
   },
@@ -52,11 +57,14 @@ export const actions = {
   async nuxtServerInit({ dispatch }) {
     await dispatch('getSettings');
     await dispatch('getMenuContent');
+
     try {
       await dispatch('getApiConfiguration');
     } catch (error) {
       console.error({ error });
     }
+
+    await dispatch('getApiTopRated');
 
     await dispatch('getFeaturedMovies');
   },
@@ -69,11 +77,10 @@ export const actions = {
 
   async getMenuContent({ state, commit }) {
     const featured = require('~/content/featured.json');
-    // console.log({ menu });
     commit('SET_FEATURED', featured);
   },
 
-
+  // ---- API ----
   async getApiConfiguration({ state, commit }) {
     let { data } = await this.$axios({
       method: 'get',
@@ -84,10 +91,20 @@ export const actions = {
     commit('SET_API_CONFIGURATION', data);
   },
 
+  async getApiTopRated({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.topRated,
+      responseType: 'json'
+    });
+
+    commit('SET_TOP_RATED', data);
+  },
+
+
 
   async getFeaturedMovies({ state, commit }) {
     const menu = require('~/content/menu.json');
-    // console.log({ menu });
     commit('SET_MENU', menu);
   },
 

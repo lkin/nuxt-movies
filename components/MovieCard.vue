@@ -2,14 +2,13 @@
   <article class="movie-card">
     <nuxt-link :to="`/movies/${movie._slug}`">
       <figure>
-        <img :src="movie.Poster">
+        <img :src="posterPath">
         <figcaption></figcaption>
       </figure>
       <header>
-        <h2>{{ movie.Title }}</h2>
-        <p>{{ movie.Plot }}</p>
-        <p>Genre: {{ movie.Genre }}</p>
-        <p>Released {{ movie.Released }}</p>
+        <h2>{{ movie.original_title }}</h2>
+        <!--<p>{{ movie.overview }}</p>-->
+        <p>Released {{ movie.release_date }}</p>
       </header>
     </nuxt-link>
   </article>
@@ -26,6 +25,16 @@ export default {
       default: function () {
         return {};
       }
+    }
+  },
+
+  computed: {
+    posterPath() {
+      const filePath = this.movie.poster_path;
+      const size = "w342";
+      const baseUrl = this.$store.state.api.configuration.images.secure_base_url;
+
+      return `${baseUrl}${size}/${filePath}`;
     }
   }
 };

@@ -22,7 +22,7 @@ export default {
 
   computed: {
     featured() {
-      return this.$store.state.content.featured;
+      return this.$store.state.content.topRated.results;
     }
   }
 };

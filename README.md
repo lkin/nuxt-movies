@@ -6,14 +6,15 @@
 
 Use API from [The Movie DB](https://www.themoviedb.org/documentation/api)
 
-API Key must be in the file .themoviedb.js in the project root, it's in JSON format like this:
-
+For development, the API Key must be in the file .themoviedb.js in the project root, it's in JSON format like this:
 ```javascript
 module.exports = {
   key: 'PUT-THE-API-KEY-HERE'
 };
 
 ```
+
+For production, create an environment variable with key "movieDbApiKey". 
 
 
 
