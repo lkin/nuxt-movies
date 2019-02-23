@@ -82,3 +82,6 @@ dist
 
 # Service worker
 sw.*
+
+# API key file
+.themoviedb.js

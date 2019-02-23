@@ -2,6 +2,9 @@ const glob = require('glob');
 const path = require('path');
 const pkg = require('./package');
 
+const themoviedbkey = require('./.themoviedb.js');
+
+
 /**
  * Create an array of URLs from a list of files
  * @param {*} urlFilepathTable
@@ -44,6 +47,10 @@ const routes = [
  * NUXTJS Config
  */
 module.exports = {
+  env: {
+    baseUrl: process.env.movieDbApiKey || themoviedbkey
+  },
+
   mode: 'universal',
 
   /*

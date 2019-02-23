@@ -1,6 +1,15 @@
 export const state = () => ({
   // content
   settings: null,
+  api: {
+    key: process.env.movieDbApiKey,
+    configuration: {},
+    url:{
+      configuration: 'https://api.themoviedb.org/3/configuration?api_key=',
+      images: 'https://image.tmdb.org/t/p/',
+      topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${themoviedbkey.key}&language=en-US&page=1`,
+    }
+  },
   omdb: {
     omdbKey: '2899512c',
     dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&'
@@ -23,6 +32,9 @@ export const mutations = {
   SET_MENU(state, menu) {
     state.content.menu = menu;
   },
+  SET_API_CONFIGURATION(state, configuration) {
+    state.content.api.configuration = configuration;
+  },
   SET_FEATURED(state, featured) {
     state.content.featured = featured;
   },
@@ -40,8 +52,9 @@ export const actions = {
   async nuxtServerInit({ dispatch }) {
     await dispatch('getSettings');
     await dispatch('getMenuContent');
+    await dispatch('getApiConfiguration');
+
     await dispatch('getFeaturedMovies');
-    // await dispatch('getMovies');
   },
 
   async getSettings({ state, commit }) {
@@ -55,6 +68,18 @@ export const actions = {
     // console.log({ menu });
     commit('SET_FEATURED', featured);
   },
+
+
+  async getApiConfiguration({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.configuration + state.api.key,
+      responseType: 'json'
+    });
+
+    commit('SET_API_CONFIGURATION', data);
+  },
+
 
 
   async getFeaturedMovies({ state, commit }) {
