@@ -7,13 +7,12 @@ export const state = () => ({
     url: {
       configuration: 'https://api.themoviedb.org/3/configuration?api_key=',
       images: 'https://image.tmdb.org/t/p/',
+      youtubeTrailer: 'https://www.youtube.com/watch?v=',
+      youtubePoster: 'https://img.youtube.com/vi/YOUTUBEKEY/hqdefault.jpg',
+      youtubePosterMaxRes: 'https://img.youtube.com/vi/YOUTUBEKEY/maxresdefault.jpg',
       topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
     }
   },
-  // omdb: {
-  //   omdbKey: '2899512c',
-  //   dataUrl: 'http://www.omdbapi.com/?apikey=2899512c&'
-  // },
 
   content: {
     menu: null,
@@ -40,9 +39,9 @@ export const mutations = {
     state.content.topRated = data;
   },
 
-  SET_FEATURED(state, featured) {
-    state.content.featured = featured;
-  },
+  // SET_FEATURED(state, featured) {
+  //   state.content.featured = featured;
+  // },
   SET_MOVIES(state, movies) {
     state.content.movies = movies;
   }
@@ -66,7 +65,7 @@ export const actions = {
 
     await dispatch('getApiTopRated');
 
-    await dispatch('getFeaturedMovies');
+    // await dispatch('getFeaturedMovies');
   },
 
   async getSettings({ state, commit }) {
@@ -76,8 +75,8 @@ export const actions = {
   },
 
   async getMenuContent({ state, commit }) {
-    const featured = require('~/content/featured.json');
-    commit('SET_FEATURED', featured);
+    const menu = require('~/content/menu.json');
+    commit('SET_MENU', menu);
   },
 
   // ---- API ----
@@ -103,27 +102,27 @@ export const actions = {
 
 
 
-  async getFeaturedMovies({ state, commit }) {
-    const menu = require('~/content/menu.json');
-    commit('SET_MENU', menu);
-  },
-
-  async getMovies({ state, commit }) {
-    // const context = await require.context('~/content/movies/', false, /\.json$/);
-    // const movies = await context.keys().map(key => ({
-    //   ...context(key),
-    //   _path: `/works/${key.replace('.json', '').replace('./', '')}`,
-    //   _slug: `${key.replace('.json', '').replace('./', '')}`
-    // }));
-    //
-    // commit('SET_MOVIES', movies);
-    let { data } = await this.$axios({
-      method: 'get',
-      url: state.omdb.dataUrl,
-      responseType: 'json'
-    });
-
-    commit('SET_MOVIES', data);
-  }
+  // async getFeaturedMovies({ state, commit }) {
+  //   const menu = require('~/content/menu.json');
+  //   commit('SET_MENU', menu);
+  // },
+  //
+  // async getMovies({ state, commit }) {
+  //   // const context = await require.context('~/content/movies/', false, /\.json$/);
+  //   // const movies = await context.keys().map(key => ({
+  //   //   ...context(key),
+  //   //   _path: `/works/${key.replace('.json', '').replace('./', '')}`,
+  //   //   _slug: `${key.replace('.json', '').replace('./', '')}`
+  //   // }));
+  //   //
+  //   // commit('SET_MOVIES', movies);
+  //   let { data } = await this.$axios({
+  //     method: 'get',
+  //     url: state.omdb.dataUrl,
+  //     responseType: 'json'
+  //   });
+  //
+  //   commit('SET_MOVIES', data);
+  // }
 
 };
