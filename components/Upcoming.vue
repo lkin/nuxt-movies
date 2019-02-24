@@ -11,7 +11,7 @@
           >
           <figcaption>
             <h2>{{ movie.title }}</h2>
-            <h3>{{ movie.release_date }}</h3>
+            <h3>{{ formatDate(movie.release_date) }}</h3>
             <p>{{ movie.overview }}</p>
           </figcaption>
         </figure>
@@ -22,6 +22,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import dayjs from 'dayjs';
 
 export default {
   name: 'Upcoming',
@@ -49,6 +50,11 @@ export default {
     ...mapActions({
       getUpcomingMovies: 'getApiUpcoming'
     }),
+
+    formatDate(date){
+      const d = dayjs(date);
+      return d.format('MMM D, YYYY');
+    },
 
     posterPath(movie) {
       if (!movie) {
