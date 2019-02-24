@@ -1,8 +1,6 @@
 <template>
   <main role="main">
 
-    <SiteHeader></SiteHeader>
-
     <LatestMovie></LatestMovie>
 
     <section>
@@ -14,13 +12,11 @@
 
 <script>
 import MoviesList from '../components/MoviesList';
-import SiteHeader from '../components/SiteHeader';
 import LatestMovie from '../components/LatestMovie';
 
 export default {
   components: {
     LatestMovie,
-    SiteHeader,
     MoviesList,
   },
 

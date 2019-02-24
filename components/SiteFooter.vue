@@ -1,7 +1,7 @@
 <template>
-  <footer>
+  <footer class="footer">
     <nav>
-      <a href="#" rel="noopener noreferrer">
+      <a target="_blank" href="https://www.themoviedb.org/" rel="noopener noreferrer">
         <svg width="81" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 407.34 160.81">
           <title>Powered by The Movie DB</title>
           <defs>
@@ -25,8 +25,8 @@
 
 <script>
 export default {
-  name: "SiteFooter"
-}
+  name: 'SiteFooter'
+};
 </script>
 
 <style scoped>
