@@ -5,19 +5,25 @@ export const state = () => ({
     key: process.env.movieDbApiKey,
     configuration: {},
     url: {
-      configuration: 'https://api.themoviedb.org/3/configuration?api_key=',
+      configuration: `https://api.themoviedb.org/3/configuration?api_key=${process.env.movieDbApiKey}`,
       images: 'https://image.tmdb.org/t/p/',
       youtubeTrailer: 'https://www.youtube.com/watch?v=',
       youtubePoster: 'https://img.youtube.com/vi/YOUTUBEKEY/hqdefault.jpg',
       youtubePosterMaxRes: 'https://img.youtube.com/vi/YOUTUBEKEY/maxresdefault.jpg',
+      moviesGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
+      movieDetails: `https://api.themoviedb.org/3/movie/MOVIE_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
+      latestMovie: `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
       topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      popular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
     }
   },
 
   content: {
     menu: null,
-    movies: [],
-    featured: [],
+    movieGenres: [],
+    latestMovie: undefined,
     topRated: {}
   }
 });
@@ -34,6 +40,12 @@ export const mutations = {
   },
   SET_API_CONFIGURATION(state, configuration) {
     state.api.configuration = configuration;
+  },
+  SET_MOVIE_GENRES(state, data) {
+    state.content.movieGenres = data;
+  },
+  SET_LATEST_MOVIE(state, data) {
+    state.content.latestMovie = data;
   },
   SET_TOP_RATED(state, data) {
     state.content.topRated = data;
@@ -64,8 +76,7 @@ export const actions = {
     }
 
     await dispatch('getApiTopRated');
-
-    // await dispatch('getFeaturedMovies');
+    await dispatch('getApiMovieGenres');
   },
 
   async getSettings({ state, commit }) {
@@ -76,19 +87,51 @@ export const actions = {
 
   async getMenuContent({ state, commit }) {
     const menu = require('~/content/menu.json');
-    commit('SET_MENU', menu);
+    commit('SET_MENU', menu.menuItems);
   },
 
   // ---- API ----
   async getApiConfiguration({ state, commit }) {
     let { data } = await this.$axios({
       method: 'get',
-      url: state.api.url.configuration + state.api.key,
+      url: state.api.url.configuration,
       responseType: 'json'
     });
 
     commit('SET_API_CONFIGURATION', data);
   },
+
+  async getApiMovieGenres({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.moviesGenres,
+      responseType: 'json'
+    });
+
+    commit('SET_MOVIE_GENRES', data.genres);
+  },
+
+  async getApiLatestMovie({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.latestMovie,
+      responseType: 'json'
+    });
+
+    commit('SET_LATEST_MOVIE', data);
+  },
+
+
+  async getApiMovieDetails({ state, commit }, id) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.movieDetails.replace('MOVIE_ID', id),
+      responseType: 'json'
+    });
+
+    return data;
+  },
+
 
   async getApiTopRated({ state, commit }) {
     let { data } = await this.$axios({
@@ -99,7 +142,6 @@ export const actions = {
 
     commit('SET_TOP_RATED', data);
   },
-
 
 
   // async getFeaturedMovies({ state, commit }) {

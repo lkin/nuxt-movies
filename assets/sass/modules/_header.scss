@@ -21,13 +21,13 @@
 
 
 #header {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100vw;
   height: $menu-height;
   z-index: $menu-zindex + 1;
-  background-color: $color-dark-gray;
+  background-color: transparent; // $color-dark-gray;
   overflow: hidden;
 
   &.header--open {
@@ -50,22 +50,10 @@
   height: 100%;
   //height: $menu-height;
   overflow: hidden;
-  padding: 0;
+  padding: 0 4%;
   background-color: transparent;
 
-  //@include media(">=tablet", "<desktop") {
-  //  justify-content: space-between;
-  //  align-items: flex-start;
-  //  flex-direction: row;
-  //  flex-wrap: nowrap;
-  //
-  //  .main-menu__menu.menu--left,
-  //  .main-menu__menu.menu--right {
-  //    margin-top: 6.8rem;
-  //  }
-  //}
-
-  @include media(">=desktop") {
+  @include media(">=tablet") {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
@@ -92,7 +80,7 @@
     height: .88rem;
   }
 
-  @include media(">=desktop") {
+  @include media(">=tablet") {
     display: none;
   }
 }
@@ -121,6 +109,7 @@
     display: block;
     width: 100%;
     padding: 0;
+    font-size: 1rem;
     line-height: 1.33;
     font-family: $heading-font-family;
     font-weight: 400;
@@ -145,7 +134,7 @@
 
   }
 
-  @include media(">=desktop") {
+  @include media(">=tablet") {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,7 +180,7 @@
     }
   }
 
-  @include media(">=desktop") {
+  @include media(">=tablet") {
     a {
       font-size: 1.18rem;
     }

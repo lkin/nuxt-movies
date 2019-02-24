@@ -3,6 +3,8 @@
 
     <SiteHeader></SiteHeader>
 
+    <LatestMovie></LatestMovie>
+
     <section>
       <h2>Featured</h2>
     </section>
@@ -13,9 +15,11 @@
 <script>
 import MoviesList from '../components/MoviesList';
 import SiteHeader from '../components/SiteHeader';
+import LatestMovie from '../components/LatestMovie';
 
 export default {
   components: {
+    LatestMovie,
     SiteHeader,
     MoviesList,
   },

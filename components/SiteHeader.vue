@@ -20,7 +20,7 @@
 
       <ul class="main-menu__menu">
         <li v-for="(item, index) in menu" :key="index">
-          <nuxt-link :to="$i18n.path(item.linkURL.substr(1))" active-class="active" exact>{{ $i18n.getLocale(item, 'title') }}</nuxt-link>
+          <nuxt-link :to="item.linkURL.substr(1)" active-class="active" exact>{{ item.title }}</nuxt-link>
         </li>
       </ul>
 
