@@ -1,1 +1,9 @@
-{}
+{
+  "hostname": "https://nuxtflix-pawsome.netlify.com/",
+  "cookieMessage": "This site does not uses any cookies. ",
+  "seo": {
+    "title": "Nuxtflix",
+    "description": "A pawsome Vue.js & Nuxt.js Netliflix like web app",
+    "keywords": "nuxt, nuxtjs, vue, vuejs, netlify, netlifycms, jam stack, serverless, ssr, server side rendering"
+  }
+}
