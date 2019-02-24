@@ -121,6 +121,16 @@ export const actions = {
     commit('SET_LATEST_MOVIE', data);
   },
 
+  async getApiUpcoming({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.upcoming,
+      responseType: 'json'
+    });
+
+    return data;
+  },
+
 
   async getApiMovieDetails({ state, commit }, id) {
     let { data } = await this.$axios({

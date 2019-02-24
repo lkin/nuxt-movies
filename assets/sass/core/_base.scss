@@ -90,7 +90,7 @@ h5 {
   margin: 0 0 1rem 0;
   color: inherit;
 
-  @if $use-variable-font {
+  @if $use-variable-font-for-headings {
     @supports (font-variation-settings: normal) {
       font-family: $variable-heading-font-family;
     }
