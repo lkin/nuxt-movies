@@ -31,7 +31,7 @@ html {
 
 html {
   font-size: calc(16px + 0.2vw); // 112.5%; // 18px
-  line-height: 1.5;
+  line-height: $baseline;
 }
 
 
@@ -111,7 +111,8 @@ h2 {
 
 
 p {
-  line-height: inherit;
+  font-size: 1rem;
+  line-height: $baseline;
   margin: 0 auto 1.5rem auto;
 }
 
