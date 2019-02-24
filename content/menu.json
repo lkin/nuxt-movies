@@ -1,1 +1,22 @@
-{}
+{
+  "menuItems": [
+    {
+      "title": "Home",
+      "visible": true,
+      "linkType": "internal",
+      "linkURL": "/"
+    },
+    {
+      "title": "Movies",
+      "visible": true,
+      "linkType": "internal",
+      "linkURL": "/movies"
+    },
+    {
+      "title": "TV Shows",
+      "visible": true,
+      "linkType": "internal",
+      "linkURL": "/tv-shows"
+    }
+  ]
+}
