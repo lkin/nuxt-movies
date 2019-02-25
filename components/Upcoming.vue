@@ -12,7 +12,7 @@
           <figcaption>
             <h2>{{ movie.title }}</h2>
             <h3>{{ formatDate(movie.release_date) }}</h3>
-            <p>{{ movie.overview }}</p>
+            <p>{{ movie.overview.length > 80 ? (movie.overview.slice(0,80) + '...') : movie.overview }}</p>
           </figcaption>
         </figure>
       </article>
@@ -51,7 +51,7 @@ export default {
       getUpcomingMovies: 'getApiUpcoming'
     }),
 
-    formatDate(date){
+    formatDate(date) {
       const d = dayjs(date);
       return d.format('MMM D, YYYY');
     },
