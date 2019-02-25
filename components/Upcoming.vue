@@ -1,33 +1,35 @@
 <template>
-  <section v-if="loaded" class="upcoming">
-    <no-ssr>
-      <Hooper :items-to-show="1"
-              :center-mode="false"
-              pagination="no"
-              mouse-drag="false"
-        >
-        <Slide v-for="(movie, index) in movies" :key="index" >
-          <article class="movie-hero">
-            <figure>
-              <img
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                :srcset="`${backdropPath(movie, 'w300')} 320w,${backdropPath(movie, 'w780')} 768w,${backdropPath(movie, 'w1280')} 1280w`"
-                :src="backdropPath(movie, 'w1280')"
-                alt=""
-              >
-              <figcaption>
-                <h2>{{ movie.title }}</h2>
-                <h3>{{ formatDate(movie.release_date) }}</h3>
-                <p>{{ movie.overview.length > 80 ? (movie.overview.slice(0,80) + '...') : movie.overview }}</p>
-              </figcaption>
-            </figure>
-          </article>
-        </Slide>
+  <no-ssr>
+    <Hooper v-if="loaded" class="upcoming"
+            :items-to-show="1"
+            :center-mode="false"
+            pagination="no"
+            mouse-drag="false"
+    >
+      <Slide v-for="(movie, index) in movies" :key="index">
+        <article class="movie-hero">
+          <figure>
+            <img
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              :srcset="`${backdropPath(movie, 'w300')} 320w,${backdropPath(movie, 'w780')} 768w,${backdropPath(movie, 'w1280')} 1280w`"
+              :src="backdropPath(movie, 'w1280')"
+              alt=""
+            >
+            <figcaption>
+              <h2>{{ movie.title }}</h2>
+              <h3>{{ formatDate(movie.release_date) }}</h3>
+              <p>{{ movie.overview.length > 160 ? (movie.overview.slice(0,160) + '...') : movie.overview }}</p>
+            </figcaption>
+          </figure>
+        </article>
+      </Slide>
 
-        <HooperNavigation slot="hooper-addons"></HooperNavigation>
-      </Hooper>
-    </no-ssr>
-  </section>
+      <HooperNavigation slot="hooper-addons"></HooperNavigation>
+    </Hooper>
+    <section v-else>
+      <p>Loading....</p>
+    </section>
+  </no-ssr>
 </template>
 
 <script>
