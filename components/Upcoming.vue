@@ -1,7 +1,11 @@
 <template>
   <section v-if="loaded" class="upcoming">
     <no-ssr>
-      <Hooper :itemsToShow="1" :centerMode="false" pagination="no">
+      <Hooper :items-to-show="1"
+              :center-mode="false"
+              pagination="no"
+              mouse-drag="false"
+        >
         <Slide v-for="(movie, index) in movies" :key="index" >
           <article class="movie-hero">
             <figure>
@@ -19,13 +23,15 @@
             </figure>
           </article>
         </Slide>
+
+        <HooperNavigation slot="hooper-addons"></HooperNavigation>
       </Hooper>
     </no-ssr>
   </section>
 </template>
 
 <script>
-import { Hooper, Slide } from 'hooper';
+import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
 import { mapActions } from 'vuex';
 import dayjs from 'dayjs';
 
@@ -34,7 +40,8 @@ export default {
 
   components: {
     Hooper,
-    Slide
+    Slide,
+    HooperNavigation
   },
 
   data: function () {
