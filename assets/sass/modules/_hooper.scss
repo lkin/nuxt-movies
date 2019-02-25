@@ -3,7 +3,8 @@
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  height: 200px;
+  //height: 200px;
+  max-height: 720px;
 }
 
 .hooper * {
@@ -158,4 +159,8 @@
 .hooper-navigation.is-rtl .hooper-next {
   right: auto;
   left: 0;
+}
+
+.hooper-navigation svg {
+  fill: $color-white;
 }
