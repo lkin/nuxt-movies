@@ -19,6 +19,7 @@
               <h2>{{ movie.title }}</h2>
               <h3>{{ formatDate(movie.release_date) }}</h3>
               <p>{{ movie.overview.length > 160 ? (movie.overview.slice(0,160) + '...') : movie.overview }}</p>
+              <button class="button">Play trailer</button>
             </figcaption>
           </figure>
         </article>
