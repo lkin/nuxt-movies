@@ -8,3 +8,28 @@
     margin: 0 2rem 2rem 0;
   }
 }
+
+
+.movie-list--scrollable {
+
+  .movie-list__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    scrollbar-color: $body-background;
+    scrollbar-width: 10px;
+    scrollbar-gutter: always;
+    overflow-x: scroll;
+  }
+
+  .movie-card {
+    &:hover {
+      transform: translate(0, -1rem);
+    }
+
+    &:focus-within ~ .mini-card,
+    &:hover ~ .movie-card {
+      transform: translateX(130px);
+    }
+  }
+}

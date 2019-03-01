@@ -7,7 +7,7 @@
       <h2>Top Rated</h2>
     </section>
 
-    <MoviesList :movies="topRated"></MoviesList>
+    <MoviesListScrollable title="Top rated" :movies="topRated"></MoviesListScrollable>
   </main>
 </template>
 
@@ -15,12 +15,14 @@
 import MoviesList from '../components/MoviesList';
 // import LatestMovie from '../components/LatestMovie';
 import Upcoming from '../components/Upcoming';
+import MoviesListScrollable from '../components/MoviesScrollableList';
 
 export default {
   components: {
-    Upcoming,
+    MoviesListScrollable,
+    Upcoming
     // LatestMovie,
-    MoviesList,
+    // MoviesList,
   },
 
   computed: {

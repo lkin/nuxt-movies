@@ -1,11 +1,10 @@
 .movie-card {
+  flex: 0 0 auto;
   position: relative;
   width: 342px;
   height: 192px;
   border-radius: $global-radius;
-
-  a {
-  }
+  transition: .2s;
 
   a,
   figure {
@@ -61,22 +60,22 @@
     }
   }
 
-  a {
-    transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
-    transition-duration: 400ms;
-
-    &:hover {
-      transform: scale(0.99999);
-      visibility: visible;
-      width: 120%;
-      height: 120%;
-      top: -10%;
-      left: -10%;
-      z-index: 2;
-
-      header {
-        visibility: visible;
-      }
-    }
-  }
+  //a {
+  //  transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+  //  transition-duration: 400ms;
+  //
+  //  &:hover {
+  //    transform: scale(0.99999);
+  //    visibility: visible;
+  //    width: 120%;
+  //    height: 120%;
+  //    top: -10%;
+  //    left: -10%;
+  //    z-index: 2;
+  //
+  //    header {
+  //      visibility: visible;
+  //    }
+  //  }
+  //}
 }
