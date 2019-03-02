@@ -108,6 +108,10 @@ module.exports = {
     routes: routes
   },
 
+  terser: {
+    sourceMap: true
+  },
+
   /*
   ** Build configuration
   */

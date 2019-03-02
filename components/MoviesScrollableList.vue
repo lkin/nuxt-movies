@@ -6,6 +6,8 @@
     <div class="movie-list__container">
       <MovieCard v-for="(movie, index) in movies" :key="index"
                  :movie="movie"
+                 card-type="poster"
+                 class="movie-card--poster"
       >
       </MovieCard>
     </div>

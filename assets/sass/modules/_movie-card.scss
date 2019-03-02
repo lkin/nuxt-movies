@@ -6,6 +6,11 @@
   border-radius: $global-radius;
   transition: .2s;
 
+  @include media('>=tablet'){
+    width: 342px;
+    height: 192px;
+  }
+
   a,
   figure {
     display: block;
@@ -78,4 +83,15 @@
   //    }
   //  }
   //}
+}
+
+.movie-card--poster {
+  width: 185px;
+  height: 278px;
+
+
+  @include media('>=tablet'){
+    width: 342px;
+    height: 513px;
+  }
 }

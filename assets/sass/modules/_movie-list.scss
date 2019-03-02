@@ -23,6 +23,17 @@
   }
 
   .movie-card {
+    margin: 1.5rem;
+    box-shadow: -1rem 0 3rem $color-total-black;
+
+    &:not(:first-child) {
+      margin-left: -10px;
+
+      @include media('>=tablet') {
+        margin-left: -130px;
+      }
+    }
+
     &:hover {
       transform: translate(0, -1rem);
     }
