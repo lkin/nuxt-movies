@@ -4,7 +4,8 @@
   width: 342px;
   height: 192px;
   border-radius: $global-radius;
-  transition: .2s;
+  overflow: hidden;
+  transition: .2s ease;
 
   @include media('>=tablet'){
     width: 342px;
@@ -24,7 +25,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: $global-radius;
   }
 
   header {

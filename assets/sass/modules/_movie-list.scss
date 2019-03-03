@@ -1,8 +1,9 @@
 .movie-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+
 
   .movie-card {
     margin: 0 2rem 2rem 0;
@@ -11,6 +12,17 @@
 
 
 .movie-list--scrollable {
+  flex-wrap: nowrap;
+  padding-right: 0;
+  margin: 2rem 0;
+  //background-color: $color-total-black;
+
+  header {
+    margin: 1.5rem 0;
+    padding: 2rem;
+    background-color: $color-total-black;
+    border-radius: $global-radius;
+  }
 
   .movie-list__container {
     display: flex;
@@ -20,11 +32,12 @@
     scrollbar-width: 10px;
     scrollbar-gutter: always;
     overflow-x: scroll;
+    padding: 0 30px;
   }
 
   .movie-card {
     margin: 1.5rem;
-    box-shadow: -1rem 0 3rem $color-total-black;
+    box-shadow: -1rem 0 2rem $color-total-black;
 
     &:not(:first-child) {
       margin-left: -10px;

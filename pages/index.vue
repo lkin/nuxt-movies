@@ -3,10 +3,6 @@
 
     <Upcoming></Upcoming>
 
-    <section>
-      <h2>Top Rated</h2>
-    </section>
-
     <MoviesListScrollable title="Top rated" :movies="topRated"></MoviesListScrollable>
   </main>
 </template>
