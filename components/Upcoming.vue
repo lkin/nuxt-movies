@@ -1,10 +1,10 @@
 <template>
   <no-ssr>
-    <Hooper v-if="loaded" class="upcoming"
+    <Hooper v-if="!loading && loaded" class="upcoming"
             :items-to-show="1"
             :center-mode="false"
             pagination="no"
-            mouse-drag="false"
+            :mouse-drag="false"
     >
       <Slide v-for="(movie, index) in movies" :key="index">
         <article class="movie-hero">
@@ -27,8 +27,9 @@
 
       <HooperNavigation slot="hooper-addons"></HooperNavigation>
     </Hooper>
+
     <section v-else>
-      <p>Loading....</p>
+      <FilmStripLoader></FilmStripLoader>
     </section>
   </no-ssr>
 </template>
@@ -37,11 +38,13 @@
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
 import { mapActions } from 'vuex';
 import dayjs from 'dayjs';
+import FilmStripLoader from './FilmStripLoader';
 
 export default {
   name: 'Upcoming',
 
   components: {
+    FilmStripLoader,
     Hooper,
     Slide,
     HooperNavigation

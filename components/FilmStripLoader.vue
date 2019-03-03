@@ -1,5 +1,5 @@
 <template>
-  <div class="film-strip-loader">
+  <div class="film-strip-loader loading">
     <span>Loading...</span>
   </div>
 </template>
