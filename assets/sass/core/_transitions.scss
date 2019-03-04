@@ -1,8 +1,20 @@
 // NUXT TRANSITIONS
-.page-enter-active, .page-leave-active {
+.page-enter-active,
+.page-leave-active {
   transition: opacity .5s;
 }
 
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
