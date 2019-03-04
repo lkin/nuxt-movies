@@ -21,11 +21,11 @@
     "hooper": "0.0.9",
     "markdown-it": "^8.4.2",
     "netlify-cms": "^2.5.1",
-    "nuxt": "^2.4.5",
-    "vue-server-renderer": "^2.6.8"
+    "nuxt": "^2.4.5"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
     "css-loader": "^2.1.0",
     "eslint": "^5.15.0",
     "eslint-loader": "^2.1.2",
