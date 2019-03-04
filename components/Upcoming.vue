@@ -1,36 +1,38 @@
 <template>
   <no-ssr>
-    <Hooper v-if="!loading && loaded" class="upcoming"
-            :items-to-show="1"
-            :center-mode="false"
-            pagination="no"
-            :mouse-drag="false"
-    >
-      <Slide v-for="(movie, index) in movies" :key="index">
-        <article class="movie-hero">
-          <figure>
-            <img
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              :srcset="`${backdropPath(movie, 'w300')} 320w,${backdropPath(movie, 'w780')} 768w,${backdropPath(movie, 'w1280')} 1280w`"
-              :src="backdropPath(movie, 'w1280')"
-              alt=""
-            >
-            <figcaption>
-              <h2>{{ movie.title }}</h2>
-              <h3>{{ formatDate(movie.release_date) }}</h3>
-              <p>{{ movie.overview.length > 160 ? (movie.overview.slice(0,160) + '...') : movie.overview }}</p>
-              <button class="button">Play trailer</button>
-            </figcaption>
-          </figure>
-        </article>
-      </Slide>
+    <transition name="fade" mode="out-in">
+      <Hooper v-if="!loading && loaded" class="upcoming"
+              :items-to-show="1"
+              :center-mode="false"
+              pagination="no"
+              :mouse-drag="false"
+      >
+        <Slide v-for="(movie, index) in movies" :key="index">
+          <article class="movie-hero">
+            <figure>
+              <img
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                :srcset="`${backdropPath(movie, 'w300')} 320w,${backdropPath(movie, 'w780')} 768w,${backdropPath(movie, 'w1280')} 1280w`"
+                :src="backdropPath(movie, 'w1280')"
+                alt=""
+              >
+              <figcaption>
+                <h2>{{ movie.title }}</h2>
+                <h3>{{ formatDate(movie.release_date) }}</h3>
+                <p>{{ movie.overview.length > 160 ? (movie.overview.slice(0,160) + '...') : movie.overview }}</p>
+                <button class="button">Play trailer</button>
+              </figcaption>
+            </figure>
+          </article>
+        </Slide>
 
-      <HooperNavigation slot="hooper-addons"></HooperNavigation>
-    </Hooper>
+        <HooperNavigation slot="hooper-addons"></HooperNavigation>
+      </Hooper>
 
-    <section v-else>
-      <FilmStripLoader></FilmStripLoader>
-    </section>
+      <section v-else>
+        <FilmStripLoader></FilmStripLoader>
+      </section>
+    </transition>
   </no-ssr>
 </template>
 
