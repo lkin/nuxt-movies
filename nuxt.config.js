@@ -54,6 +54,8 @@ module.exports = {
 
   mode: 'universal',
 
+  // modern: 'client',
+
   /*
   ** Headers of the page
   */
