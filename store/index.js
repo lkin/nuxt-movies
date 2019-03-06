@@ -78,13 +78,13 @@ export const actions = {
   },
 
   async getSettings({ state, commit }) {
-    const settings = require('~/content/settings.json');
+    const settings = require('../content/settings.json'); // don't use "~" for storybook compatibility
     commit('SET_SETTINGS', settings);
     commit('SET_HOSTNAME', settings.hostname ? settings.hostname : '');
   },
 
   async getMenuContent({ state, commit }) {
-    const menu = require('~/content/menu.json');
+    const menu = require('../content/menu.json'); // don't use "~" for storybook compatibility
     commit('SET_MENU', menu.menuItems);
   },
 
