@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/vue';
 import MovieCard from '../components/MovieCard.vue';
 import { mutations, actions } from '../store';
 
+// import app styles
+import '../assets/sass/app.scss';
 
 const movieDbApiKey = process.env.movieDbApiKey || require('../.themoviedb.js').key;
 
