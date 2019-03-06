@@ -15,6 +15,8 @@ export const state = () => ({
       nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       popular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      similar: `https://api.themoviedb.org/3/movie/MOVIE_ID/similar?api_key=${process.env.movieDbApiKey}`,
+      movieLists: `https://api.themoviedb.org/3/movie/MOVIE_ID/lists?api_key=${process.env.movieDbApiKey}`,
     }
   },
 
