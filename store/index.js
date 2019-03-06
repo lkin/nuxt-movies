@@ -1,6 +1,4 @@
 export const state = () => ({
-  // content
-  settings: null,
   api: {
     key: process.env.movieDbApiKey,
     configuration: {},
