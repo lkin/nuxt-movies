@@ -1,3 +1,5 @@
+import shared from '../lib/shared';
+
 export const state = () => ({
   api: {
     key: process.env.movieDbApiKey,
@@ -8,15 +10,34 @@ export const state = () => ({
       youtubeTrailer: 'https://www.youtube.com/watch?v=',
       youtubePoster: 'https://img.youtube.com/vi/YOUTUBEKEY/hqdefault.jpg',
       youtubePosterMaxRes: 'https://img.youtube.com/vi/YOUTUBEKEY/maxresdefault.jpg',
+
+      // movies
+      // ------------------------------------------------------------
       moviesGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
       movieDetails: `https://api.themoviedb.org/3/movie/MOVIE_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
+
+      // trending: https://developers.themoviedb.org/3/trending/get-trending
+      trending: `https://api.themoviedb.org/3/trending/TYPE/TIME?api_key=${process.env.movieDbApiKey}`,
+
+      // movie collections
       latestMovie: `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
       topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       popular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+
+      // movie related
       similar: `https://api.themoviedb.org/3/movie/MOVIE_ID/similar?api_key=${process.env.movieDbApiKey}`,
       movieLists: `https://api.themoviedb.org/3/movie/MOVIE_ID/lists?api_key=${process.env.movieDbApiKey}`,
+
+
+      // tv series
+      // ------------------------------------------------------------
+      tvGenres: `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
+      tvDetails: `https://api.themoviedb.org/3/tv/TV_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
+
+      latestTv: `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
+
     }
   },
 
@@ -51,12 +72,6 @@ export const mutations = {
     state.content.topRated = data;
   },
 
-  // SET_FEATURED(state, featured) {
-  //   state.content.featured = featured;
-  // },
-  SET_MOVIES(state, movies) {
-    state.content.movies = movies;
-  }
 };
 
 export const actions = {
@@ -143,14 +158,15 @@ export const actions = {
   },
 
 
-  async getApiTopRated({ state, commit }) {
+  async getApiTopRated({ state, commit }, mediaType) {
     let { data } = await this.$axios({
       method: 'get',
-      url: state.api.url.topRated,
+      url: state.api.url.topRated.replace('MEDIA_TYPE', mediaType),
       responseType: 'json'
     });
 
-    commit('SET_TOP_RATED', data);
+    return data;
+    // commit('SET_TOP_RATED', data);
   },
 
 
