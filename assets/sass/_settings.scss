@@ -16,43 +16,44 @@ $breakpoints: (
 
 
 // colors
-$color-light-gray: #f5f5f5;
-$color-medium-gray: #cacaca;
-$color-dark-gray: #494949;
-$color-gray: #696969;
+//$color-light-gray: #f5f5f5;
+//$color-medium-gray: #cacaca;
+//$color-dark-gray: #494949;
+//$color-gray: #696969;
 $color-total-black: #000;
-$color-dark-gray: #141414;
-$color-light: #E8E8E8;
+//$color-dark-gray: #141414;
+$color-light: #DCE2EB;
 $color-white: #fff;
-$color-dark-red: #601B1F;
+//$color-dark-red: #601B1F;
 $color-error: #f00;
-$color-red: #DB202C; // netflix red
+//$color-red: #DB202C; // netflix red
 
-$c1: #3D3C5D;
+$color-brand-dark: #3D3C5D;
 $c1: #5B6BA2;
 $c1: #968CA1;
-$c1: #739BD2;
+$color-brand-light: #739BD2;
 $c1: #A9C8E5;
 $c1: #DCE2EB;
 $c1: #D9B09A;
-
+$color-main-gradient1: #5C5F82;
+$color-main-gradient2: #1C1C3D;
 
 // Gradients
 // ------------------
-$gradient-main: linear-gradient(134deg, #5C5F82 0%, #1C1C3D 100%);
+$gradient-main: linear-gradient(134deg, $color-main-gradient1 0%, $color-main-gradient2 100%);
 
 // Body
 // ------------------
 $global-radius: 10px;
-$body-background: $color-dark-gray;
+$body-background: $color-main-gradient1;
 
 // Base Typography
 // ------------------
 $baseline: 1.5;
-$use-variable-font: true;
+$use-variable-font: false;
 $use-variable-font-for-headings: false;
-$body-font-color: $color-white;
-$variable-font-family: 'Inter var', Helvetica, Roboto, Arial, sans-serif;
+$body-font-color: $color-light;
+$variable-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: $variable-font-family;
 $body-font-family: 'Inter', Helvetica, Roboto, Arial, sans-serif;
 $heading-font-family: 'Bebas Neue', sans-serif;
