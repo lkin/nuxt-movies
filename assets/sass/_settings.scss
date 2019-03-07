@@ -59,8 +59,8 @@ $body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
 $heading-font-family: 'Source Sans Pro', sans-serif;
 $heading-font-weight: 400;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
-$selection-color: $color-red;
-$placeholder-color: $color-gray;
+$selection-color: $color-brand-dark;
+$placeholder-color: $color-brand-dark;
 
 
 // Focus
@@ -71,7 +71,7 @@ $focus-box-shadow: none;
 
 // Main Menu
 // -----------
-$menu-background: $color-light-gray;
+$menu-background: transparent;
 $menu-height: 70px;
 $menu-zindex: 101;
 $menu-toggle-button-zindex: $menu-zindex + 2;

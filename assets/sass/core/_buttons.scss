@@ -4,8 +4,8 @@
   border: 0;
   font-weight: 700;
   letter-spacing: 0;
-  background-color: $color-light;
-  color: $color-dark-gray;
+  background-color: $color-brand-light;
+  color: $color-light;
   text-transform: none;
   transition: all .2s ease-out;
   font-family: $body-font-family;
@@ -23,7 +23,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-dark-gray;
-    color: $color-white;
+    background-color: $color-brand-light;
+    color: $color-light;
   }
 }

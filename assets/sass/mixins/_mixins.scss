@@ -77,7 +77,7 @@
    CSS Secrets, Lea Verou, Chapter 5
 */
 // Sara Soueidan version
-@mixin better-underline($underline-color: $color-dark-red) {
+@mixin better-underline($underline-color: $color-brand-light) {
   text-decoration: none;
   border-bottom: .10em solid transparent;
   outline: 0;
@@ -91,7 +91,7 @@
   }
 }
 
-@mixin better-underline-always($underline-color: $color-dark-red) {
+@mixin better-underline-always($underline-color: $color-brand-light) {
   text-decoration: none;
   outline: 0;
   border-bottom: .10em solid currentColor;
