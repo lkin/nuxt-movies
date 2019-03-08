@@ -1,4 +1,4 @@
-.movie-list--scrollable {
+.media-list--scrollable {
   flex-wrap: nowrap;
   align-items: stretch;
   max-width: none;
@@ -46,7 +46,7 @@
     }
   }
 
-  .movie-list__container {
+  .media-list__container {
     flex: 1;
     display: flex;
     justify-content: flex-start;

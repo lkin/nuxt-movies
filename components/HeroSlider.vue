@@ -1,7 +1,7 @@
 <template>
   <no-ssr>
     <transition name="fade" mode="out-in">
-      <Hooper v-if="!loading && loaded" class="upcoming"
+      <Hooper v-if="movies.length > 0" class="upcoming"
               :items-to-show="1"
               :center-mode="false"
               pagination="no"
@@ -48,7 +48,7 @@ import dayjs from 'dayjs';
 import FilmStripLoader from './FilmStripLoader';
 
 export default {
-  name: 'Upcoming',
+  name: 'HeroSlider',
 
   components: {
     FilmStripLoader,
@@ -57,29 +57,38 @@ export default {
     HooperNavigation
   },
 
+  props: {
+    movies: {
+      required: true,
+      type: Array,
+      default: function () {
+        return [];
+      }
+    }
+  },
+
   data: function () {
     return {
-      movies: [],
       loading: false,
       loaded: false
     };
   },
 
 
-  mounted() {
-    this.loading = true;
-
-    this.getUpcomingMovies().then((movies) => {
-      this.movies = movies.results;
-      this.loading = false;
-      this.loaded = true;
-    });
-  },
+  // mounted() {
+  //   this.loading = true;
+  //
+  //   this.getUpcomingMovies().then((movies) => {
+  //     this.movies = movies.results;
+  //     this.loading = false;
+  //     this.loaded = true;
+  //   });
+  // },
 
   methods: {
-    ...mapActions({
-      getUpcomingMovies: 'getApiUpcoming'
-    }),
+    // ...mapActions({
+    //   getUpcomingMovies: 'getApiUpcoming'
+    // }),
 
     formatDate(date) {
       const d = dayjs(date);

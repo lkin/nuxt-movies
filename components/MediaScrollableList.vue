@@ -1,10 +1,10 @@
 <template>
-  <section class="movie-list movie-list--scrollable">
+  <section class="media-list media-list--scrollable">
     <header>
       <h2>{{ title }}</h2>
       <a href="#">View all</a>
     </header>
-    <div class="movie-list__container">
+    <div class="media-list__container">
       <MediaCard v-for="(movie, index) in movies" :key="index"
                  :movie="movie"
                  :card-type="cardType"

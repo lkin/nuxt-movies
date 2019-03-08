@@ -1,5 +1,5 @@
 <template>
-  <article class="movie-card" :class="{'movie-card--poster': cardType === shared.cardType.poster}">
+  <article class="media-card" :class="{'media-card--poster': cardType === shared.cardType.poster}">
     <nuxt-link :to="`/movies/${movie._slug}`">
       <figure>
         <img :sizes="movieMaxPictureSize"

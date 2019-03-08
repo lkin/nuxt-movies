@@ -1,7 +1,7 @@
 <template>
   <main role="main">
 
-    <Upcoming></Upcoming>
+    <HeroSlider :movies="upcoming"></HeroSlider>
 
     <MediaScrollableList title="Top rated" :movies="topRated"></MediaScrollableList>
 
@@ -13,7 +13,7 @@
 import { mapActions } from 'vuex';
 // import MoviesList from '../components/MoviesList';
 // import LatestMovie from '../components/LatestMovie';
-import Upcoming from '../components/Upcoming';
+import HeroSlider from '../components/HeroSlider';
 import MediaScrollableList from '../components/MediaScrollableList';
 import shared from '../lib/shared';
 import MediaCardsGrid from '../components/MediaCardsGrid';
@@ -22,12 +22,13 @@ export default {
   components: {
     MediaCardsGrid,
     MediaScrollableList,
-    Upcoming
+    HeroSlider
   },
 
   data: function () {
     return {
       topRated: [],
+      upcoming: [],
       loading: false,
       loaded: false
     };
@@ -41,11 +42,19 @@ export default {
       this.loading = false;
       this.loaded = true;
     });
+
+    this.getUpcomingMovies().then((movies) => {
+      this.upcoming = movies.results;
+      this.loading = false;
+      this.loaded = true;
+    });
+
   },
 
   methods: {
     ...mapActions({
-      getTopRatedMovies: 'getApiTopRated'
+      getTopRatedMovies: 'getApiTopRated',
+      getUpcomingMovies: 'getApiUpcoming'
     })
   }
 };

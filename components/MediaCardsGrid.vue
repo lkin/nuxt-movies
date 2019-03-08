@@ -1,9 +1,9 @@
 <template>
-  <section class="movie-list movie-list--grid">
+  <section class="media-list media-list--grid">
     <header v-if="title">
       <h2>{{ title }}</h2>
     </header>
-    <div class="movie-list__container">
+    <div class="media-list__container">
       <MediaCard v-for="(movie, index) in movies" :key="index"
                  :movie="movie"
                  :card-type="cardType"
@@ -19,7 +19,9 @@ import shared from '../lib/shared';
 
 export default {
   name: 'MediaCardsGrid',
+
   components: { MediaCard },
+
   props: {
     title: {
       required: true,

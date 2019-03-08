@@ -1,5 +1,6 @@
 # TODO
 
+* lazy load
 * movie details
 * series
 * series details
@@ -20,7 +21,7 @@ UX:
 
 x Media Card (props: poster & backdrop format)
 x ScrollableList (like css-tricks)
-* Grid List
+X Grid List
 * Hero
 * Media Detail (page)
  
