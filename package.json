@@ -1,7 +1,7 @@
 {
-  "name": "nuxtflix",
+  "name": "nuxt-movies",
   "version": "1.0.0",
-  "description": "A pawsome Vue.js & Nuxt.js Netliflix like web app",
+  "description": "A pawsome Vue.js & Nuxt.js Movies web app",
   "author": "marcellop",
   "private": true,
   "scripts": {
@@ -14,10 +14,10 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.4.0",
+    "@nuxtjs/axios": "^5.4.1",
     "@nuxtjs/sitemap": "^0.2.0",
     "cross-env": "^5.2.0",
-    "dayjs": "^1.8.8",
+    "dayjs": "^1.8.9",
     "gsap": "^2.1.2",
     "hooper": "0.0.9",
     "markdown-it": "^8.4.2",
@@ -33,7 +33,7 @@
     "babel-preset-vue": "^2.0.2",
     "core-js": "^2.6.5",
     "css-loader": "^2.1.0",
-    "eslint": "^5.15.0",
+    "eslint": "^5.15.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.2.2",
     "glob": "latest",

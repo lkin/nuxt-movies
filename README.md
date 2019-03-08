@@ -1,6 +1,6 @@
-# nuxtflix
+# nuxt-movies
 
-> A pawsome Vue.js & Nuxt.js Netliflix like web app
+> A pawsome Vue.js & Nuxt.js Movies web app
 
 ## About
 
