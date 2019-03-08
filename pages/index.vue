@@ -3,7 +3,7 @@
 
     <Upcoming></Upcoming>
 
-    <MoviesListScrollable title="Top rated" :movies="topRated"></MoviesListScrollable>
+    <MediaScrollableList title="Top rated" :movies="topRated"></MediaScrollableList>
   </main>
 </template>
 
@@ -12,12 +12,12 @@ import { mapActions } from 'vuex';
 // import MoviesList from '../components/MoviesList';
 // import LatestMovie from '../components/LatestMovie';
 import Upcoming from '../components/Upcoming';
-import MoviesListScrollable from '../components/MoviesScrollableList';
+import MediaScrollableList from '../components/MediaScrollableList';
 import shared from '../lib/shared';
 
 export default {
   components: {
-    MoviesListScrollable,
+    MediaScrollableList,
     Upcoming
   },
 

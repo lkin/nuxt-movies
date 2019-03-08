@@ -5,22 +5,22 @@
       <a href="#">View all</a>
     </header>
     <div class="movie-list__container">
-      <MovieCard v-for="(movie, index) in movies" :key="index"
+      <MediaCard v-for="(movie, index) in movies" :key="index"
                  :movie="movie"
                  card-type="poster"
                  class="movie-card--poster"
       >
-      </MovieCard>
+      </MediaCard>
     </div>
   </section>
 </template>
 
 <script>
-import MovieCard from './MovieCard';
+import MediaCard from './MediaCard';
 
 export default {
   name: 'MoviesListScrollable',
-  components: { MovieCard },
+  components: { MediaCard },
   props: {
     title: {
       required: true,

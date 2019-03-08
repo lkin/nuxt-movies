@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import MovieCard from './MovieCard';
+import MovieCard from './MediaCard';
 
 export default {
   name: 'MoviesList',
