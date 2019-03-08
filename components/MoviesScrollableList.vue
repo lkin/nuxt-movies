@@ -2,6 +2,7 @@
   <section class="movie-list movie-list--scrollable">
     <header>
       <h2>{{ title }}</h2>
+      <a href="#">View all</a>
     </header>
     <div class="movie-list__container">
       <MovieCard v-for="(movie, index) in movies" :key="index"

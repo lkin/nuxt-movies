@@ -39,9 +39,14 @@ html {
 body {
   position: relative;
   max-width: $maxWidth;
+  height: 100%;
   margin: 0 auto;
   padding: 0;
   background-color: $body-background;
+  background-image: $gradient-main;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 
   font-family: $body-font-family;
   font-weight: normal;
@@ -143,8 +148,8 @@ p {
 
     &:hover,
     &:focus {
-      color: #000;
-      background-color: $color-brand-light;
+      //color: #000;
+      //background-color: $color-brand-light;
       text-shadow: none;
     }
   }
@@ -154,17 +159,18 @@ p {
   ============== */
 a {
   margin: 0;
-  padding: 1rem 0;
+  padding: 0;
   font-weight: 400;
   line-height: inherit;
-  text-transform: uppercase;
+  //text-transform: uppercase;
+  color: $color-light;
+  @include better-underline-always;
 
-  &:focus,
-  &:hover {
-    color: $color-light;
-    outline: none;
-    text-decoration: none;
-  }
+  //&:focus,
+  //&:hover {
+  //  color: $color-light;
+  //  text-decoration: none;
+  //}
 }
 
 a,

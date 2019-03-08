@@ -29,12 +29,6 @@ export default {
     };
   },
 
-  // computed: {
-  //   topRated() {
-  //     return this.$store.state.content.topRated.results;
-  //   }
-  // }
-
   mounted() {
     this.loading = true;
 
