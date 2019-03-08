@@ -100,6 +100,13 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
+    ['nuxt-svg-sprite-module', {
+      directory: '/assets/icons',
+      options: {
+        // Configuration options:
+        // https://github.com/jkphl/svg-sprite#configuration-basics
+      }
+    }]
   ],
 
   /*

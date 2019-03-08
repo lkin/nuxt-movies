@@ -24,4 +24,4 @@ UX:
 * Hero
 * Media Detail (page)
  
-* functional components for API ajax logic and filtering/paging
+* functional components for API ajax logic and filtering/paging (scoped slots)

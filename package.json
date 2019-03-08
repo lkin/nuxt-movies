@@ -22,7 +22,8 @@
     "hooper": "0.0.9",
     "markdown-it": "^8.4.2",
     "netlify-cms": "^2.5.1",
-    "nuxt": "^2.4.5"
+    "nuxt": "^2.4.5",
+    "nuxt-svg-sprite-module": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

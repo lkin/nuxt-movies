@@ -44,7 +44,7 @@ $gradient-main: linear-gradient(134deg, $color-main-gradient1 0%, $color-main-gr
 
 // Body
 // ------------------
-$global-radius: 10px;
+$global-radius: 4px;
 $body-background: $color-main-gradient1;
 
 // Base Typography
@@ -53,11 +53,12 @@ $baseline: 1.5;
 $use-variable-font: false;
 $use-variable-font-for-headings: false;
 $body-font-color: $color-light;
+$body-font-letter-spacing: .5px;
 $variable-font-family: 'Source Sans Pro Var', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: $variable-font-family;
 $body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
 $heading-font-family: 'Source Sans Pro', sans-serif;
-$heading-font-weight: 400;
+$heading-font-weight: 700;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
 $selection-color: $color-brand-dark;
 $placeholder-color: $color-brand-dark;

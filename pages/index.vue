@@ -9,7 +9,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import MoviesList from '../components/MoviesList';
+// import MoviesList from '../components/MoviesList';
 // import LatestMovie from '../components/LatestMovie';
 import Upcoming from '../components/Upcoming';
 import MoviesListScrollable from '../components/MoviesScrollableList';
