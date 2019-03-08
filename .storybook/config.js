@@ -3,6 +3,7 @@ import { themes } from '@storybook/theming';
 import Vue from 'vue';
 import Vuex from 'vuex'; // Vue plugins
 import { withA11y } from '@storybook/addon-a11y';
+import theme from './theme';
 
 // Global parameters
 // ------------------------
@@ -11,7 +12,7 @@ import { withA11y } from '@storybook/addon-a11y';
 addParameters({
   options: {
     name: 'Nuxt Movies',
-    theme: themes.dark,
+    theme: theme // themes.dark,
   },
 });
 
