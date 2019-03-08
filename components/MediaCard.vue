@@ -2,7 +2,6 @@
   <article class="movie-card" :class="{'movie-card--poster': cardType === 'poster'}">
     <nuxt-link :to="`/movies/${movie._slug}`">
       <figure>
-        <!--<img :src="moviePicturePath">-->
         <img :sizes="movieMaxPictureSize"
              :srcset="movieResponsivePath"
              :src="movieMaxPicturePath"
@@ -22,6 +21,7 @@
 
 <script>
 import dayjs from 'dayjs';
+import shared from '../lib/shared';
 
 export default {
   name: 'MovieCard',
@@ -30,7 +30,7 @@ export default {
     cardType: {
       type: String,
       required: false,
-      default: 'backdrop' // or 'poster'
+      default: shared.cardType.backdrop
     },
 
     movie: {

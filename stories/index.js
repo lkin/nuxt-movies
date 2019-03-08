@@ -582,7 +582,7 @@ storiesOf('MediaCard', module)
   }));
 
 storiesOf('MediaScrollableList', module)
-  .add('list of Backdrop', () => ({
+  .add('list of Poster', () => ({
     components: { MediaScrollableList },
     template: '<media-scrollable-list title="Test long title" :movies="movies"></media-scrollable-list>',
     data() {
@@ -595,4 +595,19 @@ storiesOf('MediaScrollableList', module)
       mutations,
       actions
     }),
+  }))
+  .add('list of Backdrop', () => ({
+    components: { MediaScrollableList },
+    template: '<media-scrollable-list title="Test long title" card-type="poster" :movies="movies"></media-scrollable-list>',
+    data() {
+      return {
+        movies: movies
+      };
+    },
+    store: new Vuex.Store({
+      state: state,
+      mutations,
+      actions
+    }),
   }));
+

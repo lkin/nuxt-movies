@@ -7,7 +7,7 @@
     <div class="movie-list__container">
       <MediaCard v-for="(movie, index) in movies" :key="index"
                  :movie="movie"
-                 card-type="poster"
+                 :card-type="cardType"
                  class="movie-card--poster"
       >
       </MediaCard>
@@ -17,6 +17,7 @@
 
 <script>
 import MediaCard from './MediaCard';
+import shared from '../lib/shared';
 
 export default {
   name: 'MoviesListScrollable',
@@ -26,6 +27,14 @@ export default {
       required: true,
       type: String
     },
+
+    cardType: {
+      type: String,
+      required: false,
+      default: shared.cardType.poster
+    },
+
+
     movies: {
       required: true,
       type: Array,
