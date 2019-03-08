@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import { storiesOf } from '@storybook/vue';
 import MediaCard from '../components/MediaCard';
 import MediaScrollableList from '../components/MediaScrollableList';
+import MediaCardsGrid from '../components/MediaCardsGrid';
 import { mutations, actions } from '../store';
 
 // import app styles
@@ -551,6 +552,9 @@ const movies = [
   }
 ];
 
+/**
+ * MediaCard
+ */
 storiesOf('MediaCard', module)
   .add('Backdrop format', () => ({
     components: { MediaCard },
@@ -581,6 +585,9 @@ storiesOf('MediaCard', module)
     }),
   }));
 
+/**
+ * MediaScrollableList
+ */
 storiesOf('MediaScrollableList', module)
   .add('list of Poster', () => ({
     components: { MediaScrollableList },
@@ -599,6 +606,25 @@ storiesOf('MediaScrollableList', module)
   .add('list of Backdrop', () => ({
     components: { MediaScrollableList },
     template: '<media-scrollable-list title="Test long title" card-type="poster" :movies="movies"></media-scrollable-list>',
+    data() {
+      return {
+        movies: movies
+      };
+    },
+    store: new Vuex.Store({
+      state: state,
+      mutations,
+      actions
+    }),
+  }));
+
+/**
+ * MediaCardsGrid
+ */
+storiesOf('MediaCardsGrid', module)
+  .add('backdrop', () => ({
+    components: { MediaCardsGrid },
+    template: '<media-cards-grid title="Test long title" card-type="backdrop" :movies="movies"></media-cards-grid>',
     data() {
       return {
         movies: movies

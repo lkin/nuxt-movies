@@ -4,6 +4,8 @@
     <Upcoming></Upcoming>
 
     <MediaScrollableList title="Top rated" :movies="topRated"></MediaScrollableList>
+
+    <MediaCardsGrid title="Top rated" card-type="backdrop" :movies="topRated"></MediaCardsGrid>
   </main>
 </template>
 
@@ -14,9 +16,11 @@ import { mapActions } from 'vuex';
 import Upcoming from '../components/Upcoming';
 import MediaScrollableList from '../components/MediaScrollableList';
 import shared from '../lib/shared';
+import MediaCardsGrid from '../components/MediaCardsGrid';
 
 export default {
   components: {
+    MediaCardsGrid,
     MediaScrollableList,
     Upcoming
   },

@@ -1,0 +1,43 @@
+.movie-list--grid {
+  display: block;
+  margin: 2rem 0;
+
+  header {
+    h2 {
+      width: 100%;
+      margin: 1rem 0;
+      line-height: 1;
+      text-align: center;
+    }
+  }
+
+  .movie-list__container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  //.movie-card {
+  //  margin: 1.5rem;
+  //  box-shadow: -1rem 0 2rem $color-total-black;
+  //
+  //  &:not(:first-child) {
+  //    margin-left: -10px;
+  //
+  //    @include media('>=tablet') {
+  //      margin-left: -130px;
+  //    }
+  //  }
+  //
+  //  &:hover {
+  //    transform: translate(0, -1rem);
+  //  }
+  //
+  //  &:focus-within ~ .mini-card,
+  //  &:hover ~ .movie-card {
+  //    transform: translateX(130px);
+  //  }
+  //}
+}

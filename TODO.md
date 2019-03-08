@@ -18,8 +18,8 @@ UX:
 
 ## Components
 
-* Media Card (props: poster & backdrop format)
-* ScrollableList (like css-tricks)
+x Media Card (props: poster & backdrop format)
+x ScrollableList (like css-tricks)
 * Grid List
 * Hero
 * Media Detail (page)

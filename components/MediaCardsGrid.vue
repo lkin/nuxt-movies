@@ -1,8 +1,7 @@
 <template>
-  <section class="movie-list movie-list--scrollable">
-    <header>
+  <section class="movie-list movie-list--grid">
+    <header v-if="title">
       <h2>{{ title }}</h2>
-      <a href="#">View all</a>
     </header>
     <div class="movie-list__container">
       <MediaCard v-for="(movie, index) in movies" :key="index"
@@ -19,7 +18,7 @@ import MediaCard from './MediaCard';
 import shared from '../lib/shared';
 
 export default {
-  name: 'MediaScrollableList',
+  name: 'MediaCardsGrid',
   components: { MediaCard },
   props: {
     title: {

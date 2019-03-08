@@ -1,5 +1,5 @@
 <template>
-  <article class="movie-card" :class="{'movie-card--poster': cardType === 'poster'}">
+  <article class="movie-card" :class="{'movie-card--poster': cardType === shared.cardType.poster}">
     <nuxt-link :to="`/movies/${movie._slug}`">
       <figure>
         <img :sizes="movieMaxPictureSize"
@@ -24,7 +24,7 @@ import dayjs from 'dayjs';
 import shared from '../lib/shared';
 
 export default {
-  name: 'MovieCard',
+  name: 'MediaCard',
 
   props: {
     cardType: {
@@ -40,6 +40,12 @@ export default {
         return {};
       }
     }
+  },
+
+  data: function () {
+    return {
+      shared
+    };
   },
 
   computed: {
