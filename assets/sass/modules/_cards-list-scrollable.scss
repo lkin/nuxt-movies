@@ -73,8 +73,8 @@
       transform: translate(0, -1rem);
     }
 
-    &:focus-within ~ .mini-card,
-    &:hover ~ .movie-card {
+    //&:focus-within ~ .mini-card,
+    &:hover ~ .card {
       transform: translateX(130px);
     }
   }

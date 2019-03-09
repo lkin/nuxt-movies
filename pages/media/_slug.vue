@@ -9,6 +9,7 @@
           <p>{{ medium.overview }}</p>
 
           <p>IMDB</p>
+          <p>Director</p>
           <p>Cast</p>
           <p>Genres: <span v-for="(genre, index) in medium.genres" :key="genre.id">{{ genre.name }}<span v-if="index < (medium.genres.length - 1)">,&nbsp;</span></span></p>
           <p>Votes</p>
