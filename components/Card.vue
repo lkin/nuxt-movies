@@ -1,6 +1,6 @@
 <template>
-  <article class="media-card" :class="{'media-card--poster': cardType === shared.cardType.poster}">
-    <nuxt-link :to="`/movies/${movie._slug}`">
+  <article class="card" :class="{'card--poster': cardType === shared.cardType.poster}">
+    <nuxt-link :to="`/media/${medium._slug}`">
       <figure>
         <img :sizes="movieMaxPictureSize"
              :srcset="movieResponsivePath"
@@ -11,9 +11,9 @@
         <figcaption></figcaption>
       </figure>
       <header>
-        <h2>{{ movie.original_title }}</h2>
-        <!--<p>{{ movie.overview }}</p>-->
-        <p>Released {{ formatDate(movie.release_date) }}</p>
+        <h2>{{ medium.original_title }}</h2>
+        <!--<p>{{ medium.overview }}</p>-->
+        <p>Released {{ formatDate(medium.release_date) }}</p>
       </header>
     </nuxt-link>
   </article>
@@ -24,7 +24,7 @@ import dayjs from 'dayjs';
 import shared from '../lib/shared';
 
 export default {
-  name: 'MediaCard',
+  name: 'Card',
 
   props: {
     cardType: {
@@ -33,7 +33,7 @@ export default {
       default: shared.cardType.backdrop
     },
 
-    movie: {
+    medium: {
       required: true,
       type: Object,
       default: function () {
@@ -67,21 +67,21 @@ export default {
     },
 
     backdropMaxPath() {
-      const filePath = this.movie.backdrop_path;
+      const filePath = this.medium.backdrop_path;
       const size = this.backdropSizes[this.posterSizes.length - 1];
 
       return this.getImagePath(filePath, size);
     },
 
     posterMaxPath() {
-      const filePath = this.movie.poster_path;
+      const filePath = this.medium.poster_path;
       const size = this.posterSizes[this.posterSizes.length - 1];
 
       return this.getImagePath(filePath, size);
     },
 
     movieResponsivePath() {
-      const filePath = this.cardType === 'poster' ? this.movie.poster_path : this.movie.backdrop_path;
+      const filePath = this.cardType === 'poster' ? this.medium.poster_path : this.medium.backdrop_path;
       const sizes = this.cardType === 'poster' ? this.posterSizes : this.backdropSizes;
       // console.log({ sizes });
       return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`);

@@ -1,25 +1,25 @@
 <template>
   <no-ssr>
     <transition name="fade" mode="out-in">
-      <Hooper v-if="movies.length > 0" class="upcoming"
+      <Hooper v-if="media.length > 0" class="upcoming"
               :items-to-show="1"
               :center-mode="false"
               pagination="no"
               :mouse-drag="false"
       >
-        <Slide v-for="(movie, index) in movies" :key="index">
-          <article class="movie-hero">
+        <Slide v-for="(medium, index) in media" :key="index">
+          <article class="hero">
             <figure>
               <img
                 sizes="(max-width: 1280px) 100vw, 1280px"
-                :srcset="`${backdropPath(movie, 'w300')} 320w,${backdropPath(movie, 'w780')} 768w,${backdropPath(movie, 'w1280')} 1280w`"
-                :src="backdropPath(movie, 'w1280')"
+                :srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"
+                :src="backdropPath(medium, 'w1280')"
                 alt=""
               >
               <figcaption>
-                <h2>{{ movie.title }}</h2>
-                <h3>{{ formatDate(movie.release_date) }}</h3>
-                <p>{{ movie.overview.length > 160 ? (movie.overview.slice(0,160) + '...') : movie.overview }}</p>
+                <h2>{{ medium.title }}</h2>
+                <h3>{{ formatDate(medium.release_date) }}</h3>
+                <p>{{ medium.overview.length > 160 ? (medium.overview.slice(0,160) + '...') : medium.overview }}</p>
                 <button class="button">
                   <svg>
                     <use xlink:href="#icon-film-solid"></use>
@@ -43,7 +43,6 @@
 
 <script>
 import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
-import { mapActions } from 'vuex';
 import dayjs from 'dayjs';
 import FilmStripLoader from './FilmStripLoader';
 
@@ -58,7 +57,7 @@ export default {
   },
 
   props: {
-    movies: {
+    media: {
       required: true,
       type: Array,
       default: function () {
@@ -74,45 +73,30 @@ export default {
     };
   },
 
-
-  // mounted() {
-  //   this.loading = true;
-  //
-  //   this.getUpcomingMovies().then((movies) => {
-  //     this.movies = movies.results;
-  //     this.loading = false;
-  //     this.loaded = true;
-  //   });
-  // },
-
   methods: {
-    // ...mapActions({
-    //   getUpcomingMovies: 'getApiUpcoming'
-    // }),
-
     formatDate(date) {
       const d = dayjs(date);
       return d.format('MMM D, YYYY');
     },
 
-    posterPath(movie) {
-      if (!movie) {
+    posterPath(medium) {
+      if (!medium) {
         return '';
       }
 
-      const filePath = movie.poster_path;
+      const filePath = medium.poster_path;
       const size = "w342";
       const baseUrl = this.$store.state.api.configuration.images.secure_base_url;
 
       return `${baseUrl}${size}${filePath}`;
     },
 
-    backdropPath(movie, size) {
-      if (!movie) {
+    backdropPath(medium, size) {
+      if (!medium) {
         return '';
       }
 
-      const filePath = movie.backdrop_path;
+      const filePath = medium.backdrop_path;
       // const size = "w342";
       const baseUrl = this.$store.state.api.configuration.images.secure_base_url;
 

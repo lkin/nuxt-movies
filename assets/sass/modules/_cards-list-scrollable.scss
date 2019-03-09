@@ -1,10 +1,9 @@
-.media-list--scrollable {
+.cards-list--scrollable {
   flex-wrap: nowrap;
   align-items: stretch;
   max-width: none;
   padding-right: 0;
   margin: 2rem 0;
-  //background-color: $color-total-black;
 
   header {
     position: relative;
@@ -46,7 +45,7 @@
     }
   }
 
-  .media-list__container {
+  .cards-list__container {
     flex: 1;
     display: flex;
     justify-content: flex-start;
@@ -58,7 +57,7 @@
     padding: 0 30px;
   }
 
-  .movie-card {
+  .card {
     margin: 1.5rem;
     box-shadow: -1rem 0 2rem $color-total-black;
 

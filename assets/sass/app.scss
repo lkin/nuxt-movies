@@ -27,15 +27,16 @@
 // Application Components
 @import './modules/hooper';
 @import './modules/logo';
-@import './modules/media-card';
-@import './modules/media-hero';
-@import './modules/media-list';
-@import './modules/media-list-scrollable';
-@import './modules/media-list-grid';
+@import './modules/card';
+@import './modules/hero';
+@import './modules/cards-list';
+@import './modules/cards-list-scrollable';
+@import './modules/cards-list-grid';
 @import './modules/header';
 @import './modules/footer';
 @import './modules/upcoming';
 @import './modules/film-strip-loader';
+
 
 //@import './modules/error-page';
 //@import './modules/cookie-bar';

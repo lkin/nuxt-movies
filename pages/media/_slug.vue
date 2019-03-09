@@ -1,5 +1,5 @@
 <template>
-  <section class="movie"></section>
+  <section class="media"></section>
 </template>
 
 <script>

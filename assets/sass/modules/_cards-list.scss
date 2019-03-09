@@ -1,11 +1,11 @@
-.media-list {
+.cards-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
 
 
-  .media-card {
+  .card {
     margin: 0 2rem 2rem 0;
   }
 }

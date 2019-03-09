@@ -1,11 +1,11 @@
 <template>
   <main role="main">
 
-    <HeroSlider :movies="upcoming"></HeroSlider>
+    <HeroSlider :media="upcoming"></HeroSlider>
 
-    <MediaScrollableList title="Top rated" :movies="topRated"></MediaScrollableList>
+    <ScrollableCardsList title="Top rated" :media="topRated"></ScrollableCardsList>
 
-    <MediaCardsGrid title="Top rated" card-type="backdrop" :movies="topRated"></MediaCardsGrid>
+    <CardsGrid title="Top rated" card-type="backdrop" :media="topRated"></CardsGrid>
   </main>
 </template>
 
@@ -14,14 +14,14 @@ import { mapActions } from 'vuex';
 // import MoviesList from '../components/MoviesList';
 // import LatestMovie from '../components/LatestMovie';
 import HeroSlider from '../components/HeroSlider';
-import MediaScrollableList from '../components/MediaScrollableList';
+import ScrollableCardsList from '../components/ScrollableCardsList';
 import shared from '../lib/shared';
-import MediaCardsGrid from '../components/MediaCardsGrid';
+import CardsGrid from '../components/CardsGrid';
 
 export default {
   components: {
-    MediaCardsGrid,
-    MediaScrollableList,
+    CardsGrid,
+    ScrollableCardsList,
     HeroSlider
   },
 

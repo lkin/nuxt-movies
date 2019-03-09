@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { storiesOf } from '@storybook/vue';
-import MediaCard from '../components/MediaCard';
-import MediaScrollableList from '../components/MediaScrollableList';
-import MediaCardsGrid from '../components/MediaCardsGrid';
+import Card from '../components/Card';
+import ScrollableCardsList from '../components/ScrollableCardsList';
+import CardsGrid from '../components/CardsGrid';
 import { mutations, actions } from '../store';
 
 // import app styles
@@ -553,12 +553,12 @@ const movies = [
 ];
 
 /**
- * MediaCard
+ * Card
  */
-storiesOf('MediaCard', module)
+storiesOf('Card', module)
   .add('Backdrop format', () => ({
-    components: { MediaCard },
-    template: '<media-card :movie="movie"></media-card>',
+    components: { Card },
+    template: '<card :medium="movie"></card>',
     data() {
       return {
         movie: movie
@@ -571,8 +571,8 @@ storiesOf('MediaCard', module)
     }),
   }))
   .add('Poster format', () => ({
-    components: { MediaCard },
-    template: '<media-card :movie="movie" card-type="poster"></media-card>',
+    components: { Card },
+    template: '<card :medium="movie" card-type="poster"></card>',
     data() {
       return {
         movie: movie
@@ -588,10 +588,10 @@ storiesOf('MediaCard', module)
 /**
  * MediaScrollableList
  */
-storiesOf('MediaScrollableList', module)
+storiesOf('ScrollableCardsList', module)
   .add('list of Poster', () => ({
-    components: { MediaScrollableList },
-    template: '<media-scrollable-list title="Test long title" :movies="movies"></media-scrollable-list>',
+    components: { ScrollableCardsList },
+    template: '<scrollable-cards-list title="Test long title" :media="movies"></scrollable-cards-list>',
     data() {
       return {
         movies: movies
@@ -604,8 +604,8 @@ storiesOf('MediaScrollableList', module)
     }),
   }))
   .add('list of Backdrop', () => ({
-    components: { MediaScrollableList },
-    template: '<media-scrollable-list title="Test long title" card-type="poster" :movies="movies"></media-scrollable-list>',
+    components: { ScrollableCardsList },
+    template: '<scrollable-cards-list title="Test long title" card-type="poster" :media="movies"></scrollable-cards-list>',
     data() {
       return {
         movies: movies
@@ -621,10 +621,10 @@ storiesOf('MediaScrollableList', module)
 /**
  * MediaCardsGrid
  */
-storiesOf('MediaCardsGrid', module)
+storiesOf('CardsGrid', module)
   .add('backdrop', () => ({
-    components: { MediaCardsGrid },
-    template: '<media-cards-grid title="Test long title" card-type="backdrop" :movies="movies"></media-cards-grid>',
+    components: { CardsGrid },
+    template: '<cards-grid title="Test long title" card-type="backdrop" :media="movies"></cards-grid>',
     data() {
       return {
         movies: movies

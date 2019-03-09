@@ -1,4 +1,4 @@
-.media-list--grid {
+.cards-list--grid {
   display: block;
   margin: 2rem 0;
 
@@ -11,7 +11,7 @@
     }
   }
 
-  .media-list__container {
+  .cards-list__container {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     align-items: flex-start;
   }
 
-  //.movie-card {
+  //.card {
   //  margin: 1.5rem;
   //  box-shadow: -1rem 0 2rem $color-total-black;
   //
