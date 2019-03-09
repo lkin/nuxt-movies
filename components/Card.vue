@@ -1,9 +1,9 @@
 <template>
   <article class="card" :class="{'card--poster': cardType === shared.cardType.poster}">
-    <nuxt-link :to="`/media/${medium._slug}`">
+    <nuxt-link :to="`/media/${medium.id}`">
       <figure>
         <img :sizes="movieMaxPictureSize"
-             :srcset="movieResponsivePath"
+             :srcset="pictureResponsivePath"
              :src="movieMaxPicturePath"
              alt=""
         >
@@ -20,11 +20,13 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
 import shared from '../lib/shared';
+import mediumMixin from '../lib/mediumMixin';
 
 export default {
   name: 'Card',
+
+  mixins: [mediumMixin],
 
   props: {
     cardType: {
@@ -49,54 +51,23 @@ export default {
   },
 
   computed: {
-    backdropSizes() {
-      return this.$store.state.api.configuration.images.backdrop_sizes.filter(size => size !== 'original');
-    },
-    posterSizes() {
-      return this.$store.state.api.configuration.images.poster_sizes.filter(size => size !== 'original');
-    },
-
     movieMaxPicturePath() {
-      return this.cardType === 'poster' ? this.posterMaxPath : this.backdropMaxPath;
+      return this.cardType === shared.cardType.poster ? this.posterMaxPath : this.backdropMaxPath;
     },
 
     movieMaxPictureSize() {
-      const maxSize = this.cardType === 'poster' ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.posterSizes.length - 1];
+      const maxSize = this.cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.posterSizes.length - 1];
 
       return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
     },
 
-    backdropMaxPath() {
-      const filePath = this.medium.backdrop_path;
-      const size = this.backdropSizes[this.posterSizes.length - 1];
-
-      return this.getImagePath(filePath, size);
-    },
-
-    posterMaxPath() {
-      const filePath = this.medium.poster_path;
-      const size = this.posterSizes[this.posterSizes.length - 1];
-
-      return this.getImagePath(filePath, size);
-    },
-
-    movieResponsivePath() {
-      const filePath = this.cardType === 'poster' ? this.medium.poster_path : this.medium.backdrop_path;
-      const sizes = this.cardType === 'poster' ? this.posterSizes : this.backdropSizes;
+    pictureResponsivePath() {
+      const filePath = this.cardType === shared.cardType.poster ? this.medium.poster_path : this.medium.backdrop_path;
+      const sizes = this.cardType === shared.cardType.poster ? this.posterSizes : this.backdropSizes;
       // console.log({ sizes });
       return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`);
     }
-  },
-  methods: {
-    formatDate(date) {
-      const d = dayjs(date);
-      return d.format('MMM D, YYYY');
-    },
 
-    getImagePath(filePath, size) {
-      const baseUrl = this.$store.state.api.configuration.images.secure_base_url;
-      return `${baseUrl}${size}${filePath}`;
-    }
   }
 };
 </script>
