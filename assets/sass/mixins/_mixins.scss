@@ -18,22 +18,22 @@
   margin: 0 auto;
 }
 
-@mixin button {
-  border: 0;
-  background-color: $color-dark-gray;
-  height: 3.33rem;
-  padding: 0 1.11rem;
-  font-weight: 700;
-  font-size: 1.22rem;
-  color: $color-total-white;
-  letter-spacing: 0;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $color-dark-red;
-  }
-}
+//@mixin button {
+//  border: 0;
+//  background-color: $color-dark-gray;
+//  height: 3.33rem;
+//  padding: 0 1.11rem;
+//  font-weight: 700;
+//  font-size: 1.22rem;
+//  color: $color-white;
+//  letter-spacing: 0;
+//
+//  &:hover,
+//  &:focus,
+//  &:active {
+//    //background-color: $color-dark-red;
+//  }
+//}
 
 
 @function strip-unit($value) {
@@ -77,7 +77,7 @@
    CSS Secrets, Lea Verou, Chapter 5
 */
 // Sara Soueidan version
-@mixin better-underline($underline-color: $color-brand-light) {
+@mixin better-underline($underline-color: $color-white) {
   text-decoration: none;
   border-bottom: .10em solid transparent;
   outline: 0;
@@ -91,7 +91,7 @@
   }
 }
 
-@mixin better-underline-always($underline-color: $color-brand-light) {
+@mixin better-underline-always($underline-color: $color-white) {
   text-decoration: none;
   outline: 0;
   border-bottom: .10em solid currentColor;

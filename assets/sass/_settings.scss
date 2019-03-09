@@ -16,52 +16,34 @@ $breakpoints: (
 
 
 // colors
-//$color-light-gray: #f5f5f5;
-//$color-medium-gray: #cacaca;
-//$color-dark-gray: #494949;
-//$color-gray: #696969;
-$color-total-black: #000;
-//$color-dark-gray: #141414;
+$color-brand: #e6b91e;
+$color-black: #000;
+$color-dark: #141515;
+$color-dark-gray: #222;
 $color-light: #DCE2EB;
 $color-white: #fff;
-//$color-dark-red: #601B1F;
 $color-error: #f00;
-//$color-red: #DB202C; // netflix red
-
-$color-brand-dark: #3D3C5D;
-$color-brand-medium: #5B6BA2;
-$c1: #968CA1;
-$color-brand-light: #739BD2;
-$c1: #A9C8E5;
-$c1: #DCE2EB;
-$c1: #D9B09A;
-$color-main-gradient1: #5C5F82;
-$color-main-gradient2: #1C1C3D;
-
-// Gradients
-// ------------------
-$gradient-main: linear-gradient(134deg, $color-main-gradient1 0%, $color-main-gradient2 100%);
 
 // Body
 // ------------------
 $global-radius: 4px;
-$body-background: $color-main-gradient1;
+$body-background: $color-dark-gray;
 
 // Base Typography
 // ------------------
 $baseline: 1.5;
 $use-variable-font: false;
 $use-variable-font-for-headings: false;
-$body-font-color: $color-light;
-$body-font-letter-spacing: .5px;
-$variable-font-family: 'Source Sans Pro Var', Helvetica, Roboto, Arial, sans-serif;
+$body-font-color: $color-white;
+$body-font-letter-spacing: normal;
+$variable-font-family: 'Ubuntu Var', Helvetica, Roboto, Arial, sans-serif;
 $variable-heading-font-family: $variable-font-family;
-$body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
-$heading-font-family: 'Source Sans Pro', sans-serif;
+$body-font-family: 'Ubuntu', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family: 'Montserrat', sans-serif;
 $heading-font-weight: 700;
 $kerning: normal; // auto (default), normal (enabled), none (disabled)
-$selection-color: $color-brand-dark;
-$placeholder-color: $color-brand-dark;
+$selection-color: $color-brand;
+$placeholder-color: $color-black;
 
 
 // Focus
@@ -81,5 +63,5 @@ $menu-toggle-button-zindex: $menu-zindex + 2;
 // Forms
 // -----------
 $form-field-max-width: 20rem;
-$form-field-border: 2px solid $color-total-black;
+$form-field-border: 2px solid $color-black;
 $form-border-radius: 2px;

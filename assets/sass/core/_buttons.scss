@@ -5,7 +5,7 @@
   padding: 10px 1rem;
   border: 0;
   border-radius: $global-radius;
-  background-color: $color-light;
+  background-color: $color-dark;
   transition: all .2s ease-out;
   font-family: $body-font-family;
 
@@ -16,17 +16,17 @@
   }
 
   font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: $color-brand-dark;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: normal;
+  color: $color-white;
   text-transform: none;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: $color-brand-dark;
-    color: $color-light;
+    background-color: $color-brand;
+    color: $color-black;
   }
 
   // inline svg

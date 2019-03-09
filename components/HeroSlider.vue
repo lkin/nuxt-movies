@@ -17,8 +17,8 @@
                 alt=""
               >
               <figcaption>
-                <h2>{{ medium.title }}</h2>
-                <h3>{{ formatDate(medium.release_date) }}</h3>
+                <h1>{{ medium.title }}</h1>
+                <p>{{ formatDate(medium.release_date) }}</p>
                 <p>{{ medium.overview.length > 160 ? (medium.overview.slice(0,160) + '...') : medium.overview }}</p>
                 <button class="button">
                   <svg>

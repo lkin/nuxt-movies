@@ -8,9 +8,9 @@ $contrast: color-contrast($body-background, $color-light);
 //  @warn "Contrast ratio of #{$body-background} on #{$color-gray} is pretty bad, just #{$contrast}";
 //}
 
-$contrast: color-contrast($color-light, $color-total-black);
+$contrast: color-contrast($color-light, $color-black);
 @if ($contrast < 4.5) {
-  @warn "Contrast ratio of #{$color-light} on #{$color-total-black} is pretty bad, just #{$contrast}";
+  @warn "Contrast ratio of #{$color-light} on #{$color-black} is pretty bad, just #{$contrast}";
 }
 //
 //$contrast: color-contrast($color-blue, $color-black);

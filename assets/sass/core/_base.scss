@@ -43,11 +43,6 @@ body {
   margin: 0 auto;
   padding: 0;
   background-color: $body-background;
-  background-image: $gradient-main;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
   font-family: $body-font-family;
   font-weight: normal;
   letter-spacing: $body-font-letter-spacing;
@@ -100,36 +95,53 @@ h5 {
 
 
 h1 {
-  text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 2.227rem;
+  letter-spacing: 1.5px;
   line-height: 3;
-  letter-spacing: .91px;
+  text-align: left;
+  text-transform: uppercase;
+  color: $color-white;
+
+  @include media(">=tablet") {
+    font-size: 2.88rem;
+    line-height: 3.5rem;
+    letter-spacing: normal;
+  }
 }
 
 h2 {
-  font-size: 1.667rem;
-  line-height: 2.5;
-  letter-spacing: .91px;
+  font-size: 25px;
+  line-height: 1.667rem;
+  letter-spacing: 0.33px;
+  font-weight: 600;
+  color: $color-brand;
+  text-align: left;
+
+  @include media(">=tablet") {
+    font-size: 1.667rem;
+    line-height: 2.05rem;
+    letter-spacing: .4px;
+  }
 }
 
-h3 {
-  font-size: 1.5rem;
-  line-height: 2;
-  letter-spacing: .6px;
-}
-
-h4 {
-  font-size: 1.111rem;
-  line-height: 1.6;
-  letter-spacing: .5px;
-}
-
-h5,
-h6 {
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: .5px;
-}
+//h3 {
+//  font-size: 1.5rem;
+//  line-height: 2;
+//  letter-spacing: .6px;
+//}
+//
+//h4 {
+//  font-size: 1.111rem;
+//  line-height: 1.6;
+//  letter-spacing: .5px;
+//}
+//
+//h5,
+//h6 {
+//  font-size: 1rem;
+//  line-height: 1.5;
+//  letter-spacing: .5px;
+//}
 
 
 p {
@@ -163,8 +175,8 @@ a {
   font-weight: 400;
   line-height: inherit;
   //text-transform: uppercase;
-  color: $color-light;
-  @include better-underline-always;
+  color: $color-white;
+  //@include better-underline-always;
 
   //&:focus,
   //&:hover {
