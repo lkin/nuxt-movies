@@ -1,5 +1,5 @@
 .card {
-  flex: 0 0 auto;
+  flex: 0 0 342px;
   position: relative;
   width: 342px;
   height: 192px;
@@ -8,6 +8,7 @@
   transition: .2s ease;
 
   @include media('>=tablet') {
+    flex: 0 0 578px;
     //width: 342px;
     //height: 192px;
     width: 578px;
@@ -121,11 +122,13 @@
 }
 
 .card--poster {
+  flex: 0 0 185px;
   width: 185px;
   height: 278px;
 
 
   @include media('>=tablet') {
+    flex: 0 0 342px;
     width: 342px;
     height: 513px;
   }
@@ -133,7 +136,8 @@
 
 
 .card--alternate-width {
-  &:nth-child(odd) {
+  &:nth-child(even) {
+    flex: 0 0 290px;
     width: 290px;
     height: 420px;
   }

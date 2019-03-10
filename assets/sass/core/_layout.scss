@@ -12,7 +12,8 @@ main {
   //margin-top: $menu-height;
 }
 
-section {
+main > section,
+main > article {
   max-width: $maxWidth;
   margin: 0 auto;
   padding: 0 1.5rem;

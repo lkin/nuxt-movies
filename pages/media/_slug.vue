@@ -1,22 +1,21 @@
 <template>
   <transition name="fade" mode="out-in">
-    <section v-if="medium !== undefined" class="medium-details">
+    <article v-if="medium !== undefined" class="medium-details">
       <header>
         <div class="medium-details__header">
           <h1>{{ medium.original_title }}</h1>
           <h2 v-if="medium.original_title !== medium.title">{{ medium.title }}</h2>
-          <p>Released {{ formatDate(medium.release_date) }}</p>
-          <p>{{ medium.overview }}</p>
+          <p class="medium__genres"><span v-for="genre in medium.genres" :key="genre.id">{{ genre.name }}</span></p>
+          <p class="medium__released">{{ formatDate(medium.release_date) }}</p>
 
-          <p>IMDB</p>
-          <p>Director</p>
-          <p>Cast</p>
-          <p>Genres: <span v-for="(genre, index) in medium.genres" :key="genre.id">{{ genre.name }}<span v-if="index < (medium.genres.length - 1)">,&nbsp;</span></span></p>
-          <p>Votes</p>
-          <p>Popularity</p>
-          <p>Tagline</p>
+          <!--<p>IMDB</p>-->
+          <!--<p>Director</p>-->
+          <!--<p>Cast</p>-->
+          <!--<p>Votes</p>-->
+          <!--<p>Popularity</p>-->
+          <!--<p>Tagline</p>-->
 
-          <p>Videos</p>
+          <!--<p>Videos</p>-->
         </div>
         <img :sizes="movieMaxPictureSize(shared.cardType.backdrop)"
              :srcset="pictureResponsivePath"
@@ -25,18 +24,27 @@
         >
       </header>
 
-      <aside>
-        <figure>
-          <img :sizes="movieMaxPictureSize(shared.cardType.poster)"
-               :srcset="pictureResponsivePath"
-               :src="movieMaxPicturePath(shared.cardType.poster)"
-               alt=""
-          >
+      <section>
+        <aside class="medium__poster">
+          <h2>Poster</h2>
+          <figure>
+            <img :sizes="movieMaxPictureSize(shared.cardType.poster)"
+                 :srcset="pictureResponsivePath"
+                 :src="movieMaxPicturePath(shared.cardType.poster)"
+                 alt=""
+            >
+          </figure>
+        </aside>
 
-          <figcaption></figcaption>
-        </figure>
-      </aside>
-    </section>
+        <div class="medium__storyline">
+          <h2>Storyline</h2>
+          <p>{{ medium.overview }}</p>
+        </div>
+
+      </section>
+
+
+    </article>
 
     <section v-else>
       <FilmStripLoader></FilmStripLoader>
@@ -96,7 +104,7 @@ export default {
     },
 
     movieMaxPictureSize(cardType) {
-      const maxSize = cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.posterSizes.length - 1];
+      const maxSize = cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.backdropSizes.length - 1];
 
       return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
     },
