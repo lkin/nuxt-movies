@@ -1,7 +1,9 @@
 .button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 1.888rem;
   padding: 10px 1rem;
   border: 0;
   border-radius: $global-radius;
@@ -28,11 +30,39 @@
     background-color: $color-brand;
     color: $color-black;
   }
+}
 
-  // inline svg
+
+// inline svg
+.button__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.888rem;
+  height: 1.888rem;
+  margin-left: .5rem;
+  background-color: $color-brand;
+  transition: all .2s ease-out;
+
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: .5rem;
+    width: 1.111rem;
+    height: 1.111rem;
+  }
+}
+
+.button--icon {
+  padding-right: 2.888rem;
+
+
+  &:hover,
+  &:focus,
+  &:active {
+    .button__icon {
+      background-color: $color-black;
+      color: $color-brand;
+    }
   }
 }

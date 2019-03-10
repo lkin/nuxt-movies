@@ -1,0 +1,15 @@
+.category {
+  display: inline-block;
+  //height: 1.44rem;
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+  border: 3px solid $color-brand;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+  color: $color-brand;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.50);
+}

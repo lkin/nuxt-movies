@@ -3,6 +3,16 @@
 
     <HeroSlider :media="upcoming"></HeroSlider>
 
+    <section class="tabbed-scrollable-list">
+      <p class="category">Movies</p>
+
+      <nav>
+        <button type="button">Opening</button>
+        <button type="button">In Theaters</button>
+        <button type="button">Coming soon</button>
+      </nav>
+    </section>
+
     <ScrollableCardsList title="Top rated" :media="topRated"></ScrollableCardsList>
 
     <CardsGrid title="Top rated" card-type="backdrop" :media="topRated"></CardsGrid>

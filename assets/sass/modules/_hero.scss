@@ -22,7 +22,7 @@
     left: 0;
     width: 70%;
     height: 100%;
-    padding: 4.5vw;
+    padding: 5rem 4.5vw;
     background-image: linear-gradient(to right, rgba(0, 0, 0, .4) 0, rgba(0, 0, 0, 0) 100%);
     background-blend-mode: multiply;
     overflow: hidden;
@@ -34,6 +34,10 @@
     p {
       margin: 0;
     }
+
+    .button {
+      margin: 2rem 0;
+    }
   }
 }
 
@@ -43,7 +47,8 @@
   span {
     margin-right: 22px;
     font-size: 17px;
-    //color: #FFFFFF;
+    font-weight: 700;
+    color: $color-white;
     text-align: left;
     text-transform: capitalize;
   }
@@ -52,4 +57,51 @@
 .hero__info-small {
   font-size: 13px;
   letter-spacing: 0.4px;
+}
+
+.hero__tag {
+  display: inline-block;
+  width: auto;
+  height: 1.5rem;
+  margin-bottom: .611rem;
+  padding: 0 .611rem;
+  border-radius: $global-radius;
+  background: $color-brand;
+  box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.50);
+  font-size: 1rem;
+  letter-spacing: 1.9px;
+  text-align: left;
+  color: $color-dark-gray;
+}
+
+.hero__play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130px;
+  height: 160px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  transform: translate3d(-50%, -50%, 0);
+
+  .triangle {
+    transition: fill-opacity .2s ease-out;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    .triangle{
+      fill-opacity: 1;
+    }
+  }
+}
+
+
+.hero__abstract {
+  position: absolute;
+  left: 4.5vw;
+  bottom: 4rem;
 }
