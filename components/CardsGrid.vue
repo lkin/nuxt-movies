@@ -1,8 +1,8 @@
 <template>
   <section class="cards-list cards-list--grid">
-    <header v-if="title">
-      <h2>{{ title }}</h2>
-    </header>
+    <!--<header v-if="title">-->
+      <!--<h2>{{ title }}</h2>-->
+    <!--</header>-->
     <div class="cards-list__container">
       <Card v-for="(medium, index) in media" :key="index"
                  :medium="medium"

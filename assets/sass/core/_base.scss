@@ -110,18 +110,7 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
-  line-height: 1.667rem;
-  letter-spacing: 0.33px;
-  font-weight: 600;
-  color: $color-brand;
-  text-align: left;
-
-  @include media(">=tablet") {
-    font-size: 1.667rem;
-    line-height: 2.05rem;
-    letter-spacing: .4px;
-  }
+  @include branded-heading;
 }
 
 //h3 {

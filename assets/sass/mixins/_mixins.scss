@@ -18,22 +18,21 @@
   margin: 0 auto;
 }
 
-//@mixin button {
-//  border: 0;
-//  background-color: $color-dark-gray;
-//  height: 3.33rem;
-//  padding: 0 1.11rem;
-//  font-weight: 700;
-//  font-size: 1.22rem;
-//  color: $color-white;
-//  letter-spacing: 0;
-//
-//  &:hover,
-//  &:focus,
-//  &:active {
-//    //background-color: $color-dark-red;
-//  }
-//}
+@mixin branded-heading {
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.667rem;
+  letter-spacing: 0.33px;
+  color: $color-brand;
+  text-align: left;
+  text-transform: uppercase;
+
+  @include media(">=tablet") {
+    font-size: 1.667rem;
+    line-height: 2.05rem;
+    letter-spacing: .4px;
+  }
+}
 
 
 @function strip-unit($value) {
