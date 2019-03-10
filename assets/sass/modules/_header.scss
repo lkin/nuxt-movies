@@ -27,7 +27,7 @@
   width: 100vw;
   height: $menu-height;
   z-index: $menu-zindex + 1;
-  background-color: $body-background;
+  background-color: rgba($color-dark-gray, .64);
   overflow: hidden;
 
   &.header--open {
@@ -109,12 +109,16 @@
     display: block;
     width: 100%;
     padding: 0;
-    font-size: 1rem;
-    line-height: 1.33;
     font-family: $heading-font-family;
-    font-weight: 400;
-    color: $color-light;
-    text-transform: capitalize;
+    font-size: .8rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.37px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-white;
+    transition: color .2s ease-out;
+
 
     /*
      * Don't enable hover on links, it wll cause this issue on ios:
@@ -127,9 +131,8 @@
 
     &:active,
     &:focus {
-      //color: $color-red;
+      color: $color-brand;
       text-decoration: none;
-      outline: 0;
     }
 
   }
@@ -162,39 +165,15 @@
     a {
       display: block;
       width: auto;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.18;
-      letter-spacing: 2px;
-      color: $color-light;
-      transition: color .2s ease-out;
-      text-decoration: none;
+      margin: 0 1rem;
 
       &:hover,
       &:active,
       &:focus {
-        //color: $color-red;
+        color: $color-brand;
         text-decoration: none;
-        outline: 0;
       }
-    }
-  }
 
-  @include media(">=tablet") {
-    a {
-      font-size: 1.18rem;
-    }
-
-    &.menu--left {
-      justify-content: flex-start;
-      margin: 0;
-      padding-left: 3.63rem;
-    }
-
-    &.menu--right {
-      justify-content: flex-end;
-      margin: 0;
-      padding-right: 2.72rem;
     }
   }
 }

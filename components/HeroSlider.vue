@@ -18,7 +18,9 @@
               >
               <figcaption>
                 <h1>{{ medium.title }}</h1>
-                <p>{{ formatDate(medium.release_date) }}</p>
+                <p class="hero__genres"><span v-for="id in medium.genre_ids" :key="id">{{ getGenre(id) }}</span></p>
+                <p class="hero__info-small">{{ formatDate(medium.release_date) }}</p>
+                <p class="hero__info-small">Popularity: {{ medium.vote_average * 10}}%</p>
                 <p>{{ medium.overview.length > 160 ? (medium.overview.slice(0,160) + '...') : medium.overview }}</p>
                 <button class="button">
                   <svg>
@@ -77,6 +79,16 @@ export default {
     formatDate(date) {
       const d = dayjs(date);
       return d.format('MMM D, YYYY');
+    },
+
+    getGenre(id) {
+      const genre = this.$store.state.content.movieGenres.find(genre => genre.id === id);
+
+      if (genre) {
+        return genre.name;
+      }
+
+      return '';
     },
 
     posterPath(medium) {
