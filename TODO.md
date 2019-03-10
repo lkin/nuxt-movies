@@ -7,6 +7,7 @@
 * search + results
 * login
 * profile
+* title in non latin char, use proper lang
 
 
 ## Lists

@@ -7,13 +7,12 @@
              :src="movieMaxPicturePath"
              alt=""
         >
-
-        <figcaption></figcaption>
+        <figcaption>{{ medium.title }}</figcaption>
       </figure>
-      <header>
-        <h2>{{ medium.original_title }}</h2>
-        <!--<p>{{ medium.overview }}</p>-->
+
+      <header v-if="cardType !== shared.cardType.poster">
         <p>Released {{ formatDate(medium.release_date) }}</p>
+        <h3>{{ medium.original_title }}</h3>
       </header>
     </nuxt-link>
   </article>
@@ -56,7 +55,7 @@ export default {
     },
 
     movieMaxPictureSize() {
-      const maxSize = this.cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.posterSizes.length - 1];
+      const maxSize = this.cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.backdropSizes.length - 1];
 
       return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
     },

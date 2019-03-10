@@ -7,6 +7,7 @@
       <Card v-for="(medium, index) in media" :key="index"
                  :medium="medium"
                  :card-type="cardType"
+                 :class="'card--show-info'"
       >
       </Card>
     </div>
