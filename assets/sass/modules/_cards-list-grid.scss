@@ -1,5 +1,6 @@
 .cards-list--grid {
   display: block;
+  max-width: none;
   margin: 2rem auto;
 
   header {
@@ -15,29 +16,12 @@
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
   }
 
-  //.card {
-  //  margin: 1.5rem;
-  //  box-shadow: -1rem 0 2rem $color-total-black;
-  //
-  //  &:not(:first-child) {
-  //    margin-left: -10px;
-  //
-  //    @include media('>=tablet') {
-  //      margin-left: -130px;
-  //    }
-  //  }
-  //
-  //  &:hover {
-  //    transform: translate(0, -1rem);
-  //  }
-  //
-  //  &:focus-within ~ .mini-card,
-  //  &:hover ~ .movie-card {
-  //    transform: translateX(130px);
-  //  }
-  //}
+  .card {
+    flex: 1 1 30%;
+    width: 30%;
+  }
 }
