@@ -14,7 +14,7 @@ export const state = () => ({
       // movies
       // ------------------------------------------------------------
       moviesGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
-      movieDetails: `https://api.themoviedb.org/3/movie/MOVIE_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
+      movieDetails: `https://api.themoviedb.org/3/movie/MOVIE_ID?api_key=${process.env.movieDbApiKey}&include_image_language=en&append_to_response=videos,images`,
 
       // trending: https://developers.themoviedb.org/3/trending/get-trending
       trending: `https://api.themoviedb.org/3/trending/TYPE/TIME?api_key=${process.env.movieDbApiKey}`,

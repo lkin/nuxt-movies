@@ -112,6 +112,7 @@
 
 .medium__storyline {
   flex: 1 1 auto;
+  max-width: calc(100% - 432px);
   margin: 0 0 0 32px;
 
   h2 {
