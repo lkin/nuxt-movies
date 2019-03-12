@@ -2,6 +2,10 @@
 
 * lazy load
 * movie details
+  * cast/crew: 
+    * pagination
+    * search within
+    * view all
 * series
 * series details
 * search + results

@@ -15,13 +15,13 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
-    "@nuxtjs/sitemap": "^0.2.0",
+    "@nuxtjs/sitemap": "^0.2.2",
     "cross-env": "^5.2.0",
-    "dayjs": "^1.8.9",
+    "dayjs": "^1.8.10",
     "gsap": "^2.1.2",
     "hooper": "0.0.9",
     "markdown-it": "^8.4.2",
-    "netlify-cms": "^2.6.0",
+    "netlify-cms": "^2.6.1",
     "nuxt": "^2.4.5",
     "nuxt-svg-sprite-module": "^1.0.3"
   },
