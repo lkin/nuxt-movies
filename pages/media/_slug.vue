@@ -18,7 +18,7 @@
           <!--<p>Videos</p>-->
         </div>
         <img :sizes="movieMaxPictureSize(shared.cardType.backdrop)"
-             :srcset="pictureResponsivePath"
+             :srcset="pictureResponsivePath(shared.cardType.backdrop)"
              :src="movieMaxPicturePath(shared.cardType.backdrop)"
              alt=""
         >
@@ -29,7 +29,7 @@
           <h2>Poster</h2>
           <figure>
             <img :sizes="movieMaxPictureSize(shared.cardType.poster)"
-                 :srcset="pictureResponsivePath"
+                 :srcset="pictureResponsivePath(shared.cardType.poster)"
                  :src="movieMaxPicturePath(shared.cardType.poster)"
                  alt=""
             >
@@ -43,13 +43,15 @@
           <h2>Cast</h2>
           <ul v-if="credits !== undefined" class="medium__cast">
             <li v-for="cast in credits.cast" :key="cast.cast_id">
-              <img :sizes="creditsMaxPictureSize"
-                   :srcset="creditsProfileResponsivePath(cast.profile_path)"
-                   :src="creditsProfilePicturePath(cast.profile_path)"
-                   alt=""
-              >
-              <p>{{ cast.character }}</p>
-              <p>{{ cast.name }}</p>
+              <nuxt-link :to="`/people/${cast.cast_id}`">
+                <img :sizes="creditsMaxPictureSize()"
+                     :srcset="creditsProfileResponsivePath(cast.profile_path)"
+                     :src="creditsProfilePicturePath(cast.profile_path)"
+                     alt=""
+                >
+                <p>{{ cast.character }}</p>
+                <p>{{ cast.name }}</p>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -128,19 +130,18 @@ export default {
     pictureResponsivePath(cardType) {
       const filePath = cardType === shared.cardType.poster ? this.medium.poster_path : this.medium.backdrop_path;
       const sizes = cardType === shared.cardType.poster ? this.posterSizes : this.backdropSizes;
-      // console.log({ sizes });
+
       return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`);
     },
 
 
     creditsMaxPictureSize() {
-      const maxSize = this.profileSizes[this.profileSizes.length - 1];
+      const maxSize = this.profileSizes[1];
       return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
     },
 
-    creditsProfileResponsivePath(profilePath){
+    creditsProfileResponsivePath(profilePath) {
       const sizes = this.profileSizes;
-      // console.log({ sizes });
       return sizes.map(size => `${this.getImagePath(profilePath, size)} ${size.replace('w', '')}w`);
     },
 
