@@ -39,6 +39,19 @@
         <div class="medium__storyline">
           <h2>Storyline</h2>
           <p>{{ medium.overview }}</p>
+
+          <h2>Cast</h2>
+          <ul v-if="credits !== undefined" class="medium__cast">
+            <li v-for="cast in credits.cast" :key="cast.cast_id">
+              <img :sizes="creditsMaxPictureSize"
+                   :srcset="creditsProfileResponsivePath(cast.profile_path)"
+                   :src="creditsProfilePicturePath(cast.profile_path)"
+                   alt=""
+              >
+              <p>{{ cast.character }}</p>
+              <p>{{ cast.name }}</p>
+            </li>
+          </ul>
         </div>
 
       </section>
@@ -75,6 +88,7 @@ export default {
   data: function () {
     return {
       medium: undefined,
+      credits: undefined,
       loading: false,
       loaded: false,
       shared
@@ -92,11 +106,14 @@ export default {
       this.loading = false;
       this.loaded = true;
     });
+
+    this.getCredits(id).then(credits => this.credits = credits);
   },
 
   methods: {
     ...mapActions({
-      getDetails: 'getApiMovieDetails'
+      getDetails: 'getApiMovieDetails',
+      getCredits: 'getApiMovieCredits'
     }),
 
     movieMaxPicturePath(cardType) {
@@ -105,7 +122,6 @@ export default {
 
     movieMaxPictureSize(cardType) {
       const maxSize = cardType === shared.cardType.poster ? this.posterSizes[this.posterSizes.length - 1] : this.backdropSizes[this.backdropSizes.length - 1];
-
       return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
     },
 
@@ -114,7 +130,24 @@ export default {
       const sizes = cardType === shared.cardType.poster ? this.posterSizes : this.backdropSizes;
       // console.log({ sizes });
       return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`);
-    }
+    },
+
+
+    creditsMaxPictureSize() {
+      const maxSize = this.profileSizes[this.profileSizes.length - 1];
+      return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
+    },
+
+    creditsProfileResponsivePath(profilePath){
+      const sizes = this.profileSizes;
+      // console.log({ sizes });
+      return sizes.map(size => `${this.getImagePath(profilePath, size)} ${size.replace('w', '')}w`);
+    },
+
+    creditsProfilePicturePath(profilePath) {
+      const size = this.profileSizes[1];
+      return this.getImagePath(profilePath, size);
+    },
 
     // async validate({ params, query, store }) {
     //   // await operations
@@ -139,7 +172,6 @@ export default {
     //
     //   return false; // will stop Nuxt.js to render the route and display the error page
     // },
-
   }
 
 
