@@ -7,6 +7,7 @@ export const state = () => ({
     url: {
       configuration: `https://api.themoviedb.org/3/configuration?api_key=${process.env.movieDbApiKey}`,
       images: 'https://image.tmdb.org/t/p/',
+      youtubeEmbed: 'https://www.youtube.com/embed/',
       youtubeTrailer: 'https://www.youtube.com/watch?v=',
       youtubePoster: 'https://img.youtube.com/vi/YOUTUBEKEY/hqdefault.jpg',
       youtubePosterMaxRes: 'https://img.youtube.com/vi/YOUTUBEKEY/maxresdefault.jpg',

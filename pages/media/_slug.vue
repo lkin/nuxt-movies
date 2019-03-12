@@ -55,7 +55,11 @@
             </li>
           </ul>
         </div>
+      </section>
 
+      <section class="medium__videos">
+        <h2>Videos</h2>
+        <ScrollableVideoList :videos="medium.videos.results"></ScrollableVideoList>
       </section>
 
 
@@ -72,10 +76,11 @@ import { mapActions } from 'vuex';
 import mediumMixin from '../../lib/mediumMixin';
 import FilmStripLoader from '../../components/FilmStripLoader';
 import shared from '../../lib/shared';
+import ScrollableVideoList from '../../components/ScrollableVideoList';
 
 export default {
   name: 'Details',
-  components: { FilmStripLoader },
+  components: { ScrollableVideoList, FilmStripLoader },
   mixins: [mediumMixin],
 
   // head() {
