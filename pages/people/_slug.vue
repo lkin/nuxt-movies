@@ -5,12 +5,12 @@
 
 <script>
 import { mapActions } from 'vuex';
-import FilmStripLoader from '../../components/FilmStripLoader';
+// import FilmStripLoader from '../../components/FilmStripLoader';
 import shared from '../../lib/shared';
 
 export default {
   name: 'Details',
-  components: { FilmStripLoader },
+  // components: { FilmStripLoader },
 
   // head() {
   //   return {
