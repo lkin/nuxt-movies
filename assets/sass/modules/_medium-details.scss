@@ -128,12 +128,13 @@
 
   li {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
 
   img {
+    flex: 0 0 85px;
     width: 85px;
     height: 85px;
     border-radius: 50%;
@@ -141,6 +142,8 @@
   }
 
   p:nth-child(2) {
+    flex: 1 1 auto;
+    width: calc(100% - 85px);
     margin: 0;
     font-family: $heading-font-family;
     font-size: .778rem;
@@ -149,6 +152,8 @@
   }
 
   p:nth-child(3) {
+    flex: 1 1 auto;
+    width: calc(100% - 85px);
     margin: 0;
     font-size: .888rem;
     line-height: 1.22rem;
