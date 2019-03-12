@@ -24,6 +24,7 @@ export default {
   data: function () {
     return {
       person: undefined,
+      credits: undefined,
       loading: false,
       loaded: false,
       shared
@@ -36,38 +37,46 @@ export default {
     this.loading = true;
     const id = this.$route.params.slug;
 
-    // this.getDetails(id).then((medium) => {
-    //   this.medium = medium;
-    //   this.loading = false;
-    //   this.loaded = true;
-    // });
+
+    this.getPeopleDetails(id).then((person) => {
+      this.person = person;
+      this.loading = false;
+      this.loaded = true;
+    });
+
+
+    this.getPeopleCredits(id).then((credits) => {
+      this.credits = credits;
+      // this.loading = false;
+      // this.loaded = true;
+    });
 
   },
 
   methods: {
     ...mapActions({
-      // getDetails: 'getApiMovieDetails',
-      // getCredits: 'getApiMovieCredits'
+      getPeopleDetails: 'getApiPeopleDetails',
+      getPeopleCredits: 'getApiPeopleCredits'
     }),
 
 
 
 
-    creditsMaxPictureSize() {
-      const maxSize = this.profileSizes[this.profileSizes.length - 1];
-      return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
-    },
-
-    creditsProfileResponsivePath(profilePath){
-      const sizes = this.profileSizes;
-      // console.log({ sizes });
-      return sizes.map(size => `${this.getImagePath(profilePath, size)} ${size.replace('w', '')}w`);
-    },
-
-    creditsProfilePicturePath(profilePath) {
-      const size = this.profileSizes[1];
-      return this.getImagePath(profilePath, size);
-    },
+    // creditsMaxPictureSize() {
+    //   const maxSize = this.profileSizes[this.profileSizes.length - 1];
+    //   return `(max-width: ${maxSize}px) 100vw, ${maxSize}px`;
+    // },
+    //
+    // creditsProfileResponsivePath(profilePath){
+    //   const sizes = this.profileSizes;
+    //   // console.log({ sizes });
+    //   return sizes.map(size => `${this.getImagePath(profilePath, size)} ${size.replace('w', '')}w`);
+    // },
+    //
+    // creditsProfilePicturePath(profilePath) {
+    //   const size = this.profileSizes[1];
+    //   return this.getImagePath(profilePath, size);
+    // },
   }
 };
 </script>

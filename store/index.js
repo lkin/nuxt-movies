@@ -13,6 +13,7 @@ export const state = () => ({
 
       // movies
       // ------------------------------------------------------------
+      movieCertifications: `https://api.themoviedb.org/3/certification/movie/list?api_key=${process.env.movieDbApiKey}`,
       moviesGenres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
       movieDetails: `https://api.themoviedb.org/3/movie/MOVIE_ID?api_key=${process.env.movieDbApiKey}&include_image_language=en&append_to_response=videos,images`,
       movieCredits: `https://api.themoviedb.org/3/movie/MOVIE_ID/credits?api_key=${process.env.movieDbApiKey}`,
@@ -34,10 +35,17 @@ export const state = () => ({
 
       // tv series
       // ------------------------------------------------------------
+      tvCertifications: `https://api.themoviedb.org/3/certification/tv/list?api_key=${process.env.movieDbApiKey}`,
       tvGenres: `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
       tvDetails: `https://api.themoviedb.org/3/tv/TV_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
 
       latestTv: `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
+
+
+      // people
+      // ------------------------------------------------------------
+      peopleDetails: `https://api.themoviedb.org/3/person/PERSON_ID?api_key=${process.env.movieDbApiKey}&language=en-US`,
+      peopleCredits: `https://api.themoviedb.org/3/person/PERSON_ID/combined_credits?api_key=${process.env.movieDbApiKey}&language=en-US`,
 
     }
   },
@@ -163,6 +171,27 @@ export const actions = {
     let { data } = await this.$axios({
       method: 'get',
       url: state.api.url.movieCredits.replace('MOVIE_ID', id),
+      responseType: 'json'
+    });
+
+    return data;
+  },
+
+
+  async getApiPeopleDetails({ state, commit }, id) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.peopleDetails.replace('PERSON_ID', id),
+      responseType: 'json'
+    });
+
+    return data;
+  },
+
+  async getApiPeopleCredits({ state, commit }, id) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.peopleCredits.replace('PERSON_ID', id),
       responseType: 'json'
     });
 
