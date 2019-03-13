@@ -1,16 +1,16 @@
 <template>
-  <section class="video-list video-list--scrollable">
-    <div class="video-list__container">
+  <section class="cards-list cards-list--grid">
+    <div class="cards-list__container">
       <!--<Card v-for="(medium, index) in media" :key="index"-->
       <!--:medium="medium"-->
       <!--:card-type="cardType"-->
       <!--&gt;-->
       <!--</Card>-->
-      <div v-for="video in videos" :key="video.id" class="video">
+      <article v-for="video in videos" :key="video.id" class="card card--movie">
         <div class="iframe-container">
           <iframe :src="getYouTubeUrl(video.key)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </template>

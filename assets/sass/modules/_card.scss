@@ -134,6 +134,18 @@
   }
 }
 
+.card--movie {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 242px;
+
+  @include media('>=tablet') {
+    flex: 0 0 430px;
+    width: 430px;
+    height: 242px;
+  }
+}
+
 
 //.card--alternate-width {
 //  &:nth-child(even) {

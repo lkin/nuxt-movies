@@ -112,12 +112,41 @@
 
 .medium__storyline {
   flex: 1 1 auto;
-  max-width: calc(100% - 432px);
+  //max-width: calc(100% - 432px);
   margin: 0 0 0 32px;
+
+  @includ media(">=tablet") {
+    max-width: calc(100% - 432px);
+  }
 
   h2 {
     margin: 0 0 2rem 0;
   }
+
+  dl {
+    margin: 0;
+
+    dt {
+      font-family: $heading-font-family;
+      font-size: 1rem;
+      line-height: 1.2rem;
+      font-weight: 700;
+      color: $color-white;
+      text-align: left;
+    }
+
+    dd {
+      margin: 0 0 1.11rem 0;
+      font-family: $body-font-family;
+      font-size: .8rem;
+      line-height: 1.11rem;
+      color: $color-white;
+      letter-spacing: 0;
+      text-align: left;
+    }
+  }
+
+
 }
 
 .medium__cast {

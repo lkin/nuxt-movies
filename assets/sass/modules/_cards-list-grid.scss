@@ -20,7 +20,7 @@
     align-items: flex-start;
   }
 
-  .card {
+  .card:not(.card--movie) {
     flex: 1 1 30%;
     width: 30%;
   }

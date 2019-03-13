@@ -40,21 +40,36 @@
           <h2>Storyline</h2>
           <p>{{ medium.overview }}</p>
 
-          <h2>Cast</h2>
-          <ul v-if="credits !== undefined" class="medium__cast">
-            <li v-for="cast in credits.cast" :key="cast.cast_id">
-              <nuxt-link :to="`/people/${cast.cast_id}`">
-                <img :sizes="creditsMaxPictureSize()"
-                     :srcset="creditsProfileResponsivePath(cast.profile_path)"
-                     :src="creditsProfilePicturePath(cast.profile_path)"
-                     alt=""
-                >
-                <p>{{ cast.character }}</p>
-                <p>{{ cast.name }}</p>
-              </nuxt-link>
-            </li>
-          </ul>
+          <h2>Details</h2>
+          <dl>
+            <dt>Original language</dt>
+            <dd>{{ medium.original_language }}</dd>
+            <dt>Runtime</dt>
+            <dd>{{ runtime }}</dd>
+            <dt>Budget</dt>
+            <dd>{{ medium.budget.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</dd>
+            <dt>Revenue</dt>
+            <dd>{{ medium.revenue.toLocaleString('en-US', {style: 'currency', currency: 'USD'}) }}</dd>
+          </dl>
+
         </div>
+      </section>
+
+      <section class="">
+        <h2>Cast</h2>
+        <ul v-if="credits !== undefined" class="medium__cast">
+          <li v-for="cast in credits.cast" :key="cast.cast_id">
+            <nuxt-link :to="`/people/${cast.cast_id}`">
+              <img :sizes="creditsMaxPictureSize()"
+                   :srcset="creditsProfileResponsivePath(cast.profile_path)"
+                   :src="creditsProfilePicturePath(cast.profile_path)"
+                   alt=""
+              >
+              <p>{{ cast.character }}</p>
+              <p>{{ cast.name }}</p>
+            </nuxt-link>
+          </li>
+        </ul>
       </section>
 
       <section class="medium__videos">
@@ -102,7 +117,17 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+    runtime() {
+      if (!this.medium) {
+        return '';
+      }
+
+      const runtime = this.medium.runtime;
+
+      return `${parseInt(runtime / 60, 10)}h ${runtime - (60 * parseInt(runtime / 60, 10))}min`;
+    }
+  },
 
   mounted() {
     this.loading = true;
