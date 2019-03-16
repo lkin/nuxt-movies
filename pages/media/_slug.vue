@@ -21,7 +21,7 @@
         </aside>
         <aside v-if="medium.imdb_id !== undefined" class="medium-imdb">
           <a target="_blank" rel="noopener noreferrer" :href="`https://www.imdb.com/title/${medium.imdb_id}/`">
-            <svg width="68" height="34" xmlns="http://www.w3.org/2000/svg">
+            <svg width="80" height="40" xmlns="http://www.w3.org/2000/svg">
               <use xlink:href="#icon-imdb-logo"></use>
             </svg>
           </a>
@@ -68,11 +68,15 @@
         <ul v-if="credits !== undefined" class="medium__cast">
           <li v-for="cast in credits.cast" :key="cast.cast_id">
             <nuxt-link :to="`/people/${cast.cast_id}`">
-              <img :sizes="creditsMaxPictureSize()"
+              <img v-if="cast.profile_path !== null"
+                   :sizes="creditsMaxPictureSize()"
                    :srcset="creditsProfileResponsivePath(cast.profile_path)"
                    :src="creditsProfilePicturePath(cast.profile_path)"
                    alt=""
               >
+              <svg v-else class="avatar-placeholder">
+                <use xlink:href="#icon-avatar"></use>
+              </svg>
               <p>{{ cast.character }}</p>
               <p>{{ cast.name }}</p>
             </nuxt-link>

@@ -12,20 +12,22 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - #{$menu-height});
     margin: 0 0 100px 0;
     overflow: hidden;
+
+    @include media(">=tablet") {
+      justify-content: center;
+      align-items: center;
+    }
 
     .medium-details__header {
       position: relative;
       width: 100%;
-      //height: 100%;
       padding: 2rem;
       z-index: 2;
-      //background-image: linear-gradient(to right, rgba(0, 0, 0, .4) 0, rgba(0, 0, 0, 0) 100%);
-      //background-blend-mode: multiply;
     }
 
     img {
@@ -41,22 +43,33 @@
     h1 {
       max-width: 50rem;
       margin: 0 auto;
-      font-size: 3.88rem;
       font-weight: 700;
-      line-height: 3.5rem;
-      letter-spacing: 1.3px;
-      text-align: center;
+      font-size: 2.388rem;
+      letter-spacing: 0.6px;
+      line-height: 3.05rem;
+      text-align: left;
       text-transform: uppercase;
       text-shadow: $default-text-shadow;
+
+      @include media(">=tablet") {
+        font-size: 3.88rem;
+        line-height: 3.5rem;
+        letter-spacing: 1.3px;
+        text-align: center;
+      }
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      max-width: $maxWidth;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
   }
 
-  section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    max-width: $maxWidth;
-    margin: 0 auto;
+  > section {
     padding: 0 1.5rem;
   }
 }
@@ -92,10 +105,10 @@
 
   a {
     display: block;
-    width: 68px;
-    height: 34px;
+    width: 80px;
+    height: 40px;
     border: 0;
-    box-shadow: $default-box-shadow;
+    //box-shadow: $default-box-shadow;
   }
 }
 
@@ -111,12 +124,17 @@
   justify-content: center;
   align-items: center;
   margin: 2rem 0 0 0;
-  font-size: 1.611rem;
+  font-size: 16px;
+  letter-spacing: 0.55px;
   font-weight: 700;
   line-height: 1.778rem;
-  letter-spacing: 1px;
   text-align: center;
   text-shadow: $default-text-shadow;
+
+  @include media(">=tablet") {
+    font-size: 1.611rem;
+    letter-spacing: 1px;
+  }
 
   &::before,
   &::after {
@@ -136,7 +154,7 @@
 
 .medium__poster {
   flex: 0 0 400px;
-  width: 400px;
+  max-width: 400px;
 
   h2 {
     margin: 0 0 2rem 0;
@@ -147,14 +165,13 @@
   }
 }
 
-
 .medium__storyline {
   flex: 1 1 auto;
   //max-width: calc(100% - 432px);
-  margin: 0 0 0 32px;
 
-  @includ media(">=tablet") {
+  @include media(">=tablet") {
     max-width: calc(100% - 432px);
+    margin: 0 0 0 32px;
   }
 
   h2 {
@@ -207,6 +224,7 @@
     }
   }
 
+  svg,
   img {
     position: absolute;
     top: 0;
