@@ -8,6 +8,7 @@ $render-vertical-rhythm-lines: false;
 $maxWidth: 1600px;
 
 // Include-Media breakpoints
+// ------------------
 $breakpoints: (
   phone: 414px,
   tablet: 768px,
@@ -16,6 +17,7 @@ $breakpoints: (
 
 
 // colors
+// ------------------
 $color-brand: #e6b91e;
 $color-black: #000;
 $color-dark: #141515;
@@ -23,6 +25,12 @@ $color-dark-gray: #2B2C2E;
 $color-light: #DCE2EB;
 $color-white: #fff;
 $color-error: #f00;
+
+
+// Shadows
+// ------------------
+$default-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.50);
+$default-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
 
 // Body
 // ------------------

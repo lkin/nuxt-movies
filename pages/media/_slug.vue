@@ -7,21 +7,25 @@
           <h2 v-if="medium.original_title !== medium.title">{{ medium.title }}</h2>
           <p class="medium__genres"><span v-for="genre in medium.genres" :key="genre.id">{{ genre.name }}</span></p>
           <p class="medium__released">{{ formatDate(medium.release_date) }}</p>
-
-          <!--<p>IMDB</p>-->
-          <!--<p>Director</p>-->
-          <!--<p>Cast</p>-->
-          <!--<p>Votes</p>-->
-          <!--<p>Popularity</p>-->
-          <!--<p>Tagline</p>-->
-
-          <!--<p>Videos</p>-->
         </div>
         <img :sizes="movieMaxPictureSize(shared.cardType.backdrop)"
              :srcset="pictureResponsivePath(shared.cardType.backdrop)"
              :src="movieMaxPicturePath(shared.cardType.backdrop)"
              alt=""
         >
+
+        <aside class="medium-score">
+          <CircularScore :score="medium.vote_average * 10"></CircularScore>
+          <p v-if="medium.vote_count === undefined">User score</p>
+          <p v-else>From {{ medium.vote_count }} users</p>
+        </aside>
+        <aside v-if="medium.imdb_id !== undefined" class="medium-imdb">
+          <a target="_blank" rel="noopener noreferrer" :href="`https://www.imdb.com/title/${medium.imdb_id}/`">
+            <svg width="68" height="34" xmlns="http://www.w3.org/2000/svg">
+              <use xlink:href="#icon-imdb-logo"></use>
+            </svg>
+          </a>
+        </aside>
       </header>
 
       <section>
@@ -42,6 +46,10 @@
 
           <h2>Details</h2>
           <dl>
+            <dt v-if="medium.homepage">Official Website</dt>
+            <dd v-if="medium.homepage">
+              <a :href="medium.homepage" rel="noopener noreferrer">{{ medium.homepage }}</a>
+            </dd>
             <dt>Original language</dt>
             <dd>{{ medium.original_language }}</dd>
             <dt>Runtime</dt>
@@ -92,10 +100,11 @@ import mediumMixin from '../../lib/mediumMixin';
 import FilmStripLoader from '../../components/FilmStripLoader';
 import shared from '../../lib/shared';
 import ScrollableVideoList from '../../components/ScrollableVideoList';
+import CircularScore from '../../components/CircularScore';
 
 export default {
   name: 'Details',
-  components: { ScrollableVideoList, FilmStripLoader },
+  components: { CircularScore, ScrollableVideoList, FilmStripLoader },
   mixins: [mediumMixin],
 
   // head() {

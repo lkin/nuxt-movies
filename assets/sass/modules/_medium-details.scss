@@ -47,7 +47,7 @@
       letter-spacing: 1.3px;
       text-align: center;
       text-transform: uppercase;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+      text-shadow: $default-text-shadow;
     }
   }
 
@@ -61,10 +61,48 @@
   }
 }
 
+.medium-score {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  p {
+    margin: .667rem 0 0 0;
+    font-family: $heading-font-family;
+    font-size: .77rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: $color-white;
+    letter-spacing: 1.29px;
+    text-align: center;
+    text-shadow: $default-text-shadow;
+  }
+}
+
+.medium-imdb {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2;
+
+  a {
+    display: block;
+    width: 68px;
+    height: 34px;
+    border: 0;
+    box-shadow: $default-box-shadow;
+  }
+}
+
 .medium__genres {
   @include title-genres;
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+  text-shadow: $default-text-shadow;
 }
 
 .medium__released {
@@ -78,7 +116,7 @@
   line-height: 1.778rem;
   letter-spacing: 1px;
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.50);
+  text-shadow: $default-text-shadow;
 
   &::before,
   &::after {
@@ -88,7 +126,7 @@
     width: 2rem;
     height: .22rem;
     background-color: $color-brand;
-    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.50);
+    box-shadow: $default-box-shadow;
   }
 
   &::after {

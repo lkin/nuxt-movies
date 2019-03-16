@@ -25,7 +25,6 @@ export default {
   // components: { Card },
 
   props: {
-
     videos: {
       required: true,
       type: Array,
