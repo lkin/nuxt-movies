@@ -19,16 +19,20 @@
           <p v-if="medium.vote_count === undefined">User score</p>
           <p v-else>From {{ medium.vote_count }} users</p>
         </aside>
+
         <aside v-if="medium.imdb_id !== undefined" class="medium-imdb">
-          <a target="_blank" rel="noopener noreferrer" :href="`https://www.imdb.com/title/${medium.imdb_id}/`">
-            <svg width="80" height="40" xmlns="http://www.w3.org/2000/svg">
-              <use xlink:href="#icon-imdb-logo"></use>
-            </svg>
+          <a class="button button--icon button--imdb" target="_blank" rel="noopener noreferrer" :href="`https://www.imdb.com/title/${medium.imdb_id}/`">
+            View on
+            <span class="button__icon" aria-hidden="true">
+              <svg width="68" height="34" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="#icon-imdb-logo-button"></use>
+              </svg>
+            </span>
           </a>
         </aside>
       </header>
 
-      <section>
+      <section class="medium-details__details">
         <aside class="medium__poster">
           <h2>Poster</h2>
           <figure>
@@ -63,7 +67,7 @@
         </div>
       </section>
 
-      <section class="">
+      <section class="medium-details__cast-and-crew">
         <h2>Cast</h2>
         <ul v-if="credits !== undefined" class="medium__cast">
           <li v-for="cast in credits.cast" :key="cast.cast_id">
@@ -88,7 +92,6 @@
         <h2>Videos</h2>
         <ScrollableVideoList :videos="medium.videos.results"></ScrollableVideoList>
       </section>
-
 
     </article>
 

@@ -23,6 +23,7 @@
   letter-spacing: normal;
   color: $color-white;
   text-transform: none;
+  box-shadow: $default-box-shadow;
 
   &:hover,
   &:focus,
@@ -65,4 +66,35 @@
       color: $color-brand;
     }
   }
+}
+
+.button--imdb {
+  padding-right: 4.778rem;
+
+  .button__icon,
+  .button__icon svg {
+    width: 68px;
+    height: 34px;
+  }
+
+  .imdb-box {
+    fill: $color-brand;
+  }
+
+  .imdb-text {
+    fill: #273238;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .imdb-box {
+      fill: #273238;
+    }
+
+    .imdb-text {
+      fill: $color-brand;
+    }
+  }
+
 }
