@@ -74,19 +74,7 @@
         <h2>Cast</h2>
         <ul v-if="credits !== undefined" class="medium__cast">
           <li v-for="cast in credits.cast" :key="cast.cast_id">
-            <nuxt-link :to="`/people/${cast.cast_id}`">
-              <img v-if="cast.profile_path !== null"
-                   :sizes="creditsMaxPictureSize()"
-                   :srcset="creditsProfileResponsivePath(cast.profile_path)"
-                   :src="creditsProfilePicturePath(cast.profile_path)"
-                   alt=""
-              >
-              <svg v-else class="avatar-placeholder">
-                <use xlink:href="#icon-avatar"></use>
-              </svg>
-              <p>{{ cast.character }}</p>
-              <p>{{ cast.name }}</p>
-            </nuxt-link>
+            <Person :person="cast"></Person>
           </li>
         </ul>
       </section>
@@ -111,10 +99,11 @@ import FilmStripLoader from '../../components/FilmStripLoader';
 import shared from '../../lib/shared';
 import ScrollableVideoList from '../../components/ScrollableVideoList';
 import CircularScore from '../../components/CircularScore';
+import Person from '../../components/Person';
 
 export default {
   name: 'Details',
-  components: { CircularScore, ScrollableVideoList, FilmStripLoader },
+  components: { Person, CircularScore, ScrollableVideoList, FilmStripLoader },
   mixins: [mediumMixin],
 
   // head() {

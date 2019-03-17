@@ -16,7 +16,12 @@
 
     <section v-if="people.length > 0">
       <h2 class="category">People</h2>
-      <ScrollableCardsList :media="people"></ScrollableCardsList>
+      <ul class="medium__cast">
+        <li v-for="person in people" :key="person.id">
+          <Person :person="person"></Person>
+        </li>
+      </ul>
+
     </section>
   </div>
 </template>
@@ -25,10 +30,11 @@
 import { mapActions } from 'vuex';
 import shared from '../lib/shared';
 import ScrollableCardsList from './ScrollableCardsList';
+import Person from './Person';
 
 export default {
   name: 'SearchSuggestions',
-  components: { ScrollableCardsList },
+  components: { Person, ScrollableCardsList },
   props: {
     keyword: {
       required: false,
