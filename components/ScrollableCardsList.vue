@@ -24,17 +24,11 @@ export default {
   components: { Card },
 
   props: {
-    title: {
-      required: true,
-      type: String
-    },
-
     cardType: {
       type: String,
       required: false,
       default: shared.cardType.poster
     },
-
 
     media: {
       required: true,

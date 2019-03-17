@@ -1,5 +1,6 @@
 # TODO
 
+* placeholder for poster and backdrop
 * lazy load
 * movie details
   * cast/crew: 

@@ -13,6 +13,7 @@ export const state = () => ({
       youtubeTrailer: 'https://www.youtube.com/watch?v=',
       youtubePoster: 'https://img.youtube.com/vi/YOUTUBEKEY/hqdefault.jpg',
       youtubePosterMaxRes: 'https://img.youtube.com/vi/YOUTUBEKEY/maxresdefault.jpg',
+      search: `https://api.themoviedb.org/3/search/multi?api_key=${process.env.movieDbApiKey}&language=en-US&query=KEYWORD&page=1&include_adult=false`,
 
       // movies
       // ------------------------------------------------------------
@@ -168,6 +169,17 @@ export const actions = {
     });
 
     commit('SET_MOVIE_GENRES', data.genres);
+  },
+
+
+  async getApiMultiSearch({ state, commit }, keyword) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.search.replace('KEYWORD', keyword),
+      responseType: 'json'
+    });
+
+    return data;
   },
 
   async getApiLatestMovie({ state, commit }) {

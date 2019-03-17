@@ -14,7 +14,7 @@
       </nav>
     </section>
 
-    <ScrollableCardsList title="Top rated" :media="topRated"></ScrollableCardsList>
+    <ScrollableCardsList :media="topRated"></ScrollableCardsList>
 
 
     <section class="tabbed-scrollable-list">

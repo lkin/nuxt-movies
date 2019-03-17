@@ -1,0 +1,27 @@
+.search-suggestions {
+  position: fixed;
+  top: $menu-height;
+  left: 0;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100vw;
+  height: calc(100vh - #{$menu-height});
+  padding: 2rem;
+  background-color: rgba($body-background, .8);
+  z-index: 3;
+
+  section {
+    width: 100%;
+  }
+
+  h2 {
+    //width: 100%;
+    margin-top: 1.5rem;
+  }
+}
+
+.search-suggestions--active {
+  display: flex;
+}

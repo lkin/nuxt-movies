@@ -37,6 +37,19 @@
         </li>
       </ul>
 
+      <form class="main-menu__search" novalidate>
+        <label>
+          <input v-model="searchKeyword" type="search" @input="searchKeywordChanged">
+          <button type="submit" class="button button--icon button-search">
+            <span class="button__icon">
+              <svg>
+                <use xlink:href="#icon-search"></use>
+              </svg>
+            </span>
+          </button>
+        </label>
+      </form>
+
     </nav>
   </header>
 </template>
@@ -50,7 +63,8 @@ export default {
       showMobileMenu: false,
       mobileMenuPathTo: 'M4.661.661L22.34 18.34M4.661 18.339L22.34.66',
       mobileMenuPathFrom: 'M1 2.5h24M1 9.5h24M1 16.5h24',
-      mobileMenuPath: this.mobileMenuPathFrom
+      mobileMenuPath: this.mobileMenuPathFrom,
+      searchKeyword: ''
     };
   },
 
@@ -81,6 +95,12 @@ export default {
           });
       }
     },
+
+    searchKeywordChanged: function () {
+      if (this.searchKeyword.length > 2) {
+        this.$emit('search', this.searchKeyword);
+      }
+    }
   }
 };
 </script>
