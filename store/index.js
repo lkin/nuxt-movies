@@ -6,6 +6,8 @@ export const state = () => ({
     configuration: {},
     url: {
       configuration: `https://api.themoviedb.org/3/configuration?api_key=${process.env.movieDbApiKey}`,
+      languages: `https://api.themoviedb.org/3/configuration/languages?api_key=${process.env.movieDbApiKey}`,
+      countries: `https://api.themoviedb.org/3/configuration/countries?api_key=${process.env.movieDbApiKey}`,
       images: 'https://image.tmdb.org/t/p/',
       youtubeEmbed: 'https://www.youtube.com/embed/',
       youtubeTrailer: 'https://www.youtube.com/watch?v=',
@@ -53,6 +55,8 @@ export const state = () => ({
 
   content: {
     menu: null,
+    languages: [],
+    countries: [],
     movieGenres: [],
     latestMovie: undefined,
     topRated: {}
@@ -71,6 +75,12 @@ export const mutations = {
   },
   SET_API_CONFIGURATION(state, configuration) {
     state.api.configuration = configuration;
+  },
+  SET_LANGUAGES(state, languages) {
+    state.content.languages = languages;
+  },
+  SET_COUNTRIES(state, countries) {
+    state.content.countries = countries;
   },
   SET_MOVIE_GENRES(state, data) {
     state.content.movieGenres = data;
@@ -96,6 +106,8 @@ export const actions = {
 
     try {
       await dispatch('getApiConfiguration');
+      await dispatch('getApiLanguages');
+      await dispatch('getApiCountries');
     } catch (error) {
       console.error({ error });
     }
@@ -103,6 +115,7 @@ export const actions = {
     await dispatch('getApiTopRated');
     await dispatch('getApiMovieGenres');
   },
+
 
   async getSettings({ state, commit }) {
     const settings = require('../content/settings.json'); // don't use "~" for storybook compatibility
@@ -125,6 +138,27 @@ export const actions = {
 
     commit('SET_API_CONFIGURATION', data);
   },
+
+  async getApiLanguages({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.languages,
+      responseType: 'json'
+    });
+
+    commit('SET_LANGUAGES', data);
+  },
+
+  async getApiCountries({ state, commit }) {
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.countries,
+      responseType: 'json'
+    });
+
+    commit('SET_COUNTRIES', data);
+  },
+
 
   async getApiMovieGenres({ state, commit }) {
     let { data } = await this.$axios({

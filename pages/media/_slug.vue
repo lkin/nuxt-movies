@@ -51,7 +51,7 @@
               <a :href="medium.homepage" rel="noopener noreferrer">{{ medium.homepage }}</a>
             </dd>
             <dt>Original language</dt>
-            <dd>{{ medium.original_language }}</dd>
+            <dd>{{ language }}</dd>
             <dt>Runtime</dt>
             <dd>{{ runtime }}</dd>
             <dt>Budget</dt>
@@ -139,6 +139,20 @@ export default {
       const runtime = this.medium.runtime;
 
       return `${parseInt(runtime / 60, 10)}h ${runtime - (60 * parseInt(runtime / 60, 10))}min`;
+    },
+
+    language() {
+      if (!this.medium) {
+        return '-';
+      }
+
+      const lang = this.$store.state.content.languages.find(lang => lang.iso_639_1 === this.medium.original_language);
+
+      if (lang) {
+        return lang.english_name;
+      }
+
+      return '-';
     }
   },
 

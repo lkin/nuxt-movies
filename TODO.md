@@ -6,6 +6,7 @@
     * pagination
     * search within
     * view all
+* configuration (langs, ...): store to browser storage
 * series
 * series details
 * search + results
