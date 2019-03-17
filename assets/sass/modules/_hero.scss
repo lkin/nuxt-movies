@@ -5,7 +5,7 @@
   img,
   figure {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - #{$menu-height});
   }
 
   figure {
@@ -29,6 +29,16 @@
 
     h1 {
       margin-bottom: .44rem;
+
+      a {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+
+        @include better-underline;
+      }
     }
 
     p {

@@ -18,7 +18,11 @@
               >
               <figcaption>
                 <span class="hero__tag">Movies</span>
-                <h1>{{ medium.title }}</h1>
+                <h1>
+                  <nuxt-link :to="`/media/${medium.id}`">
+                  {{ medium.title }}
+                  </nuxt-link>
+                </h1>
                 <p class="hero__genres"><span v-for="id in medium.genre_ids" :key="id">{{ getGenre(id) }}</span></p>
                 <p class="hero__info-small">{{ formatDate(medium.release_date) }}</p>
                 <p class="hero__info-small">Popularity: {{ medium.vote_average * 10 }}%</p>
