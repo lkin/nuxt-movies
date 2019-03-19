@@ -6,6 +6,7 @@
               :center-mode="false"
               pagination="no"
               :mouse-drag="false"
+              :wheel-control="false"
       >
         <Slide v-for="(medium, index) in media" :key="index">
           <article class="hero">
