@@ -26,14 +26,14 @@
     "nuxt-svg-sprite-module": "^1.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
+    "@babel/core": "^7.4.0",
     "@storybook/addon-a11y": "^5.0.3",
     "@storybook/addon-viewport": "^5.0.3",
     "@storybook/theming": "^5.0.3",
     "@storybook/vue": "^5.0.3",
     "babel-eslint": "^10.0.1",
     "babel-preset-vue": "^2.0.2",
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.5",
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",
     "eslint-loader": "^2.1.2",

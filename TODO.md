@@ -1,5 +1,9 @@
 # TODO
 
+* dev offline
+  * cache images
+  * cache xhr responses
+  
 * placeholder for poster and backdrop
 * lazy load
 * movie details
