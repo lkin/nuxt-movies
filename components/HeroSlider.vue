@@ -11,12 +11,17 @@
         <Slide v-for="(medium, index) in media" :key="index">
           <article class="hero">
             <figure>
-              <img
+              <!--<img-->
+                <!--sizes="(max-width: 1280px) 100vw, 1280px"-->
+                <!--:srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"-->
+                <!--:src="backdropPath(medium, 'w1280')"-->
+                <!--alt=""-->
+              <!--&gt;-->
+              <v-lazy-image
                 sizes="(max-width: 1280px) 100vw, 1280px"
                 :srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"
                 :src="backdropPath(medium, 'w1280')"
-                alt=""
-              >
+              />
               <figcaption>
                 <span class="hero__tag">Movies</span>
                 <h1>
