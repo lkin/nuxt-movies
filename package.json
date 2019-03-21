@@ -16,6 +16,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
     "@nuxtjs/sitemap": "^0.2.2",
+    "core-js": "^3.0.0",
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.11",
     "gsap": "^2.1.2",
