@@ -1,11 +1,22 @@
 # TODO
 
+> https://github.com/3vilArthas/vue-lazy-youtube-video
+> https://github.com/alexjoverm/v-lazy-image
+
 * dev offline
   * cache images
   * cache xhr responses
   
 * placeholder for poster and backdrop
 * lazy load
+
+* storybook:
+  * Card Poster
+  * Card Backdrop
+  * Person Card
+  * Cards containers
+  * Heroes
+
 * movie details
   * cast/crew: 
     * pagination
@@ -33,8 +44,9 @@ UX:
 
 x Media Card (props: poster & backdrop format)
 x ScrollableList (like css-tricks)
-X Grid List
+x Grid List
+x HeroSlider
 * Hero
-* Media Detail (page)
+x Media Detail (page)
  
 * functional components for API ajax logic and filtering/paging (scoped slots)
