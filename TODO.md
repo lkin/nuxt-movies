@@ -11,7 +11,8 @@
     * pagination
     * search within
     * view all
-* configuration (langs, ...): store to browser storage
+
+* Slots!
 * series
 * series details
 * search + results

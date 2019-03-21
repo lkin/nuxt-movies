@@ -24,7 +24,8 @@
     "markdown-it": "^8.4.2",
     "netlify-cms": "^2.6.1",
     "nuxt": "^2.5.0",
-    "nuxt-svg-sprite-module": "^1.0.3"
+    "nuxt-svg-sprite-module": "^1.0.3",
+    "vue-lazyload": "^1.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
