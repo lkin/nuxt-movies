@@ -12,7 +12,7 @@
         <img v-else
              :src="placeholder"
              alt=""
->
+        >
         <figcaption>{{ medium.title }}</figcaption>
       </figure>
 
