@@ -61,11 +61,27 @@ addParameters({
 Vue.use(Vuex);
 
 
+// Import your global components
+// -----------------------------
+import { VLazyImagePlugin } from 'v-lazy-image';
+Vue.use(VLazyImagePlugin);
+
+// import NuxtLink from '../.nuxt/components/nuxt-link.client.js';
+//
+// // Register global components.
+// Vue.component('NuxtLink', NuxtLink);
 
 
+// function loadStories() {
+//   // You can require as many stories as you need.
+//   require('../stories');
+// }
 function loadStories() {
-  // You can require as many stories as you need.
   require('../stories');
+
+  const req = require.context('../stories', true, /\.stories\.js$/);
+  console.dir(req.keys());
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

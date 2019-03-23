@@ -31,6 +31,8 @@
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@storybook/addon-a11y": "^5.0.3",
+    "@storybook/addon-actions": "^5.0.3",
+    "@storybook/addon-links": "^5.0.3",
     "@storybook/addon-viewport": "^5.0.3",
     "@storybook/theming": "^5.0.3",
     "@storybook/vue": "^5.0.3",
@@ -45,6 +47,8 @@
     "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.10",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "storybook-router": "^0.3.4",
+    "storybook-vue-router": "^1.0.3"
   }
 }
