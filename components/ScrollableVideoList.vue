@@ -7,9 +7,7 @@
       <!--&gt;-->
       <!--</Card>-->
       <article v-for="video in videos" :key="video.id" class="card card--movie">
-        <no-ssr>
-          <lazy-youtube-video :url="getYouTubeUrl(video.key)" :alt="getYouTubePosterUrl(video.key)"></lazy-youtube-video>
-        </no-ssr>
+        <lazy-youtube-video :url="getYouTubeUrl(video.key)" :alt="getYouTubePosterUrl(video.key)"></lazy-youtube-video>
       </article>
     </div>
   </section>

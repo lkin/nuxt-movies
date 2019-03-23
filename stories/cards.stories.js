@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { storiesOf } from '@storybook/vue';
+// import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Card from '../components/Card';
 import { mutations, actions } from '../store';
 
@@ -2198,7 +2199,38 @@ const movie = {
  * Card
  */
 storiesOf('Cards', module)
-  .add('Backdrop format', () => ({
+  .add('Poster Card', () => ({
+    components: { Card },
+    template: '<card :medium="movie" card-type="poster"></card>',
+    data() {
+      return {
+        movie: movie
+      };
+    },
+    store: new Vuex.Store({
+      state: state,
+      mutations,
+      actions
+    }),
+  }))
+  .add('Poster Card No Image', () => ({
+    components: { Card },
+    template: '<card :medium="movie" card-type="poster"></card>',
+    data() {
+      return {
+        movie: {
+          ...movie,
+          poster_path: null
+        }
+      };
+    },
+    store: new Vuex.Store({
+      state: state,
+      mutations,
+      actions
+    }),
+  }))
+  .add('Backdrop Card', () => ({
     components: { Card },
     template: '<card :medium="movie"></card>',
     data() {
@@ -2212,12 +2244,15 @@ storiesOf('Cards', module)
       actions
     }),
   }))
-  .add('Poster format', () => ({
+  .add('Backdrop Card No Image', () => ({
     components: { Card },
-    template: '<card :medium="movie" card-type="poster"></card>',
+    template: '<card :medium="movie"></card>',
     data() {
       return {
-        movie: movie
+        movie: {
+          ...movie,
+          backdrop_path: null
+        }
       };
     },
     store: new Vuex.Store({
@@ -2226,3 +2261,4 @@ storiesOf('Cards', module)
       actions
     }),
   }));
+

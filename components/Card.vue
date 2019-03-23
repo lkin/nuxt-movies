@@ -2,18 +2,17 @@
   <article class="card" :class="{'card--poster': cardType === shared.cardType.poster}">
     <nuxt-link :to="`/media/${medium.id}`">
       <figure>
-        <v-lazy-image
+        <v-lazy-image v-if="pictureExist"
           :sizes="movieMaxPictureSize"
           :srcset="pictureResponsivePath"
           :src="movieMaxPicturePath"
-          src-placeholder="/img/card-placeholder.svg"
+          src-placeholder="/img/card-poster-placeholder.svg"
           alt=""
         />
-        <!--<img :sizes="movieMaxPictureSize"-->
-             <!--:srcset="pictureResponsivePath"-->
-             <!--:src="movieMaxPicturePath"-->
-             <!--alt=""-->
-        <!--&gt;-->
+        <img v-else
+             :src="placeholder"
+             alt=""
+>
         <figcaption>{{ medium.title }}</figcaption>
       </figure>
 
@@ -73,6 +72,14 @@ export default {
       const sizes = this.cardType === shared.cardType.poster ? this.posterSizes : this.backdropSizes;
       // console.log({ sizes });
       return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`).join(',');
+    },
+
+    pictureExist() {
+      return this.cardType === shared.cardType.poster ? (this.medium.poster_path !== null) : (this.medium.backdrop_path !== null);
+    },
+
+    placeholder() {
+      return this.cardType === shared.cardType.poster ? '/img/card-poster-placeholder-broken.svg' : '/img/card-backdrop-placeholder-broken.svg';
     }
 
   }
