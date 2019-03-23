@@ -2,11 +2,18 @@
   <article class="card" :class="{'card--poster': cardType === shared.cardType.poster}">
     <nuxt-link :to="`/media/${medium.id}`">
       <figure>
-        <img :sizes="movieMaxPictureSize"
-             :srcset="pictureResponsivePath"
-             :src="movieMaxPicturePath"
-             alt=""
-        >
+        <v-lazy-image
+          :sizes="movieMaxPictureSize"
+          :srcset="pictureResponsivePath"
+          :src="movieMaxPicturePath"
+          src-placeholder="/img/card-placeholder.svg"
+          alt=""
+        />
+        <!--<img :sizes="movieMaxPictureSize"-->
+             <!--:srcset="pictureResponsivePath"-->
+             <!--:src="movieMaxPicturePath"-->
+             <!--alt=""-->
+        <!--&gt;-->
         <figcaption>{{ medium.title }}</figcaption>
       </figure>
 
@@ -65,7 +72,7 @@ export default {
       const filePath = this.cardType === shared.cardType.poster ? this.medium.poster_path : this.medium.backdrop_path;
       const sizes = this.cardType === shared.cardType.poster ? this.posterSizes : this.backdropSizes;
       // console.log({ sizes });
-      return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`);
+      return sizes.map(size => `${this.getImagePath(filePath, size)} ${size.replace('w', '')}w`).join(',');
     }
 
   }

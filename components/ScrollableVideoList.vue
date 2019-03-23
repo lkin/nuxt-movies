@@ -7,22 +7,24 @@
       <!--&gt;-->
       <!--</Card>-->
       <article v-for="video in videos" :key="video.id" class="card card--movie">
-        <div class="iframe-container">
-          <iframe :src="getYouTubeUrl(video.key)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
+        <no-ssr>
+          <lazy-youtube-video :url="getYouTubeUrl(video.key)" :alt="getYouTubePosterUrl(video.key)"></lazy-youtube-video>
+        </no-ssr>
       </article>
     </div>
   </section>
 </template>
 
 <script>
-// import Card from './Card';
-import shared from '../lib/shared';
+// import LazyYoutubeVideo from 'vue-lazy-youtube-video';
+import LazyYoutubeVideo from './VueLazyYoutubeVideo';
 
 export default {
   name: 'ScrollableVideoList',
 
-  // components: { Card },
+  components: {
+    LazyYoutubeVideo
+  },
 
   props: {
     videos: {
@@ -36,8 +38,11 @@ export default {
 
   methods: {
     getYouTubeUrl(key) {
-      return this.$store.state.api.url.youtubeEmbed + key;
-    }
+      return this.$store.state.api.url.youtubeTrailer + key;
+    },
+    getYouTubePosterUrl(key) {
+      return this.$store.state.api.url.youtubePoster.replace('YOUTUBEKEY', key);
+    },
   }
 };
 </script>
