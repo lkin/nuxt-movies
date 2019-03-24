@@ -6,7 +6,7 @@
       <!--:card-type="cardType"-->
       <!--&gt;-->
       <!--</Card>-->
-      <article v-for="video in videos" :key="video.id" class="card card--movie">
+      <article v-for="video in videos" :key="video.id" class="card card--video">
         <lazy-youtube-video :url="getYouTubeUrl(video.key)" :alt="getYouTubePosterUrl(video.key)"></lazy-youtube-video>
       </article>
     </div>

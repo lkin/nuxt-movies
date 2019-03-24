@@ -1,5 +1,5 @@
 <template>
-  <article class="card" :class="{'card--poster': cardType === shared.cardType.poster}">
+  <article class="card" :class="{'card--poster': cardType === shared.cardType.poster, 'card--backdrop': cardType === shared.cardType.backdrop}">
     <nuxt-link :to="`/media/${medium.id}`">
       <figure>
         <v-lazy-image v-if="pictureExist"
