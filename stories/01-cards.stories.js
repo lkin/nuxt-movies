@@ -6,7 +6,7 @@ import Card from '../components/Card';
 import { mutations, actions } from '../store';
 
 // import app styles
-import '../assets/sass/app.scss';
+// import '../assets/sass/app.scss';
 
 const movieDbApiKey = process.env.movieDbApiKey || require('../.themoviedb.js').key;
 
@@ -2219,7 +2219,7 @@ const movieJap = {
 /**
  * Card
  */
-storiesOf('Cards', module)
+storiesOf('Cards|Cards', module)
   .add('Poster Card', () => ({
     components: { Card },
     template: '<card :medium="movie" card-type="poster"></card>',
@@ -2265,7 +2265,7 @@ storiesOf('Cards', module)
       actions
     }),
   }))
-  .add('Backdrop Card for Japanese movie', () => ({
+  .add('Backdrop Card with non english text', () => ({
     components: { Card },
     template: '<card :medium="movie"></card>',
     data() {

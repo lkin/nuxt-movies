@@ -1,9 +1,5 @@
 <template>
   <section class="cards-list cards-list--scrollable">
-    <!--<header>-->
-      <!--<h2>{{ title }}</h2>-->
-      <!--<a href="#">View all</a>-->
-    <!--</header>-->
     <div class="cards-list__container">
       <Card v-for="(medium, index) in media" :key="index"
                  :medium="medium"
