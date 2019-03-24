@@ -9,6 +9,8 @@
       </Card>
     </div>
 
+    <h1 class="app-loader__heading">Loading...</h1>
+
     <div class="app-loader__strip-bottom">
       <Card v-for="series in tv"
             :key="series.id"

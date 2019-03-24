@@ -7,8 +7,7 @@
   * cache images
   * cache xhr responses
   
-* placeholder for poster and backdrop
-* lazy load
+* original_title -> add lang
 
 * storybook:
   * Card Poster
