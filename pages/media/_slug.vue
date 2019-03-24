@@ -81,7 +81,7 @@
 
       <section class="medium__videos">
         <h2>Videos</h2>
-        <ScrollableVideoList :videos="medium.videos.results"></ScrollableVideoList>
+        <VideoList :videos="medium.videos.results"></VideoList>
       </section>
 
     </article>
@@ -97,13 +97,18 @@ import { mapActions } from 'vuex';
 import mediumMixin from '../../lib/mediumMixin';
 import FilmStripLoader from '../../components/FilmStripLoader';
 import shared from '../../lib/shared';
-import ScrollableVideoList from '../../components/ScrollableVideoList';
+import VideoList from '../../components/VideoList';
 import CircularScore from '../../components/CircularScore';
 import Person from '../../components/Person';
 
 export default {
   name: 'Details',
-  components: { Person, CircularScore, ScrollableVideoList, FilmStripLoader },
+  components: {
+    Person,
+    CircularScore,
+    VideoList,
+    FilmStripLoader
+  },
   mixins: [mediumMixin],
 
   // head() {
