@@ -26,7 +26,7 @@ export const state = () => ({
       trending: `https://api.themoviedb.org/3/trending/TYPE/TIME?api_key=${process.env.movieDbApiKey}`,
 
       // movie collections
-      latestMovie: `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
+      // latestMovie: `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
       movieTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
       upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
@@ -41,17 +41,19 @@ export const state = () => ({
       // ------------------------------------------------------------
       tvCertifications: `https://api.themoviedb.org/3/certification/tv/list?api_key=${process.env.movieDbApiKey}`,
       tvGenres: `https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.movieDbApiKey}&language=en-US`,
-      tvDetails: `https://api.themoviedb.org/3/tv/TV_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos`,
+      tvDetails: `https://api.themoviedb.org/3/tv/TV_ID?api_key=${process.env.movieDbApiKey}&append_to_response=videos,images`,
 
-      latestTv: `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
+      tvLatest: `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
       tvTopRated: `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      tvPopular: `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      tvOnTheAir: `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      tvOnTheAirToday: `https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
 
 
       // people
       // ------------------------------------------------------------
       peopleDetails: `https://api.themoviedb.org/3/person/PERSON_ID?api_key=${process.env.movieDbApiKey}&language=en-US`,
       peopleCredits: `https://api.themoviedb.org/3/person/PERSON_ID/combined_credits?api_key=${process.env.movieDbApiKey}&language=en-US`,
-
     }
   },
 
@@ -188,15 +190,15 @@ export const actions = {
     return data;
   },
 
-  async getApiLatestMovie({ state, commit }) {
-    let { data } = await this.$axios({
-      method: 'get',
-      url: state.api.url.latestMovie,
-      responseType: 'json'
-    });
-
-    commit('SET_LATEST_MOVIE', data);
-  },
+  // async getApiLatestMovie({ state, commit }) {
+  //   let { data } = await this.$axios({
+  //     method: 'get',
+  //     url: state.api.url.latestMovie,
+  //     responseType: 'json'
+  //   });
+  //
+  //   commit('SET_LATEST_MOVIE', data);
+  // },
 
   async getApiUpcoming({ state, commit }) {
     let { data } = await this.$axios({
