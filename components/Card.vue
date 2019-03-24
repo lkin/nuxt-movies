@@ -16,7 +16,7 @@
         <figcaption>{{ medium.title }}</figcaption>
       </figure>
 
-      <header v-if="cardType !== shared.cardType.poster">
+      <header v-if="cardType === shared.cardType.backdrop">
         <p>Released {{ formatDate(medium.release_date) }}</p>
         <h3>{{ medium.original_title }}</h3>
         <h4 v-if="medium.original_title !== medium.title">{{ medium.title }}</h4>

@@ -2195,6 +2195,27 @@ const movie = {
   release_date: '2018-12-07'
 };
 
+const movieJap = {
+  vote_count: 3815,
+  id: 372058,
+  video: false,
+  vote_average: 8.6,
+  title: 'Your Name.',
+  popularity: 20.747,
+  poster_path: '/xq1Ugd62d23K2knRUx6xxuALTZB.jpg',
+  original_language: 'ja',
+  original_title: '君の名は。',
+  genre_ids: [
+    10749,
+    16,
+    18
+  ],
+  backdrop_path: '/7OMAfDJikBxItZBIug0NJig5DHD.jpg',
+  adult: false,
+  overview: 'High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.',
+  release_date: '2016-08-26'
+};
+
 /**
  * Card
  */
@@ -2236,6 +2257,20 @@ storiesOf('Cards', module)
     data() {
       return {
         movie: movie
+      };
+    },
+    store: new Vuex.Store({
+      state: state,
+      mutations,
+      actions
+    }),
+  }))
+  .add('Backdrop Card for Japanese movie', () => ({
+    components: { Card },
+    template: '<card :medium="movie"></card>',
+    data() {
+      return {
+        movie: movieJap
       };
     },
     store: new Vuex.Store({
