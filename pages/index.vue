@@ -3,10 +3,16 @@
 
     <HeroSlider :media="upcoming"></HeroSlider>
 
-    <section class="tabbed-scrollable-list">
+    <section class="list-filters">
       <h2 class="category">Movies</h2>
 
       <nav>
+        <select>
+          <option>Upcoming</option>
+          <option>In Theaters</option>
+          <option>Popular</option>
+          <option>Top rated</option>
+        </select>
         <button type="button" aria-expanded="true">Upcoming</button>
         <button type="button">In Theaters</button>
         <button type="button">Popular</button>
@@ -17,7 +23,7 @@
     <ScrollableCardsList :media="topRated"></ScrollableCardsList>
 
 
-    <section class="tabbed-scrollable-list">
+    <section class="list-filters">
       <h2 class="category">TV Shows</h2>
 
       <nav>
