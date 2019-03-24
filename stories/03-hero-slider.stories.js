@@ -1,13 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { storiesOf } from '@storybook/vue';
-import Card from '../components/Card';
-import ScrollableCardsList from '../components/ScrollableCardsList';
-import CardsGrid from '../components/CardsGrid';
+import HeroSlider from '../components/HeroSlider';
 import { mutations, actions } from '../store';
 
-// import app styles
-// import '../assets/sass/app.scss';
 
 const movieDbApiKey = process.env.movieDbApiKey || require('../.themoviedb.js').key;
 
@@ -2573,24 +2569,10 @@ const movies = [
 /**
  * MediaScrollableList
  */
-storiesOf('Card Lists|ScrollableCardsList', module)
-  .add('list of Poster', () => ({
-    components: { ScrollableCardsList },
-    template: '<scrollable-cards-list title="Test long title" :media="movies"></scrollable-cards-list>',
-    data() {
-      return {
-        movies: movies
-      };
-    },
-    store: new Vuex.Store({
-      state: state,
-      mutations,
-      actions
-    }),
-  }))
-  .add('list of Backdrop', () => ({
-    components: { ScrollableCardsList },
-    template: '<scrollable-cards-list title="Test long title" card-type="backdrop" :media="movies"></scrollable-cards-list>',
+storiesOf('Hero|Hero Slider', module)
+  .add('Hero Slider', () => ({
+    components: { HeroSlider },
+    template: '<hero-slider :media="movies"></hero-slider>',
     data() {
       return {
         movies: movies
@@ -2602,23 +2584,3 @@ storiesOf('Card Lists|ScrollableCardsList', module)
       actions
     }),
   }));
-
-/**
- * MediaCardsGrid
- */
-storiesOf('Card Lists|CardsGrid', module)
-  .add('backdrop', () => ({
-    components: { CardsGrid },
-    template: '<cards-grid title="Test long title" card-type="backdrop" :media="movies"></cards-grid>',
-    data() {
-      return {
-        movies: movies
-      };
-    },
-    store: new Vuex.Store({
-      state: state,
-      mutations,
-      actions
-    }),
-  }));
-

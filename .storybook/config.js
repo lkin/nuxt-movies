@@ -66,16 +66,36 @@ Vue.use(Vuex);
 import { VLazyImagePlugin } from 'v-lazy-image';
 Vue.use(VLazyImagePlugin);
 
-// import NuxtLink from '../.nuxt/components/nuxt-link.client.js';
-//
-// // Register global components.
-// Vue.component('NuxtLink', NuxtLink);
+/**
+ * Functional components replacing the ones from Nuxt
+ * Source: https://ithelp.ithome.com.tw/articles/10201352
+ */
+Vue.component('nuxt-link', {
+  functional: true,
+  render (createElement, context) {
+    let allClass = {}
+    let arrClass = context.data.staticClass
+      ? context.data.staticClass.split(' ')
+      : [];
+
+    arrClass.forEach(theClass => {
+      allClass[theClass] = true
+    });
+
+    return createElement('a', { class: allClass }, context.children)
+  }
+});
+Vue.component('no-ssr', {
+  functional: true,
+  render (createElement, context) {
+    return context.children;
+  }
+});
 
 
-// function loadStories() {
-//   // You can require as many stories as you need.
-//   require('../stories');
-// }
+
+// Stories loader
+// -----------------------
 function loadStories() {
   require('../stories');
 
