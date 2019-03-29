@@ -1,20 +1,21 @@
 <template>
   <no-ssr>
     <transition name="fade" mode="out-in">
-      <Hooper v-if="media.length > 0" class="upcoming"
-              :items-to-show="1"
-              :center-mode="false"
-              pagination="no"
-              :mouse-drag="false"
-              :wheel-control="false"
+
+      <VueGlider v-if="media.length > 0"
+                 class="upcoming"
+                 :slides-to-scroll="slidesToScroll"
+                 :slides-to-show="slidesToShow"
+                 :scroll-lock="scrollLock"
+                 :responsive="responsive"
+                 :arrows="arrows"
       >
-        <Slide v-for="(medium, index) in media" :key="index">
-          <article class="hero">
+          <article v-for="(medium, index) in media" :key="index" class="hero">
             <figure>
               <v-lazy-image v-if="pictureExist"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                :srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"
-                :src="backdropPath(medium, 'w1280')"
+                            sizes="(max-width: 1280px) 100vw, 1280px"
+                            :srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"
+                            :src="backdropPath(medium, 'w1280')"
               />
               <img v-else
                    :src="placeholder"
@@ -24,7 +25,7 @@
                 <span class="hero__tag">Movies</span>
                 <h1>
                   <nuxt-link :to="`/media/${medium.id}`">
-                  {{ medium.title }}
+                    {{ medium.title }}
                   </nuxt-link>
                 </h1>
                 <p class="hero__genres"><span v-for="id in medium.genre_ids" :key="id">{{ getGenre(id) }}</span></p>
@@ -42,10 +43,53 @@
               </figcaption>
             </figure>
           </article>
-        </Slide>
+      </VueGlider>
 
-        <HooperNavigation slot="hooper-addons"></HooperNavigation>
-      </Hooper>
+      <!--      <Hooper v-if="media.length > 0" class="upcoming"-->
+<!--              :items-to-show="1"-->
+<!--              :center-mode="false"-->
+<!--              pagination="no"-->
+<!--              :mouse-drag="false"-->
+<!--              :wheel-control="false"-->
+<!--      >-->
+<!--        <Slide v-for="(medium, index) in media" :key="index">-->
+<!--          <article class="hero">-->
+<!--            <figure>-->
+<!--              <v-lazy-image v-if="pictureExist"-->
+<!--                sizes="(max-width: 1280px) 100vw, 1280px"-->
+<!--                :srcset="`${backdropPath(medium, 'w300')} 320w,${backdropPath(medium, 'w780')} 768w,${backdropPath(medium, 'w1280')} 1280w`"-->
+<!--                :src="backdropPath(medium, 'w1280')"-->
+<!--              />-->
+<!--              <img v-else-->
+<!--                   :src="placeholder"-->
+<!--                   alt=""-->
+<!--              >-->
+<!--              <figcaption>-->
+<!--                <span class="hero__tag">Movies</span>-->
+<!--                <h1>-->
+<!--                  <nuxt-link :to="`/media/${medium.id}`">-->
+<!--                  {{ medium.title }}-->
+<!--                  </nuxt-link>-->
+<!--                </h1>-->
+<!--                <p class="hero__genres"><span v-for="id in medium.genre_ids" :key="id">{{ getGenre(id) }}</span></p>-->
+<!--                <p class="hero__info-small">{{ formatDate(medium.release_date) }}</p>-->
+<!--                <p class="hero__info-small">Popularity: {{ medium.vote_average * 10 }}%</p>-->
+<!--                <p class="hero__abstract">{{ getAbstract(medium) }}</p>-->
+<!--                <button class="button button&#45;&#45;icon">-->
+<!--                  Play trailer-->
+<!--                  <span class="button__icon" aria-hidden="true">-->
+<!--                    <svg>-->
+<!--                      <use xlink:href="#icon-film-solid"></use>-->
+<!--                    </svg>-->
+<!--                  </span>-->
+<!--                </button>-->
+<!--              </figcaption>-->
+<!--            </figure>-->
+<!--          </article>-->
+<!--        </Slide>-->
+
+<!--        <HooperNavigation slot="hooper-addons"></HooperNavigation>-->
+<!--      </Hooper>-->
 
       <section v-else>
         <FilmStripLoader></FilmStripLoader>
@@ -55,7 +99,8 @@
 </template>
 
 <script>
-import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
+// import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
+import VueGlider from './VueGlider';
 import dayjs from 'dayjs';
 import FilmStripLoader from './FilmStripLoader';
 
@@ -64,9 +109,7 @@ export default {
 
   components: {
     FilmStripLoader,
-    Hooper,
-    Slide,
-    HooperNavigation
+    VueGlider
   },
 
   props: {
@@ -82,7 +125,27 @@ export default {
   data: function () {
     return {
       loading: false,
-      loaded: false
+      loaded: false,
+
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      },
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      scrollLock: true,
+      responsive: [
+        // {
+        //   // screens greater than >= 414px
+        //   breakpoint: 414,
+        //   settings: {
+        //     // Set to `auto` and provide item width to adjust to viewport
+        //     slidesToShow: 3,
+        //     slidesToScroll: 1,
+        //     exactWidth: undefined
+        //   }
+        // }
+      ]
     };
   },
 
