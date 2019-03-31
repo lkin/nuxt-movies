@@ -7,14 +7,6 @@
   * cache images
   * cache xhr responses
   
-* original_title -> add lang
-
-* storybook:
-  * Card Poster
-  * Card Backdrop
-  * Person Card
-  * Cards containers
-  * Heroes
 
 * movie details
   * cast/crew: 
@@ -25,6 +17,7 @@
 * Slots!
 * series
 * series details
+* scroll cards for series episodes
 * search + results
 * login
 * profile

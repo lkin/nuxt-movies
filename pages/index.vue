@@ -28,9 +28,10 @@
 
       <nav>
         <button type="button" aria-expanded="true">Today</button>
-        <button type="button">This week</button>
-        <button type="button">Popular</button>
+        <button type="button">On the air</button>
+        <button type="button">Latest</button>
         <button type="button">Top rated</button>
+        <button type="button">Popular</button>
       </nav>
     </section>
 

@@ -26,6 +26,10 @@
         color: $color-black;
       }
 
+      &:focus {
+        box-shadow: none;
+      }
+
 
       @include media(">=1024px") {
         display: none;
