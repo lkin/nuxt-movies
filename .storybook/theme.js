@@ -6,5 +6,5 @@ export default create({
   base: 'dark',
 
   // Brand logo/text
-  // brandImage: logo
+  brandImage: '../assets/icons/logo.svg'
 });
