@@ -3,6 +3,13 @@
 > https://github.com/3vilArthas/vue-lazy-youtube-video
 > https://github.com/alexjoverm/v-lazy-image
 
+## TO CHANGE
+
+- home hero: only the first upcoming video, no slider
+- h2 + filters: sticky on scroll
+
+
+
 * dev offline
   * cache images
   * cache xhr responses

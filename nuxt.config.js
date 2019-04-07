@@ -128,6 +128,21 @@ module.exports = {
   build: {
     extractCSS: true,
 
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+            {
+              targets: isServer ? { node: '10' } : { ie: '11' },
+              corejs: { version: 2 }
+            }
+          ]
+        ]
+      }
+    },
+
     /*
     ** You can extend webpack config here
     */
