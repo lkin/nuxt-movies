@@ -1,7 +1,8 @@
 <template>
   <main role="main">
 
-    <HeroSlider :media="upcoming"></HeroSlider>
+<!--    <HeroSlider :media="upcoming"></HeroSlider>-->
+    <Hero :medium="firstUpcoming"></Hero>
 
     <section class="list-filters">
       <h2 class="category">Movies</h2>
@@ -41,22 +42,23 @@
 
 <script>
 import { mapActions } from 'vuex';
-// import MoviesList from '../components/MoviesList';
-// import LatestMovie from '../components/LatestMovie';
-import HeroSlider from '../components/HeroSlider';
+// import HeroSlider from '../components/HeroSlider';
 import ScrollableCardsList from '../components/ScrollableCardsList';
 import shared from '../lib/shared';
 import CardsGrid from '../components/CardsGrid';
+import Hero from '../components/Hero';
 
 export default {
   components: {
+    Hero,
     CardsGrid,
     ScrollableCardsList,
-    HeroSlider
+    // HeroSlider
   },
 
   data: function () {
     return {
+      firstUpcoming: undefined,
       topRated: [],
       upcoming: [],
       loading: false,
@@ -67,14 +69,16 @@ export default {
   mounted() {
     this.loading = true;
 
-    this.getTopRatedMovies(shared.mediaType.movie).then((movies) => {
-      this.topRated = movies.results;
+
+    this.getUpcomingMovies().then((movies) => {
+      this.firstUpcoming = movies.results[0];
+      this.upcoming = movies.results.slice(1, movies.results.length);
       this.loading = false;
       this.loaded = true;
     });
 
-    this.getUpcomingMovies().then((movies) => {
-      this.upcoming = movies.results;
+    this.getTopRatedMovies(shared.mediaType.movie).then((movies) => {
+      this.topRated = movies.results;
       this.loading = false;
       this.loaded = true;
     });

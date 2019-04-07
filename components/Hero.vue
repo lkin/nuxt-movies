@@ -2,15 +2,9 @@
   <no-ssr>
     <transition name="fade" mode="out-in">
 
-      <VueGlider v-if="media.length > 0"
-                 class="upcoming"
-                 :slides-to-scroll="slidesToScroll"
-                 :slides-to-show="slidesToShow"
-                 :scroll-lock="scrollLock"
-                 :responsive="responsive"
-                 :arrows="arrows"
-      >
-          <article v-for="(medium, index) in media" :key="index" class="hero">
+      <article v-if="medium.id !== undefined"
+               class="hero"
+            >
             <figure>
               <v-lazy-image v-if="pictureExist"
                             sizes="(max-width: 1280px) 100vw, 1280px"
@@ -43,8 +37,6 @@
               </figcaption>
             </figure>
           </article>
-      </VueGlider>
-
       <section v-else>
         <FilmStripLoader></FilmStripLoader>
       </section>
@@ -53,54 +45,24 @@
 </template>
 
 <script>
-// import { Hooper, Slide, Navigation as HooperNavigation } from 'hooper';
-import VueGlider from './VueGlider';
 import dayjs from 'dayjs';
 import FilmStripLoader from './FilmStripLoader';
 
 export default {
-  name: 'HeroSlider',
+  name: 'Hero',
 
   components: {
-    FilmStripLoader,
-    VueGlider
+    FilmStripLoader
   },
 
   props: {
-    media: {
+    medium: {
       required: true,
-      type: Array,
+      type: Object,
       default: function () {
-        return [];
+        return {};
       }
     }
-  },
-
-  data: function () {
-    return {
-      loading: false,
-      loaded: false,
-
-      arrows: {
-        prev: '.glider-prev',
-        next: '.glider-next'
-      },
-      slidesToScroll: 1,
-      slidesToShow: 1,
-      scrollLock: true,
-      responsive: [
-        // {
-        //   // screens greater than >= 414px
-        //   breakpoint: 414,
-        //   settings: {
-        //     // Set to `auto` and provide item width to adjust to viewport
-        //     slidesToShow: 3,
-        //     slidesToScroll: 1,
-        //     exactWidth: undefined
-        //   }
-        // }
-      ]
-    };
   },
 
   methods: {

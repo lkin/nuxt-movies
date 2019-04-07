@@ -7,6 +7,7 @@
 
 - home hero: only the first upcoming video, no slider
 - h2 + filters: sticky on scroll
+- move api data loading logic from pages to func comps 
 
 
 
