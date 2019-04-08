@@ -6,3 +6,10 @@
   NODE_VERSION = "8"
   YARN_VERSION = "1.5.1"
   YARN_FLAGS = "--no-ignore-optional"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy: frame-ancestors 'none';
