@@ -3,6 +3,7 @@ import { themes } from '@storybook/theming';
 import Vue from 'vue';
 import Vuex from 'vuex'; // Vue plugins
 import { withA11y } from '@storybook/addon-a11y';
+import { action } from '@storybook/addon-actions';
 import theme from './theme';
 
 // Global parameters
@@ -11,7 +12,7 @@ import theme from './theme';
 // Dark theme
 addParameters({
   options: {
-    name: 'Nuxt Movies',
+    // name: 'Nuxt Movies',
     theme: theme // themes.dark,
   },
 });
@@ -70,21 +71,31 @@ Vue.use(VLazyImagePlugin);
  * Functional components replacing the ones from Nuxt
  * Source: https://ithelp.ithome.com.tw/articles/10201352
  */
+// Vue.component('nuxt-link', {
+//   functional: true,
+//   render (createElement, context) {
+//     let allClass = {}
+//     let arrClass = context.data.staticClass
+//       ? context.data.staticClass.split(' ')
+//       : [];
+//
+//     arrClass.forEach(theClass => {
+//       allClass[theClass] = true
+//     });
+//
+//     return createElement('a', { class: allClass }, context.children)
+//   }
+// });
 Vue.component('nuxt-link', {
-  functional: true,
-  render (createElement, context) {
-    let allClass = {}
-    let arrClass = context.data.staticClass
-      ? context.data.staticClass.split(' ')
-      : [];
-
-    arrClass.forEach(theClass => {
-      allClass[theClass] = true
-    });
-
-    return createElement('a', { class: allClass }, context.children)
-  }
+  props:   ['to'],
+  methods: {
+    log() {
+      action('link target')(this.to)
+    },
+  },
+  template: '<a href="#" @click.prevent="log()"><slot>NuxtLink</slot></a>',
 });
+
 Vue.component('no-ssr', {
   functional: true,
   render (createElement, context) {
