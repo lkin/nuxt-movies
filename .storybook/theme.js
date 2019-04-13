@@ -1,10 +1,9 @@
-import { create } from '@storybook/theming';
-// import logo from '../assets/icons/logo.svg';
+import { create, styled } from '@storybook/theming';
 
 export default create({
   // 'dark' theme?
   base: 'dark',
 
   // Brand logo/text
-  // brandImage: '../assets/icons/logo.svg'
+  brandImage: 'https://nuxt-movies.netlify.com/img/logo.svg'
 });
