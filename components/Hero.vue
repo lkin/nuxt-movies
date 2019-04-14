@@ -28,10 +28,10 @@
           <button class="button button--icon">
             Play trailer
             <span class="button__icon" aria-hidden="true">
-                    <svg>
-                      <use xlink:href="#icon-film-solid"></use>
-                    </svg>
-                  </span>
+              <svg>
+                <use xlink:href="#icon-film-solid"></use>
+              </svg>
+            </span>
           </button>
         </figcaption>
       </figure>
