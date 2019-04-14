@@ -10,6 +10,7 @@
             }
           }
         ],
+        "@vue/babel-preset-jsx",
         "@nuxt/babel-preset-app"
       ]
     }

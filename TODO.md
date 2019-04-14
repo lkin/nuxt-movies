@@ -5,7 +5,7 @@
 
 ## TO CHANGE
 
-- home hero: only the first upcoming video, no slider
+- save api data on state for reuse
 - h2 + filters: sticky on scroll
 - move api data loading logic from pages to func comps 
 

@@ -2,7 +2,8 @@
   <main role="main">
 
 <!--    <HeroSlider :media="upcoming"></HeroSlider>-->
-    <Hero :medium="firstUpcoming"></Hero>
+<!--    <Hero :medium="firstUpcoming"></Hero>-->
+    <UpcomingSingle></UpcomingSingle>
 
     <section class="list-filters">
       <h2 class="category">Movies</h2>
@@ -46,11 +47,13 @@ import { mapActions } from 'vuex';
 import ScrollableCardsList from '../components/ScrollableCardsList';
 import shared from '../lib/shared';
 import CardsGrid from '../components/CardsGrid';
-import Hero from '../components/Hero';
+// import Hero from '../components/Hero';
+import UpcomingSingle from '../components/containers/UpcomingSingle';
 
 export default {
   components: {
-    Hero,
+    UpcomingSingle,
+    // Hero,
     CardsGrid,
     ScrollableCardsList,
     // HeroSlider
