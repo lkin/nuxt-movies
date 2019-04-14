@@ -1,4 +1,5 @@
-import Hero from '@/components/Hero';
+<script>
+// import Hero from '@/components/Hero';
 import { mapActions } from 'vuex';
 
 export default {
@@ -21,16 +22,19 @@ export default {
     });
   },
 
-  render: function (h) {
-    return (
-      <Hero medium={ this.firstUpcoming }></Hero>
-    );
-  },
-
   methods: {
     ...mapActions({
       getUpcomingMovies: 'getApiUpcoming'
     })
-  }
+  },
 
+  // render: function (h) {
+  //   return (
+  //     <Hero medium={ this.firstUpcoming }></Hero>
+  //   );
+  // }
+  render() {
+    return this.$slots.default;
+  }
 };
+</script>
