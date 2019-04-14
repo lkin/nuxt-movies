@@ -1,5 +1,5 @@
 <script>
-// import Hero from '@/components/Hero';
+import Hero from '@/components/Hero';
 import { mapActions } from 'vuex';
 
 export default {
@@ -7,7 +7,7 @@ export default {
 
   data: function () {
     return {
-      firstUpcoming: undefined
+      medium: undefined
     };
   },
 
@@ -15,7 +15,7 @@ export default {
     // this.loading = true;
 
     this.getUpcomingMovies().then((movies) => {
-      this.firstUpcoming = movies.results[0];
+      this.medium = movies.results[0];
       // this.upcoming = movies.results.slice(1, movies.results.length);
       // this.loading = false;
       // this.loaded = true;
@@ -28,13 +28,15 @@ export default {
     })
   },
 
-  // render: function (h) {
-  //   return (
-  //     <Hero medium={ this.firstUpcoming }></Hero>
-  //   );
-  // }
-  render() {
-    return this.$slots.default;
+  render: function (h) {
+    return (
+      <Hero medium={ this.medium }></Hero>
+    );
   }
+  // render() {
+  //   return this.$scopedSlots.default({
+  //     medium: this.medium
+  //   });
+  // }
 };
 </script>
