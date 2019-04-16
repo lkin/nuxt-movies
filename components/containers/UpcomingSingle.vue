@@ -1,5 +1,11 @@
+<template>
+  <div>
+    <slot :medium="medium"></slot>
+  </div>
+</template>
+
 <script>
-import Hero from '@/components/Hero';
+// import Hero from '@/components/Hero';
 import { mapActions } from 'vuex';
 
 export default {
@@ -28,11 +34,18 @@ export default {
     })
   },
 
-  render: function (h) {
-    return (
-      <Hero medium={ this.medium }></Hero>
-    );
-  }
+  // render: function (h) {
+  //   return (
+  //     <Hero medium={ this.medium }></Hero>
+  //   );
+  // }
+  // render: function (createElement) {
+  //   return createElement(this.$slots.default, {
+  //     props: {
+  //       medium: this.medium
+  //     }
+  //   });
+  // }
   // render() {
   //   return this.$scopedSlots.default({
   //     medium: this.medium

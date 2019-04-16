@@ -1,9 +1,13 @@
 <template>
   <main role="main">
 
-<!--    <HeroSlider :media="upcoming"></HeroSlider>-->
-<!--    <Hero :medium="firstUpcoming"></Hero>-->
-    <UpcomingSingle></UpcomingSingle>
+    <!--    <HeroSlider :media="upcoming"></HeroSlider>-->
+    <!--    <Hero :medium="firstUpcoming"></Hero>-->
+    <UpcomingSingle>
+      <template v-slot="{medium}">
+        <hero :medium="medium"></hero>
+      </template>
+    </UpcomingSingle>
 
     <section class="list-filters">
       <h2 class="category">Movies</h2>
@@ -47,13 +51,13 @@ import { mapActions } from 'vuex';
 import ScrollableCardsList from '../components/ScrollableCardsList';
 import shared from '../lib/shared';
 import CardsGrid from '../components/CardsGrid';
-// import Hero from '../components/Hero';
+import Hero from '../components/Hero';
 import UpcomingSingle from '../components/containers/UpcomingSingle';
 
 export default {
   components: {
     UpcomingSingle,
-    // Hero,
+    Hero,
     CardsGrid,
     ScrollableCardsList,
     // HeroSlider
