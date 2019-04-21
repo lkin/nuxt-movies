@@ -24,7 +24,6 @@
       </nav>
     </section>
 
-    <!--    <ScrollableCardsList :media="topRated"></ScrollableCardsList>-->
     <UpcomingList>
       <template v-slot="{media}">
         <ScrollableCardsList :media="media"></ScrollableCardsList>
@@ -44,53 +43,32 @@
       </nav>
     </section>
 
-    <CardsGrid title="Top rated" card-type="backdrop" :media="topRated"></CardsGrid>
+    <no-ssr>
+      <TopRatedList media-type="movie">
+        <template v-slot="{media}">
+          <CardsGrid title="Top rated" card-type="backdrop" :media="media"></CardsGrid>
+        </template>
+      </TopRatedList>
+    </no-ssr>
   </main>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import ScrollableCardsList from '../components/ScrollableCardsList';
-import shared from '../lib/shared';
 import CardsGrid from '../components/CardsGrid';
 import Hero from '../components/Hero';
 import UpcomingSingle from '../components/containers/UpcomingSingle';
 import UpcomingList from '../components/containers/UpcomingList';
+import TopRatedList from '../components/containers/TopRatedList';
 
 export default {
   components: {
+    TopRatedList,
     UpcomingList,
     UpcomingSingle,
     Hero,
     CardsGrid,
     ScrollableCardsList,
-  },
-
-  data: function () {
-    return {
-      firstUpcoming: undefined,
-      topRated: [],
-      movieUpcoming: [],
-      loading: false,
-      loaded: false
-    };
-  },
-
-  mounted() {
-    this.loading = true;
-
-    this.getTopRatedMovies(shared.mediaType.movie).then((movies) => {
-      this.topRated = movies.results;
-      this.loading = false;
-      this.loaded = true;
-    });
-
-  },
-
-  methods: {
-    ...mapActions({
-      getTopRatedMovies: 'getApiTopRated',
-    })
   }
 };
 </script>

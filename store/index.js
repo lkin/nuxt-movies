@@ -194,20 +194,6 @@ export const actions = {
     return data;
   },
 
-  async getApiUpcoming({ state, commit }) {
-    if (state.content.movieUpcoming.length > 0){
-      return Promise.resolve();
-    }
-
-    let { data } = await this.$axios({
-      method: 'get',
-      url: state.api.url.movieUpcoming,
-      responseType: 'json'
-    });
-
-    commit('SET_MOVIE_UPCOMING', data.results);
-  },
-
 
   async getApiMovieDetails({ state, commit }, id) {
     let { data } = await this.$axios({
@@ -219,7 +205,6 @@ export const actions = {
     return data;
   },
 
-
   async getApiMovieCredits({ state, commit }, id) {
     let { data } = await this.$axios({
       method: 'get',
@@ -229,7 +214,6 @@ export const actions = {
 
     return data;
   },
-
 
   async getApiPeopleDetails({ state, commit }, id) {
     let { data } = await this.$axios({
@@ -251,6 +235,20 @@ export const actions = {
     return data;
   },
 
+
+  async getApiUpcoming({ state, commit }) {
+    if (state.content.movieUpcoming.length > 0) {
+      return Promise.resolve();
+    }
+
+    let { data } = await this.$axios({
+      method: 'get',
+      url: state.api.url.movieUpcoming,
+      responseType: 'json'
+    });
+
+    commit('SET_MOVIE_UPCOMING', data.results);
+  },
 
   async getApiTopRated({ state, commit }, mediaType) {
     const url = mediaType === shared.mediaType.movie ? state.api.url.movieTopRated : state.api.url.tvTopRated;
