@@ -91,6 +91,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/vuex-persistedstate.js', ssr: true },
     { src: '~/plugins/gsap', ssr: false },
     { src: '~/plugins/vue-lazy-load', ssr: false }
   ],
@@ -139,7 +140,7 @@ module.exports = {
               corejs: { version: 2 }
             }
           ]
-        ]
+        ];
       }
     },
 

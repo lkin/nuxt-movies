@@ -28,12 +28,12 @@ export const state = () => ({
       // movie collections
       // latestMovie: `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.movieDbApiKey}&language=en-US`,
       movieTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
-      nowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
-      upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
-      popular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      movieNowPlaying: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      movieUpcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
+      moviePopular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.movieDbApiKey}&language=en-US&page=1`,
 
       // movie related
-      similar: `https://api.themoviedb.org/3/movie/MOVIE_ID/similar?api_key=${process.env.movieDbApiKey}`,
+      movieSimilar: `https://api.themoviedb.org/3/movie/MOVIE_ID/similar?api_key=${process.env.movieDbApiKey}`,
       movieLists: `https://api.themoviedb.org/3/movie/MOVIE_ID/lists?api_key=${process.env.movieDbApiKey}`,
 
 
@@ -62,7 +62,10 @@ export const state = () => ({
     languages: [],
     countries: [],
     movieGenres: [],
-    moviesTopRated: {},
+
+    // volatile content
+    movieTopRated: {}, // first 20 results
+    movieUpcoming: [], // first 20 results
     tvTopRated: [], // first 20 results
     appLoader: [] // first 20 results
   }
@@ -90,11 +93,13 @@ export const mutations = {
   SET_MOVIE_GENRES(state, data) {
     state.content.movieGenres = data;
   },
-  SET_LATEST_MOVIE(state, data) {
-    state.content.latestMovie = data;
+
+  // apis
+  SET_MOVIE_UPCOMING(state, data) {
+    state.content.movieUpcoming = data;
   },
-  SET_MOVIES_TOP_RATED(state, data) {
-    state.content.moviesTopRated = data;
+  SET_MOVIE_TOP_RATED(state, data) {
+    state.content.movieTopRated = data;
   },
   SET_TV_TOP_RATED(state, data) {
     state.content.tvTopRated = data;
@@ -116,11 +121,10 @@ export const actions = {
       await dispatch('getApiConfiguration');
       await dispatch('getApiLanguages');
       await dispatch('getApiCountries');
+      await dispatch('getApiMovieGenres');
     } catch (error) {
       console.error({ error });
     }
-
-    await dispatch('getApiMovieGenres');
 
     await dispatch('getAppLoaderContent');
   },
@@ -190,24 +194,18 @@ export const actions = {
     return data;
   },
 
-  // async getApiLatestMovie({ state, commit }) {
-  //   let { data } = await this.$axios({
-  //     method: 'get',
-  //     url: state.api.url.latestMovie,
-  //     responseType: 'json'
-  //   });
-  //
-  //   commit('SET_LATEST_MOVIE', data);
-  // },
-
   async getApiUpcoming({ state, commit }) {
+    if (state.content.movieUpcoming.length > 0){
+      return Promise.resolve();
+    }
+
     let { data } = await this.$axios({
       method: 'get',
-      url: state.api.url.upcoming,
+      url: state.api.url.movieUpcoming,
       responseType: 'json'
     });
 
-    return data;
+    commit('SET_MOVIE_UPCOMING', data.results);
   },
 
 
@@ -274,8 +272,8 @@ export const actions = {
    * @returns {Promise<void>}
    */
   async getAppLoaderContent({ state, commit }, mediaType) {
-    // const moviesTopRated = await this.getApiTopRated(shared.mediaType.movie);
-    // commit('SET_MOVIES_TOP_RATED', moviesTopRated);
+    // const movieTopRated = await this.getApiTopRated(shared.mediaType.movie);
+    // commit('SET_MOVIES_TOP_RATED', movieTopRated);
     //
     // const tvTopRated = await this.getApiTopRated(shared.mediaType.tv);
     // commit('SET_TV_TOP_RATED', tvTopRated);
@@ -285,7 +283,7 @@ export const actions = {
       url: state.api.url.movieTopRated,
       responseType: 'json'
     });
-    commit('SET_MOVIES_TOP_RATED', moviesTopRated.data.results);
+    commit('SET_MOVIE_TOP_RATED', moviesTopRated.data.results);
 
     const tvTopRated = await this.$axios({
       method: 'get',

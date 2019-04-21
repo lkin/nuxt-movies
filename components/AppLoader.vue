@@ -32,7 +32,7 @@ export default {
 
   computed: {
     movies() {
-      return this.$store.state.content.moviesTopRated;
+      return this.$store.state.content.movieTopRated;
     },
     tv() {
       return this.$store.state.content.tvTopRated;

@@ -1,8 +1,6 @@
 <template>
   <main role="main">
 
-    <!--    <HeroSlider :media="upcoming"></HeroSlider>-->
-    <!--    <Hero :medium="firstUpcoming"></Hero>-->
     <UpcomingSingle>
       <template v-slot="{medium}">
         <hero :medium="medium"></hero>
@@ -26,7 +24,12 @@
       </nav>
     </section>
 
-    <ScrollableCardsList :media="topRated"></ScrollableCardsList>
+    <!--    <ScrollableCardsList :media="topRated"></ScrollableCardsList>-->
+    <UpcomingList>
+      <template v-slot="{media}">
+        <ScrollableCardsList :media="media"></ScrollableCardsList>
+      </template>
+    </UpcomingList>
 
 
     <section class="list-filters">
@@ -47,27 +50,27 @@
 
 <script>
 import { mapActions } from 'vuex';
-// import HeroSlider from '../components/HeroSlider';
 import ScrollableCardsList from '../components/ScrollableCardsList';
 import shared from '../lib/shared';
 import CardsGrid from '../components/CardsGrid';
 import Hero from '../components/Hero';
 import UpcomingSingle from '../components/containers/UpcomingSingle';
+import UpcomingList from '../components/containers/UpcomingList';
 
 export default {
   components: {
+    UpcomingList,
     UpcomingSingle,
     Hero,
     CardsGrid,
     ScrollableCardsList,
-    // HeroSlider
   },
 
   data: function () {
     return {
       firstUpcoming: undefined,
       topRated: [],
-      upcoming: [],
+      movieUpcoming: [],
       loading: false,
       loaded: false
     };
@@ -75,14 +78,6 @@ export default {
 
   mounted() {
     this.loading = true;
-
-
-    this.getUpcomingMovies().then((movies) => {
-      this.firstUpcoming = movies.results[0];
-      this.upcoming = movies.results.slice(1, movies.results.length);
-      this.loading = false;
-      this.loaded = true;
-    });
 
     this.getTopRatedMovies(shared.mediaType.movie).then((movies) => {
       this.topRated = movies.results;
@@ -95,7 +90,6 @@ export default {
   methods: {
     ...mapActions({
       getTopRatedMovies: 'getApiTopRated',
-      getUpcomingMovies: 'getApiUpcoming'
     })
   }
 };

@@ -121,9 +121,9 @@ const state = {
       trending: 'https://api.themoviedb.org/3/trending/TYPE/TIME?api_key=e70a2c7f7cd9ea29930db7e0be5399e2',
       latestMovie: 'https://api.themoviedb.org/3/movie/latest?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US',
       topRated: 'https://api.themoviedb.org/3/movie/top_rated?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
-      nowPlaying: 'https://api.themoviedb.org/3/movie/now_playing?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
-      upcoming: 'https://api.themoviedb.org/3/movie/upcoming?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
-      popular: 'https://api.themoviedb.org/3/movie/popular?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
+      movieNowPlaying: 'https://api.themoviedb.org/3/movie/now_playing?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
+      movieUpcoming: 'https://api.themoviedb.org/3/movie/upcoming?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
+      moviePopular: 'https://api.themoviedb.org/3/movie/popular?api_key=e70a2c7f7cd9ea29930db7e0be5399e2&language=en-US&page=1',
       similar: 'https://api.themoviedb.org/3/movie/MOVIE_ID/similar?api_key=e70a2c7f7cd9ea29930db7e0be5399e2',
       movieLists: 'https://api.themoviedb.org/3/movie/MOVIE_ID/lists?api_key=e70a2c7f7cd9ea29930db7e0be5399e2',
       tvCertifications: 'https://api.themoviedb.org/3/certification/tv/list?api_key=e70a2c7f7cd9ea29930db7e0be5399e2',
@@ -2160,8 +2160,12 @@ const state = {
         name: 'Western'
       }
     ],
-    // latestMovie: '__vue_devtool_undefined__',
-    topRated: {}
+
+    // volatile content
+    movieTopRated: {}, // first 20 results
+    movieUpcoming: [], // first 20 results
+    tvTopRated: [], // first 20 results
+    appLoader: [] // first 20 results
   },
   hostname: 'https://nuxtflix-pawsome.netlify.com/'
 };

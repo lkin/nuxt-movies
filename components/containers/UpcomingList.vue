@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot :medium="medium"></slot>
+    <slot :media="media"></slot>
   </div>
 </template>
 
@@ -8,11 +8,11 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'UpcomingSingle',
+  name: 'UpcomingList',
 
   computed: {
     ...mapState({
-      medium: state => state.content.movieUpcoming.length > 0 ? state.content.movieUpcoming[0] : undefined
+      media: state => state.content.movieUpcoming
     })
   },
 
