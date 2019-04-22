@@ -1,4 +1,4 @@
-# nuxt-movies
+# nuxt-showtime
 
 > A pawsome Vue.js & Nuxt.js Movies web app
 

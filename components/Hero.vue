@@ -1,7 +1,7 @@
 <template>
   <transition name="fade" mode="out-in">
 
-    <article v-if="medium.id !== undefined"
+    <article v-if="!medium || medium.id !== undefined"
              class="hero"
     >
       <figure>
@@ -36,9 +36,10 @@
         </figcaption>
       </figure>
     </article>
-    <section v-else>
-      <FilmStripLoader></FilmStripLoader>
-    </section>
+
+    <article v-else >
+      <FilmStripLoader class="film-strip-loader--hero"></FilmStripLoader>
+    </article>
   </transition>
 </template>
 

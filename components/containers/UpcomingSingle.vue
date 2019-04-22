@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <section class="full-width">
     <slot :medium="medium"></slot>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
 
+/**
+ * UpcomingSingle
+ * Container for a single medium
+ */
 export default {
   name: 'UpcomingSingle',
 

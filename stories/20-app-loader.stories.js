@@ -813,7 +813,7 @@ const tv = [
 /**
  * MediaScrollableList
  */
-storiesOf('App Loader', module)
+storiesOf('Loaders|App Loader', module)
   .add('App Loader', () => ({
     components: { AppLoader },
     template: '<app-loader></app-loader>',

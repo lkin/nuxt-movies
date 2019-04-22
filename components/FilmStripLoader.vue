@@ -1,5 +1,5 @@
 <template>
-  <div class="film-strip-loader loading">
+  <div class="film-strip-loader loading" role="presentation">
   </div>
 </template>
 
