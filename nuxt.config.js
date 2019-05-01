@@ -108,7 +108,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     ['nuxt-svg-sprite-module', {
       directory: '/assets/icons',
       options: {
