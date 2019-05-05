@@ -3,6 +3,13 @@
 > https://github.com/3vilArthas/vue-lazy-youtube-video
 > https://github.com/alexjoverm/v-lazy-image
 
+# TOP PRIORITY
+
+* pagination
+* error boundaries
+* first api config errors
+
+
 ## TO CHANGE
 
 - save api data on state for reuse
@@ -22,7 +29,6 @@
     * search within
     * view all
 
-* Slots!
 * series
 * series details
 * scroll cards for series episodes

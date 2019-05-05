@@ -44,7 +44,7 @@
     </section>
 
     <no-ssr>
-      <TopRatedList media-type="movie">
+      <TopRatedList media-type="tv">
         <template v-slot="{media}">
           <CardsGrid title="Top rated" card-type="backdrop" :media="media"></CardsGrid>
         </template>
