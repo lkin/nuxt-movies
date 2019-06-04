@@ -15,5 +15,5 @@
     X-Content-Type-Options = "nosniff"
 #    Content-Security-Policy = "default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; script-src 'unsafe-inline'; style-src 'self'; object-src 'none'; font-src 'self';"
 # minimal config due to some nuxt issues with csp
-    Content-Security-Policy = "base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; font-src 'self';"
+    Content-Security-Policy = "base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none';"
 
